@@ -35,7 +35,7 @@ class Profile(models.Model):
         'Birthday (YYYY-MM-DD)',
         null=True,
         blank=True)
-    location = models.Charfiels(
+    location = models.CharField(
         'Location',
         max_length=30,
         blank=True)
