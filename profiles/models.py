@@ -12,7 +12,6 @@ class Profile(models.Model):
     owner = models.OneToOneField(
         User,
         primary_key=True,
-        verbose_name='owner',
         on_delete=models.CASCADE)
     name = models.CharField(
         'Name:',
