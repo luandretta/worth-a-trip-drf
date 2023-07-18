@@ -8,7 +8,7 @@ Worth a trip is  a free social networking plattform designed for travel lovers. 
 This application provides the necessary backend and API functionality, to be consumed by the React frontend application.
 The User Experience (Agile Methodology, User Stories, Wireframes, Design), Testing, Bugs and Credits are in the frontend repository.
 Links to the Frontend:
-- [Repository]()
+- [Repository](https://github.com/luandretta/worth-a-trip-frontend)
 - [Live]()
 
 
