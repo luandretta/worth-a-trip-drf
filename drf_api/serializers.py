@@ -4,7 +4,7 @@ from rest_framework import serializers
 
 class CurrentUserSerializer(UserDetailsSerializer):
     """
-    Add the profile_id and profile_image to fields returned 
+    Add the profile_id and profile_image to fields returned
     when requesting logged in user details
     """
     profile_id = serializers.ReadOnlyField(source='profile.id')

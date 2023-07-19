@@ -26,5 +26,22 @@ Link to deployed site: [Worth a Trip](https://.herokuapp.com/)
 
 ## Frameworks, libraries and dependencies
 
+- Django Rest Framework
+
+- Signals
+
+Signals allow certain senders to notify a set of receivers that some action has taken place. They’re especially useful when many pieces of code may be interested in the same events.
+
+- Serializers
+
+Serializers allow complex data such as querysets and model instances to be converted to native Python datatypes that can then be easily rendered into JSON, XML or other content types
+
+## Credits
+
+### Source
+
+- [Django Rest Framework](https://www.django-rest-framework.org/api-guide/serializers)
+
+
 
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
