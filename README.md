@@ -28,6 +28,8 @@ Link to deployed site: [Worth a Trip](https://.herokuapp.com/)
 
 The model will give the users the ability to store posts in the database and the serializer will convert and validate the model instances. It'll also add fields that are not stored in the database.
 
+- Wishes
+
 ## API Endpoints
 
 ## Frameworks, libraries and dependencies
