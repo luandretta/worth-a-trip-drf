@@ -37,6 +37,10 @@ class Post(models.Model):
     image = models.ImageField(
         upload_to='images/', default='', blank=False
     )
+    trip_type = models.CharField(
+        max_length=30, choices=trip_type_choices,
+        null=True, blank=False, default=''
+    )
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now_add=True)
 
