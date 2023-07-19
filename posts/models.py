@@ -25,9 +25,6 @@ class Post(models.Model):
     title = models.CharField(
         max_length=120, null=False, blank=False, default=''
     )
-    slug = models.SlugField(
-        max_length=250, null=False, blank=False, default=''
-    )
     location = models.CharField(
         max_length=40, null=False, blank=False,
     )
