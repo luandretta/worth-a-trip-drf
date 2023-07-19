@@ -10,7 +10,7 @@ class PostSerializer(serializers.ModelSerializer):
         source='owner.profile.profile_pic.url')
 
     def validate_image(self, value):
-        """ 
+        """
         Image validation when user try to upload a image
         Raise error messages when image is larger than default
         """
