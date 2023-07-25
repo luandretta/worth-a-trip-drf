@@ -68,7 +68,7 @@ DEBUG = 'DEV' in os.environ
 
 ALLOWED_HOSTS = [
     os.environ.get('ALLOWED_HOST'),
-    '8000-luandretta-worthatripdr-bwmwe9wllk9.ws-eu101.gitpod.io',
+    '8000-luandretta-worthatripdr-bwmwe9wllk9.ws-eu102.gitpod.io',
     'localhost',
 ]
 

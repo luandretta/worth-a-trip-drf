@@ -20,7 +20,7 @@ The issues listed in the table below were indentified during the development of 
 
 |N.| Issue |  Action | Status | 
 |:---|:--- |:--- |:--- |
-|01| After delete slug from Post model raised an error ![Bug 01](documentation/bugs/bug1.png) | Delete migraions and migrate again | Closed | 
+|01| After delete slug from Post model raised an error ![Bug 01](documentation/bugs/bug1.png) | Delete migrations and migrate again | Closed | 
 
 ## LIGHTHOUSE TESTING OUTCOMES
 
