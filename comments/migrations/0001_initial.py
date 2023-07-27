@@ -11,21 +11,19 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
+        ('posts', '0001_initial'),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Post',
+            name='Comment',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(default='', max_length=120)),
-                ('location', models.CharField(max_length=40)),
-                ('content', models.TextField(blank=True, default='')),
-                ('image', models.ImageField(default='', upload_to='images/')),
-                ('trip_type', models.CharField(choices=[('adventure', 'Adventure'), ('relax', 'Relax'), ('romantic', 'Romantic'), ('cultural', 'Cultural'), ('consumption', 'Consumption'), ('nautical', 'Nautical'), ('gastronomic', 'Gastronomic'), ('religious', 'Religious'), ('other', 'Other')], default='', max_length=30, null=True)),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('updated_at', models.DateTimeField(auto_now_add=True)),
+                ('updated_at', models.DateTimeField(auto_now=True)),
+                ('content', models.TextField()),
                 ('owner', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                ('post', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='posts.post')),
             ],
             options={
                 'ordering': ['-created_at'],

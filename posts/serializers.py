@@ -41,5 +41,5 @@ class PostSerializer(serializers.ModelSerializer):
             'id', 'owner', 'is_owner', 'profile_id',
             'profile_pic', 'created_at', 'updated_at',
             'title', 'location', 'content', 'image',
-            'trip_type',
+            'trip_type'
         ]
