@@ -86,7 +86,7 @@ if 'CLIENT_ORIGIN_DEV' in os.environ:
     ]
 
 
-#Allow Cookies
+# Allow Cookies
 CORS_ALLOW_CREDENTIALS = True
 
 
@@ -112,6 +112,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'profiles',
     'posts',
+    'comments',
 ]
 
 SITE_ID = 1
