@@ -53,6 +53,7 @@ Coverage.py is a tool for measuring code coverage of Python programs. It monitor
 ### Source
 
 - [Django Rest Framework](https://www.django-rest-framework.org/api-guide/serializers)
+- [How to reset Django Database](https://stackoverflow.com/questions/66733285/how-to-reset-django-database)
 
 
 

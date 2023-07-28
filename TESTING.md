@@ -21,6 +21,7 @@ The issues listed in the table below were indentified during the development of 
 |N.| Issue |  Action | Status | 
 |:---|:--- |:--- |:--- |
 |01| After delete slug from Post model raised an error ![Bug 01](documentation/bugs/bug1.png) | Delete migrations and migrate again | Closed | 
+|02| No such column: profiles_profile.id[Bug 02](documentation/bugs/bug2-profile.png) | Command ``python manage.py migrate profiles zero`` to reset the migrations on the database, then  migrate again | Closed | 
 
 ## LIGHTHOUSE TESTING OUTCOMES
 
