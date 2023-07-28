@@ -11,7 +11,6 @@ class Profile(models.Model):
     """
     owner = models.OneToOneField(
         User,
-        primary_key=True,
         on_delete=models.CASCADE)
     name = models.CharField(
         'Name:',
