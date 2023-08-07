@@ -1,10 +1,12 @@
-from rest_framework import generics, permissions
+from django.db.models import Count
+from rest_framework import generics, permissions, filters
+from django_filters.rest_framework import DjangoFilterBackend
 from .models import Post
 from .serializers import PostSerializer
 from drf_api.permissions import IsOwnerOrReadOnly
 
 
-class PostList(generics.ListCreateAPIViewAPIView):
+class PostList(generics.ListCreateAPIView):
     """
     View from all posts
     Logged user can create a new post
@@ -14,7 +16,29 @@ class PostList(generics.ListCreateAPIViewAPIView):
     permission_classes = [
         permissions.IsAuthenticatedOrReadOnly
     ]
-    queryset = Post.objects.all()
+    queryset = Post.objects.annotate(
+        wishes_count=Count('wishes', distinct=True),
+        comments_count=Count('comment', distinct=True)
+    ).order_by('-created_at')
+    filter_backends = [
+        filters.OrderingFilter,
+        filters.SearchFilter,
+        DjangoFilterBackend,
+    ]
+    filterset_fields = [
+        'owner__followed__owner__profile',
+        'wishes__owner__profile',
+        'owner__profile',
+    ]
+    search_fields = [
+        'owner__username',
+        'title',
+    ]
+    ordering_fields = [
+        'wishes_count',
+        'comments_count',
+        'wishes__created_at',
+    ]
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
@@ -26,4 +50,7 @@ class PostDetail(generics.RetrieveUpdateDestroyAPIView):
     """
     serializer_class = PostSerializer
     permission_classes = [IsOwnerOrReadOnly]
-    queryset = Post.objects.all()
+    queryset = Post.objects.annotate(
+        wishes_count=Count('wishes', distinct=True),
+        comments_count=Count('comment', distinct=True)
+    ).order_by('-created_at')

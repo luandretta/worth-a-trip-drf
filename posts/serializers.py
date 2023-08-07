@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from posts.models import Post
+from wishes.models import Wish
 
 
 class PostSerializer(serializers.ModelSerializer):
@@ -8,6 +9,9 @@ class PostSerializer(serializers.ModelSerializer):
     profile_id = serializers.ReadOnlyField(source='owner.profile.id')
     profile_pic = serializers.ReadOnlyField(
         source='owner.profile.profile_pic.url')
+    wish_id = serializers.SerializerMethodField()
+    wishes_count = serializers.ReadOnlyField()
+    comments_count = serializers.ReadOnlyField()
 
     def validate_image(self, value):
         """
@@ -35,11 +39,20 @@ class PostSerializer(serializers.ModelSerializer):
         request = self.context['request']
         return request.user == obj.owner
 
+    def get_wish_id(self, obj):
+        user = self.context['request'].user
+        if user.is_authenticated:
+            wish = Wish.objects.filter(
+                owner=user, post=obj
+            ).first()
+            return wish.id if wish else None
+        return None
+
     class Meta:
         model = Post
         fields = [
             'id', 'owner', 'is_owner', 'profile_id',
             'profile_pic', 'created_at', 'updated_at',
             'title', 'location', 'content', 'image',
-            'trip_type'
+            'trip_type', 'wish_id', 'wishes_count', 'comments_count',
         ]
