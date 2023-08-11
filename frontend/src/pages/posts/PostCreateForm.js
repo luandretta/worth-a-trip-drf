@@ -11,18 +11,94 @@ import Upload from "../../assets/upload.png";
 import styles from "../../styles/PostCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
+import Asset from "../../components/Asset";
 
 function PostCreateForm() {
-
   const [errors, setErrors] = useState({});
 
+  const [postData, setPostData] = useState({
+    title: "",
+    location: "",
+    content: "",
+    image: "",
+    trip_type: "unknown",
+    created_at: "",
+  });
+  const { title, location, content, image, trip_type, created_at } = postData;
+
+  const handleChange = (event) => {
+    setPostData({
+      ...postData,
+      [event.target.name]: event.target.value,
+    });
+  };
 
   const textFields = (
     <div className="text-center">
-      {/* Add your form fields here */}
+      <Form.Group>
+        <Form.Label>Title</Form.Label>
+        <Form.Control
+          type="text"
+          name="title"
+          value={title}
+          onChange={handleChange}
+        />
+      </Form.Group>
 
-    
-    
+      <Form.Group>
+        <Form.Label>Location</Form.Label>
+        <Form.Control
+          type="text"
+          name="location"
+          value={location}
+          onChange={handleChange}
+        />
+      </Form.Group>
+
+      <Form.Group>
+        <Form.Label>Trip type</Form.Label>
+        <Form.Control
+          as="select"
+          type="text"
+          name="trip_type"
+          value={trip_type}
+          onChange={handleChange}
+        >
+          <option value="unknown">Chose one</option>
+          <option value="adventure">Adventure</option>
+          <option value="consumption">Consumption</option>
+          <option value="cultural">Cultural</option>
+          <option value="gastronomic">Gastronomic</option>
+          <option value="nautical">Nautical</option>
+          <option value="relax">Relax</option>
+          <option value="religious">Religious</option>
+          <option value="romantic">Romantic</option>
+          <option value="other">Other</option>
+        </Form.Control>
+      </Form.Group>
+
+      <Form.Group>
+        <Form.Label>Content</Form.Label>
+        <Form.Control
+          as="textarea"
+          rows={6}
+          name="content"
+          value={content}
+          onChange={handleChange}
+        />
+      </Form.Group>
+
+      <Form.Group>
+        <Form.Label>Posted on </Form.Label>
+        <Form.Control
+          type="date"
+          name="created_at"
+          value={created_at}
+          onChange={handleChange}
+          min="2023-01-01"
+        />
+      </Form.Group>
+
       <Button
         className={`${btnStyles.Button} ${btnStyles.Blue}`}
         onClick={() => {}}
@@ -43,14 +119,12 @@ function PostCreateForm() {
             className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
           >
             <Form.Group className="text-center">
-              
-                <Form.Label
-                  className="d-flex justify-content-center"
-                  htmlFor="image-upload"
-                >
-                  ASSET
-                </Form.Label>
-
+              <Form.Label
+                className="d-flex justify-content-center"
+                htmlFor="image-upload"
+              >
+                <Asset src={Upload} message="Click or tap to upload an image" />
+              </Form.Label>
             </Form.Group>
             <div className="d-md-none">{textFields}</div>
           </Container>
