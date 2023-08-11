@@ -18,10 +18,11 @@ Go to [Worth a Trip Frontend application](https://github.com/luandretta/worth-a-
 
 The issues listed in the table below were indentified during the development of the project.
 
-|N.| Issue |  Action | Status | 
-|:---|:--- |:--- |:--- |
-|01| After delete slug from Post model raised an error ![Bug 01](documentation/bugs/bug1.png) | Delete migrations and migrate again | Closed | 
-|02| No such column: profiles_profile.id[Bug 02](documentation/bugs/bug2-profile.png) | Command ``python manage.py migrate profiles zero`` to reset the migrations on the database, then  migrate again | Closed | 
+|N.| Issue |  Action | Screenshots | Status | 
+|:---|:--- |:--- |:--- | :------- |
+|01| After delete slug from Post model raised an error ![Bug 01](documentation/bugs/bug1.png) | Delete migrations and migrate again |  ------ | Closed | 
+|02| No such column: profiles_profile.id[Bug 02](documentation/bugs/bug2-profile.png) | Command ``python manage.py migrate profiles zero`` to reset the migrations on the database, then  migrate again |  ------ |  Closed | 
+| 03 | Placeholder from Password input in the Sign In Form with a comma | Comma was removed from string| ------ | Closed |
 
 ## LIGHTHOUSE TESTING OUTCOMES
 
