@@ -18,11 +18,20 @@ Link to deployed site: [Worth a Trip]()
 ![GitHub language count](https://img.shields.io/github/languages/count/luandretta/worth-a-trip-drf?style=for-the-badge)
 ![GitHub top language](https://img.shields.io/github/languages/top/luandretta/worth-a-trip-drf?style=for-the-badge)
 
+# Unifying DRF Api and React
+
+
+![Commits from frontend](https://github.com/luandretta/worth-a-trip-frontend/commits/main)
+
 # User Experience
 
 ## Project Goals 
 
 The goal of this project was to build a social media platform. It has been designed for its users to share their trips and discover exciting places worth a trip.
+
+### Issues
+
+![Issues in frontend repo](https://github.com/luandretta/worth-a-trip-frontend/issues?page=1&q=is%3Aissue+is%3Aopen)
 
 ## Agile
 
