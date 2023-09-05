@@ -1,0 +1,20 @@
+{
+  "name": "worth-a-trip-drf",
+  "version": "1.0.0",
+  "description": "![Welcome to Worth a Trip](documentation/images/home.png)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luandretta/worth-a-trip-drf.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/luandretta/worth-a-trip-drf/issues"
+  },
+  "homepage": "https://github.com/luandretta/worth-a-trip-drf#readme"
+}
