@@ -1,17 +1,17 @@
 from django.db import IntegrityError
 from rest_framework import serializers
-from wishes.models import Wish
+from likes.models import Like
 
 
-class WishSerializer(serializers.ModelSerializer):
+class LikeSerializer(serializers.ModelSerializer):
     """
-    Serializer for the Wish model
+    Serializer for the Like model
     The create method handles the unique constraint on 'owner' and 'post'
     """
     owner = serializers.ReadOnlyField(source='owner.username')
 
     class Meta:
-        model = Wish
+        model = Like
         fields = [
             'id', 'created_at', 'owner', 'post'
         ]
@@ -21,7 +21,7 @@ class WishSerializer(serializers.ModelSerializer):
             return super().create(validated_data)
         except IntegrityError:
             """
-            Error comes if user tries to wish same post twice
+            Error comes if user tries to like same post twice
             """
             raise serializers.ValidationError({
                 'detail': 'possible duplicate'
