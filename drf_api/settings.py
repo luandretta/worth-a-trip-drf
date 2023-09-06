@@ -100,6 +100,7 @@ INSTALLED_APPS = [
     'django_filters',
     'profiles',
     'posts',
+    'likes',
     'comments',
     'followers',
     'wishes',
