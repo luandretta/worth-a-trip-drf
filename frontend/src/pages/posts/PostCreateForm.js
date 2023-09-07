@@ -23,7 +23,6 @@ import { axiosReq } from "../../api/axiosDefaults";
 // Includes error handling that shows an alert to the user
 
 function PostCreateForm() {
-
   const [errors, setErrors] = useState({});
 
   const [postData, setPostData] = useState({
@@ -33,12 +32,7 @@ function PostCreateForm() {
     image: "",
     trip_type: "unknown",
   });
-  const {
-    title,
-    location,
-    content,
-    image,
-    trip_type } = postData;
+  const { title, location, content, image, trip_type } = postData;
 
   const imageInput = useRef(null);
   const history = useHistory();
@@ -82,7 +76,7 @@ function PostCreateForm() {
   };
 
   const textFields = (
-    <div className="text-center">
+    <div className="text-center" md={5}>
       <Form.Group>
         <Form.Label>Title</Form.Label>
         <Form.Control
@@ -97,43 +91,47 @@ function PostCreateForm() {
           {message}
         </Alert>
       ))}
-
-      <Form.Group>
-        <Form.Label>Location</Form.Label>
-        <Form.Control
-          type="text"
-          name="location"
-          value={location}
-          onChange={handleChange}
-        />
-      </Form.Group>
-      {errors?.location?.map((message, idx) => (
-        <Alert variant="warning" key={idx}>
-          {message}
-        </Alert>
-      ))}
-
-      <Form.Group>
-        <Form.Label>Trip type</Form.Label>
-        <Form.Control
-          as="select"
-          type="text"
-          name="trip_type"
-          value={trip_type}
-          onChange={handleChange}
-        >
-          <option value="unknown">Choose one</option>
-          <option value="adventure">Adventure</option>
-          <option value="consumption">Consumption</option>
-          <option value="cultural">Cultural</option>
-          <option value="gastronomic">Gastronomic</option>
-          <option value="nautical">Nautical</option>
-          <option value="relax">Relax</option>
-          <option value="religious">Religious</option>
-          <option value="romantic">Romantic</option>
-          <option value="other">Other</option>
-        </Form.Control>
-      </Form.Group>
+      <Row>
+        <Col sm={8}>
+          <Form.Group>
+            <Form.Label>Location</Form.Label>
+            <Form.Control
+              type="text"
+              name="location"
+              value={location}
+              onChange={handleChange}
+            />
+          </Form.Group>
+          {errors?.location?.map((message, idx) => (
+            <Alert variant="warning" key={idx}>
+              {message}
+            </Alert>
+          ))}
+        </Col>
+        <Col sm={4}>
+          <Form.Group>
+            <Form.Label>Trip type</Form.Label>
+            <Form.Control
+              as="select"
+              type="text"
+              name="trip_type"
+              value={trip_type}
+              onChange={handleChange}
+            >
+              <option value="unknown">Choose one</option>
+              <option value="adventure">Adventure</option>
+              <option value="consumption">Consumption</option>
+              <option value="cultural">Cultural</option>
+              <option value="gastronomic">Gastronomic</option>
+              <option value="nautical">Nautical</option>
+              <option value="relax">Relax</option>
+              <option value="religious">Religious</option>
+              <option value="romantic">Romantic</option>
+              <option value="other">Other</option>
+            </Form.Control>
+          </Form.Group>
+        </Col>
+      </Row>
 
       <Form.Group>
         <Form.Label>Content</Form.Label>
@@ -151,17 +149,6 @@ function PostCreateForm() {
         </Alert>
       ))}
 
-      {/* <Form.Group>
-        <Form.Label>Posted on </Form.Label>
-        <Form.Control
-          type="date"
-          name="created_at"
-          value={created_at}
-          onChange={handleChange}
-          min="2023-01-01"
-        />
-      </Form.Group> */}
-
       <Button
         className={`${btnStyles.Button} ${btnStyles.Blue}`}
         onClick={() => history.goBack()}
@@ -177,11 +164,11 @@ function PostCreateForm() {
   return (
     <Form onSubmit={handleSubmit}>
       <Row>
-        <Col className="py-2 p-0 p-md-2" md={7} lg={8}>
+        <Col className="py-2 p-0 p-md-2" md={7} lg={12}>
           <Container
             className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
           >
-            <Form.Group className="text-center">
+            <Form.Group className="text-center" lg={10}>
               {image ? (
                 <>
                   <figure>
@@ -223,8 +210,6 @@ function PostCreateForm() {
 
             <div className="d-md-none">{textFields}</div>
           </Container>
-        </Col>
-        <Col md={5} lg={4} className="d-none d-md-block p-0 p-md-2">
           <Container className={appStyles.Content}>{textFields}</Container>
         </Col>
       </Row>

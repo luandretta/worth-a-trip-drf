@@ -52,7 +52,7 @@ const Post = (props) => {
     }
   };
 
-   // UDelete like of posts
+  // UDelete like of posts
   const handleUnlike = async () => {
     try {
       await axiosRes.delete(`/likes/${like_id}/`);
@@ -80,7 +80,6 @@ const Post = (props) => {
             ? { ...post, wishes_count: post.wishes_count + 1, wish_id: data.id }
             : post;
         }),
-        
       }));
     } catch (err) {
       console.log(err);
@@ -125,11 +124,13 @@ const Post = (props) => {
 
       <Card.Body>
         {title && <Card.Title className="text-center">{title}</Card.Title>}
-        {location && <Card.Text className="text-center">{location}</Card.Text>}
+        {location && <Card.Text>{location}</Card.Text>}
+
         {trip_type && <Card.Text>Trip type: {trip_type}</Card.Text>}
+
         {content && <Card.Text>{content}</Card.Text>}
         <div className={styles.PostBar}>
-        {is_owner ? (
+          {is_owner ? (
             <OverlayTrigger
               placement="top"
               overlay={<Tooltip>You can't like your own post!</Tooltip>}
@@ -138,11 +139,11 @@ const Post = (props) => {
             </OverlayTrigger>
           ) : like_id ? (
             <span onClick={handleUnlike}>
-              <i className={`fas fa-heart ${styles.Heart}`} />
+              <i className={`fas fa-heart ${styles.Icon}`} />
             </span>
           ) : currentUser ? (
             <span onClick={handleLike}>
-              <i className={`far fa-heart ${styles.HeartOutline}`} />
+              <i className={`far fa-heart ${styles.IconOutline}`} />
             </span>
           ) : (
             <OverlayTrigger
@@ -168,11 +169,11 @@ const Post = (props) => {
             </OverlayTrigger>
           ) : wish_id ? (
             <span onClick={handleUnwish}>
-              <i className={`fas fa-map-pin ${styles.Heart}`} />
+              <i className={`fas fa-map-pin ${styles.Icon}`} />
             </span>
           ) : currentUser ? (
             <span onClick={handleWish}>
-              <i className={`fas fa-map-pin ${styles.HeartOutline}`} />
+              <i className={`fas fa-map-pin ${styles.IconOutline}`} />
             </span>
           ) : (
             <OverlayTrigger
