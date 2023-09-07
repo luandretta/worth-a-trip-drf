@@ -6,6 +6,8 @@ import Card from "react-bootstrap/Card";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
 import Media from "react-bootstrap/Media";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
 
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
@@ -124,11 +126,15 @@ const Post = (props) => {
 
       <Card.Body>
         {title && <Card.Title className="text-center">{title}</Card.Title>}
-        {location && <Card.Text>{location}</Card.Text>}
-
-        {trip_type && <Card.Text>Trip type: {trip_type}</Card.Text>}
-
-        {content && <Card.Text>{content}</Card.Text>}
+        <Row className="justify-content-md-center">
+          <Col md="auto">
+            {location && <Card.Text>Local: {location} </Card.Text>}
+          </Col>
+          <Col md="auto">
+            {trip_type && <Card.Text>Trip type: {trip_type}</Card.Text>}
+          </Col>
+        </Row>
+        {content && <Card.Text className="mt-4">{content}</Card.Text>}
         <div className={styles.PostBar}>
           {is_owner ? (
             <OverlayTrigger
