@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/luandretta/worth-a-trip-drf/issues"
   },
-  "homepage": "https://github.com/luandretta/worth-a-trip-drf#readme"
+  "homepage": "https://github.com/luandretta/worth-a-trip-drf#readme",
+  "dependencies": {
+    "react-infinite-scroll-component": "^6.1.0"
+  }
 }
