@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from posts.models import Post
 from wishes.models import Wish
+from likes.models import Like
 
 
 class PostSerializer(serializers.ModelSerializer):
@@ -9,6 +10,8 @@ class PostSerializer(serializers.ModelSerializer):
     profile_id = serializers.ReadOnlyField(source='owner.profile.id')
     profile_pic = serializers.ReadOnlyField(
         source='owner.profile.profile_pic.url')
+    like_id = serializers.SerializerMethodField()
+    likes_count = serializers.ReadOnlyField()
     wish_id = serializers.SerializerMethodField()
     wishes_count = serializers.ReadOnlyField()
     comments_count = serializers.ReadOnlyField()
@@ -39,6 +42,15 @@ class PostSerializer(serializers.ModelSerializer):
         request = self.context['request']
         return request.user == obj.owner
 
+    def get_like_id(self, obj):
+        user = self.context['request'].user
+        if user.is_authenticated:
+            like = Like.objects.filter(
+                owner=user, post=obj
+            ).first()
+            return like.id if like else None
+        return None
+
     def get_wish_id(self, obj):
         user = self.context['request'].user
         if user.is_authenticated:
@@ -54,5 +66,6 @@ class PostSerializer(serializers.ModelSerializer):
             'id', 'owner', 'is_owner', 'profile_id',
             'profile_pic', 'created_at', 'updated_at',
             'title', 'location', 'content', 'image',
-            'trip_type', 'wish_id', 'wishes_count', 'comments_count',
+            'trip_type', 'like_id', 'likes_count',
+            'wish_id', 'wishes_count', 'comments_count',
         ]

@@ -17,6 +17,7 @@ class PostList(generics.ListCreateAPIView):
         permissions.IsAuthenticatedOrReadOnly
     ]
     queryset = Post.objects.annotate(
+        likes_count=Count('likes', distinct=True),
         wishes_count=Count('wishes', distinct=True),
         comments_count=Count('comment', distinct=True)
     ).order_by('-created_at')
@@ -27,6 +28,7 @@ class PostList(generics.ListCreateAPIView):
     ]
     filterset_fields = [
         'owner__followed__owner__profile',
+        'likes__owner__profile',
         'wishes__owner__profile',
         'owner__profile',
     ]
@@ -35,8 +37,10 @@ class PostList(generics.ListCreateAPIView):
         'title',
     ]
     ordering_fields = [
+        'likes_count',
         'wishes_count',
         'comments_count',
+        'likes__created_at',
         'wishes__created_at',
     ]
 
@@ -51,6 +55,7 @@ class PostDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = PostSerializer
     permission_classes = [IsOwnerOrReadOnly]
     queryset = Post.objects.annotate(
+        likes_count=Count('likes', distinct=True),
         wishes_count=Count('wishes', distinct=True),
         comments_count=Count('comment', distinct=True)
     ).order_by('-created_at')
