@@ -1,5 +1,4 @@
 import React from "react";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { useHistory, useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 
@@ -11,13 +10,9 @@ import Col from "react-bootstrap/Col";
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 
-// Component that includes the form for editing/updating posts
-// Includes error handling for input fields
+// Component to confirm deletion
 
 function PostDelete() {
-  // const currentUser = useCurrentUser();
-  // check if currentUser is the owner of the post
-  // const is_owner = currentUser?.username === owner;
   const history = useHistory();
   const { id } = useParams();
 
@@ -40,19 +35,25 @@ function PostDelete() {
         >
           <h5>Are you sure you want to delete your post?</h5>
           <p>This action is irreversible!</p>
-          <Button
-            className={`${btnStyles.Button} ${btnStyles.Blue} mt-4`}
-            onClick={() => history.goBack()}
-          >
-            Cancel
-          </Button>
-          <Button
-            className={`${btnStyles.Button} ${btnStyles.Red} mt-4`}
-            type="submit"
-            onClick={handleDelete}
-          >
-            Delete
-          </Button>
+          <span>
+            * If you're not the owner of this post you won't be able to delete
+            it
+          </span>
+          <div>
+            <Button
+              className={`${btnStyles.Button} ${btnStyles.Blue} mt-3`}
+              onClick={() => history.goBack()}
+            >
+              Cancel
+            </Button>
+            <Button
+              className={`${btnStyles.Button} ${btnStyles.Red} mt-3`}
+              type="submit"
+              onClick={handleDelete}
+            >
+              Delete
+            </Button>
+          </div>
         </Col>
       </Row>
     </Card.Body>
