@@ -20,7 +20,7 @@
     border: 1px solid #dadadf;
   }
   
-  .FillerImage {
+  .FilterImage {
     object-fit: cover;
     height: 100%;
     width: 100%;
@@ -32,9 +32,6 @@
     object-fit: contain;
   }
   
-  * {
-    box-sizing: border-box;
-  }
   
   a {
     color: #555555;

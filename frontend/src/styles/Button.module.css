@@ -33,6 +33,7 @@
   }
   
   .Blue,
+  .Red,
   .BlueOutline:hover,
   .Bright:hover {
     background-color: #1B4066;
@@ -59,11 +60,16 @@
     /* background-color: #dadadf;
     color: #242a3d;
     border-color: #242a3d; */
-    background-color: aliceblue;
+    background-color: #ffffff;
     color: #242a3d;
   }
   
   .Bright {
     background-color: #116c69;
     color: #ffffff;
+  }
+
+  .Red:hover {
+    background-color: red;
+    color:#ffffff
   }
