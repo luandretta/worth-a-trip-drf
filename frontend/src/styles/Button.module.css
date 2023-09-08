@@ -71,5 +71,6 @@
 
   .Red:hover {
     background-color: red;
-    color:#ffffff
+    color:#ffffff;
+    cursor: pointer;
   }
