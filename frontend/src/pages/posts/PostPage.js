@@ -9,6 +9,7 @@ import { useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import Post from "./Post";
 import CommentCreateForm from "../comments/CommentCreateForm";
+import Comment from "../comments/Comment";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 function PostPage() {
@@ -53,10 +54,8 @@ function PostPage() {
             "Comments"
           ) : null}
           {comments.results.length ?  (
-            comments.results.map(comment => (
-              <p key={comment.id}>
-                {comment.owner}:{comment.content}
-              </p>
+            comments.results.map((comment) => (
+              <Comment key={comment.id} {...comment} />
             ))
           ) : currentUser ? (
             <span>No comments yet, be the first to comment!</span>
