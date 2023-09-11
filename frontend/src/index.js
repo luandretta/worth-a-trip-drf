@@ -11,9 +11,6 @@ ReactDOM.render(
   <React.StrictMode>
     <Router>
       <CurrentUserProvider>
-        <App />
-      </CurrentUserProvider>
-      <CurrentUserProvider>
         <ProfileDataProvider>
           <App />
         </ProfileDataProvider>
