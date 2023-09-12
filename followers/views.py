@@ -4,7 +4,7 @@ from followers.models import Follower
 from followers.serializers import FollowerSerializer
 
 
-class FollowerList(generics.ListAPIView):
+class FollowerList(generics.ListCreateAPIView):
     """
     List all followers, i.e. all instances of a user
     following another user'.
@@ -15,8 +15,8 @@ class FollowerList(generics.ListAPIView):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     queryset = Follower.objects.all()
 
-    def perfrom_create(self, serializer):
-        serializer.save(ownerself.request.user)
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)
 
 
 class FollowerDetail(generics.RetrieveDestroyAPIView):
