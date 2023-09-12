@@ -61,7 +61,6 @@ function ProfilePage() {
 
   const mainProfile = (
     <>
-    {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
       <Row>
         <Col>
           <Image
@@ -72,6 +71,7 @@ function ProfilePage() {
           />
         </Col>
       </Row>
+      {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
       <Row noGutters className="px-3 text-center">
         <Col className="justify-content-center">
           <Image
@@ -90,14 +90,15 @@ function ProfilePage() {
             <h3 className="m-2">{profile?.owner}</h3>
            )}  
             <p>{profile?.bio}</p>
-            <p>{profile?.birth_date} - {profile?.location}</p>
+            <p>Birthdate: {profile?.birth_date}</p>
+            <p>Location: {profile?.location}</p>
           </Col>
         </Row>
       </div>
       <Row className="justify-content-md-center no-gutters">
         <Col md="auto" className="m-2 text-center">
           <div>{profile?.posts_count}</div>
-          <div>posts</div>
+          <div>posts  </div>
         </Col>
         <Col md="auto" className="m-2 text-center">
           <div>{profile?.followers_count}</div>
@@ -108,8 +109,8 @@ function ProfilePage() {
           <div>following</div>
         </Col>
       </Row>
-      <Row>
-        <Col className="justify-content-md-center">
+      <Row className="justify-content-md-center no-gutters">
+        <Col md="auto" className="m-2 text-center">
           {currentUser &&
             !is_owner &&
             (profile?.following_id ? (
