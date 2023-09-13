@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import dayjs from "dayjs";
 
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
@@ -37,6 +38,9 @@ function ProfilePage() {
   const { pageProfile } = useProfileData();
   const [profile] = pageProfile.results;
   const is_owner = currentUser?.username === profile?.owner;
+  const date = profile?.birth_date;
+  // pass the date to format function, specify a format
+  const shortDateFormat = dayjs(date).format("DD/MM/YYYY");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -90,8 +94,8 @@ function ProfilePage() {
             <h3 className="m-2">{profile?.owner}</h3>
            )}  
             <p>{profile?.bio}</p>
-            <p>Birthdate: {profile?.birth_date}</p>
-            <p>Location: {profile?.location}</p>
+            <p>Birthdate: {shortDateFormat}</p>
+            <p format>Location: {profile?.location}</p>
           </Col>
         </Row>
       </div>

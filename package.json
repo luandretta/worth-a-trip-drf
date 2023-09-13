@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/luandretta/worth-a-trip-drf#readme",
   "dependencies": {
+    "dayjs": "^1.11.9",
     "react-infinite-scroll-component": "^6.1.0"
   }
 }
