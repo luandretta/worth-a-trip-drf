@@ -6,8 +6,8 @@
 
 .ProfileImage {
     object-fit: cover;
-    max-height: 100px;
-    max-width: 100px;
+    max-height: 120px;
+    max-width: 120px;
     margin-top: -40px;
 }
 

@@ -1,5 +1,4 @@
 import React from "react";
-import styles from "../../styles/Post.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 import Card from "react-bootstrap/Card";
@@ -8,6 +7,7 @@ import Tooltip from "react-bootstrap/Tooltip";
 import Media from "react-bootstrap/Media";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
+import styles from "../../styles/Post.module.css";
 
 import { Link, useHistory } from "react-router-dom";
 import Avatar from "../../components/Avatar";
@@ -64,7 +64,7 @@ const Post = (props) => {
     }
   };
 
-  // UDelete like of posts
+  // Delete like of posts
   const handleUnlike = async () => {
     try {
       await axiosRes.delete(`/likes/${like_id}/`);
@@ -136,7 +136,7 @@ const Post = (props) => {
       </Card.Body>
 
       <Link to={`/posts/${id}`}>
-        <Card.Img src={image} alt={title} />
+        <Card.Img src={image} alt={title} className={styles.PostImage}/>
       </Link>
 
       <Card.Body>

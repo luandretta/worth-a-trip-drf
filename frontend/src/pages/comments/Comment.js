@@ -8,7 +8,6 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { axiosRes } from "../../api/axiosDefaults";
 import { MoreDropdown } from "../../components/MoreDropdown";
 import CommentEditForm from "./CommentEditForm";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const Comment = (props) => {
   const {
@@ -23,7 +22,6 @@ const Comment = (props) => {
   } = props;
 
   const currentUser = useCurrentUser();
-  const history = useHistory();
   const is_owner = currentUser?.username === owner;
   const [showEditForm, setShowEditForm] = useState(false);
 

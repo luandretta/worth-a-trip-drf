@@ -11,6 +11,7 @@ import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 import appStyles from "../../App.module.css";
 import styles from "../../styles/PostsPage.module.css";
+
 import Post from "./Post";
 import Asset from "../../components/Asset";
 import PopularProfiles from "../profiles/PopularProfiles";

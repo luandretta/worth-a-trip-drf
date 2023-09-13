@@ -22,3 +22,8 @@ h5 {
 .IconOutline:hover {
     color: #116c69;
 }
+
+.PostImage {
+    max-width: 100%;
+    height: auto;
+}

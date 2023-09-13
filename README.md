@@ -110,12 +110,16 @@ To control what the user sees depending on the URL they have accessed in the bro
 - Axios
 To tell the React project to send requests to the API 
 
+- Dayjs
+To format dates in React
+
 ## Credits
 
 ### Source
 
 - [Django Rest Framework](https://www.django-rest-framework.org/api-guide/serializers)
 - [How to reset Django Database](https://stackoverflow.com/questions/66733285/how-to-reset-django-database)
+- [Ultimate Guide: How to Format Date in React](https://reacthustle.com/blog/react-format-date-ultimate-guide)
 
 
 
