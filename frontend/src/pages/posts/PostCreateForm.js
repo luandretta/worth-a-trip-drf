@@ -17,12 +17,14 @@ import Asset from "../../components/Asset";
 
 import { useHistory } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
+import { useRedirect } from "../../hooks/useRedirect";
 
 // Component used for creating a post
 // Takes input from the user in the forms and post it to the API
 // Includes error handling that shows an alert to the user
 
 function PostCreateForm() {
+  useRedirect("loggedOut");
   const [errors, setErrors] = useState({});
 
   const [postData, setPostData] = useState({
