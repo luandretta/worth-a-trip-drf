@@ -110,6 +110,9 @@ To control what the user sees depending on the URL they have accessed in the bro
 - Axios
 To tell the React project to send requests to the API 
 
+- Mock Service Worker
+To create mock endpoints needed to test NavBar component
+
 - Dayjs
 To format dates in React
 
