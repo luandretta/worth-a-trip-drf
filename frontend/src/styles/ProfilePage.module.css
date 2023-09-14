@@ -9,6 +9,7 @@
     max-height: 120px;
     max-width: 120px;
     margin-top: -40px;
+    border-radius: 50%;
 }
 
 @media screen and (max-width: 991px) {
