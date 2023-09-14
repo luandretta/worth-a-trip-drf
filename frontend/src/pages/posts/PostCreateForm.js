@@ -81,59 +81,57 @@ function PostCreateForm() {
     <div className="text-center" md={5}>
       <Form.Group>
         <Form.Label>Title</Form.Label>
-        <Form.Control
-          type="text"
-          name="title"
-          value={title}
-          onChange={handleChange}
-        />
+        <Col>
+          <Form.Control
+            type="text"
+            name="title"
+            value={title}
+            onChange={handleChange}
+          />
+        </Col>
       </Form.Group>
       {errors?.title?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
           {message}
         </Alert>
       ))}
-      <Row>
-        <Col sm={8}>
-          <Form.Group>
-            <Form.Label>Location</Form.Label>
-            <Form.Control
-              type="text"
-              name="location"
-              value={location}
-              onChange={handleChange}
-            />
-          </Form.Group>
+      <Form.Row>
+        <Form.Group as={Col}>
+          <Form.Label>Location</Form.Label>
+          <Form.Control
+            type="text"
+            name="location"
+            value={location}
+            onChange={handleChange}
+          />
           {errors?.location?.map((message, idx) => (
             <Alert variant="warning" key={idx}>
               {message}
             </Alert>
           ))}
-        </Col>
-        <Col sm={4}>
-          <Form.Group>
-            <Form.Label>Trip type</Form.Label>
-            <Form.Control
-              as="select"
-              type="text"
-              name="trip_type"
-              value={trip_type}
-              onChange={handleChange}
-            >
-              <option value="unknown">Choose one</option>
-              <option value="adventure">Adventure</option>
-              <option value="consumption">Consumption</option>
-              <option value="cultural">Cultural</option>
-              <option value="gastronomic">Gastronomic</option>
-              <option value="nautical">Nautical</option>
-              <option value="relax">Relax</option>
-              <option value="religious">Religious</option>
-              <option value="romantic">Romantic</option>
-              <option value="other">Other</option>
-            </Form.Control>
-          </Form.Group>
-        </Col>
-      </Row>
+        </Form.Group>
+        <Form.Group as={Col}>
+          <Form.Label>Trip type</Form.Label>
+          <Form.Control
+            as="select"
+            type="text"
+            name="trip_type"
+            value={trip_type}
+            onChange={handleChange}
+          >
+            <option value="unknown">Choose one</option>
+            <option value="adventure">Adventure</option>
+            <option value="consumption">Consumption</option>
+            <option value="cultural">Cultural</option>
+            <option value="gastronomic">Gastronomic</option>
+            <option value="nautical">Nautical</option>
+            <option value="relax">Relax</option>
+            <option value="religious">Religious</option>
+            <option value="romantic">Romantic</option>
+            <option value="other">Other</option>
+          </Form.Control>
+        </Form.Group>
+      </Form.Row>
 
       <Form.Group>
         <Form.Label>Content</Form.Label>
@@ -155,10 +153,10 @@ function PostCreateForm() {
         className={`${btnStyles.Button} ${btnStyles.Blue}`}
         onClick={() => history.goBack()}
       >
-        cancel
+        Cancel
       </Button>
       <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
-        create
+        Create
       </Button>
     </div>
   );

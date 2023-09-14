@@ -10,3 +10,8 @@
 .Active i {
     color: #116c69;
 }
+
+.Title  {
+    font-family: 'Poppins', sans-serif;
+    padding: 5px;
+}

@@ -61,7 +61,7 @@ const NavBar = () => {
       >
         <i className="fas fa-map-location-dot"></i>Desired
       </NavLink>
-    
+
       <NavLink
         className={styles.NavLink}
         to={`/profiles/${currentUser?.profile_id}`}
@@ -102,7 +102,7 @@ const NavBar = () => {
       <Container>
         <NavLink to="/">
           <Navbar.Brand>
-            <img src={logo} alt="logo" height="60" /> Worth a Trip
+            <img src={logo} alt="logo" height="60"  className={styles.Title} />Worth a Trip
           </Navbar.Brand>
         </NavLink>
         {currentUser && addPostIcon}
