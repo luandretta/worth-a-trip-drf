@@ -16,13 +16,27 @@ import UsernameForm from "./pages/profiles/UsernameForm";
 import UserPasswordForm from "./pages/profiles/UserPasswordForm";
 import ProfileEditForm from "./pages/profiles/ProfileEditForm";
 import NotFound from "./components/NotFound";
+import ErrorModal from "./components/ErrorModal";
+import { createContext, useState } from "react";
+
+export const ErrorContext = createContext();
 
 function App() {
   const currentUser = useCurrentUser();
   const profile_id = currentUser?.profile_id || "";
+  const [showErrorModal, setShowErrorModal] = useState(false);
+
+  const handleError = () => {
+    setShowErrorModal(true);
+  };
+
+  const closeErrorModal = () => {
+    setShowErrorModal(false);
+  };
 
   return (
-    <div className={styles.App}>
+    <ErrorContext.Provider value={handleError}>
+      <div className={styles.App}>
         <NavBar />
         <Container className={styles.Main}>
           <Switch>
@@ -100,7 +114,9 @@ function App() {
             <Route render={() => <NotFound />} />
           </Switch>
         </Container>
-    </div>
+        <ErrorModal show={showErrorModal} onClose={closeErrorModal} />
+      </div>
+    </ErrorContext.Provider>
   );
 }
 
