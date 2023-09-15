@@ -1,10 +1,10 @@
 from rest_framework import serializers
-from .models import Message
+from .models import Messenger
 
 
-class MessageSerializer(serializers.ModelSerializer):
+class MessengerSerializer(serializers.ModelSerializer):
     """
-    Serializer for the Message model
+    Serializer for the Messenger model
     The currently logged in user will be used as the sender of the message
     """
     sender = serializers.ReadOnlyField(source='sender.username')
@@ -19,17 +19,17 @@ class MessageSerializer(serializers.ModelSerializer):
         return request.user == obj.sender
 
     class Meta:
-        model = Message
+        model = Messenger
         fields = [
             'id', 'sender', 'is_sender', 'created_at', 'updated_at',
             'profile_id', 'profile_pic', 'receiver', 'content',
         ]
 
 
-class MessageDetailSerializer(MessageSerializer):
+class MessengerDetailSerializer(MessengerSerializer):
     """
-    Serializer for the Message model used in Detail view
-    Message is a ReadOnlyField so that the permissions doesn't have to be
+    Serializer for the Messenger model used in Detail view
+    Messenger is a ReadOnlyField so that the permissions doesn't have to be
     setet on each update
     """
-    message = serializers.ReadOnlyField(source='message.id')
+    messenger = serializers.ReadOnlyField(source='messenger.id')

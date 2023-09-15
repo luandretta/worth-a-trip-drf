@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-class Message(models.Model):
+class Messenger(models.Model):
     """
     Model related to owner/user for sender and receiver fields
     Use related_name to distinguish between the two
