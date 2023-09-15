@@ -26,7 +26,7 @@ test("renders link to the user profile for a logged in user", async () => {
 
   const profileAvatar = await screen.findByAltText("avatar");
   expect(profileAvatar).toBeInTheDocument();
-  const profileLink = screen.getByRole("link", { name: /admin/i });
+  const profileLink = screen.getByRole("link", { name: "avatar Profile" });
   expect(profileLink.getAttribute("href")).toBe("/profiles/1");
 });
 
@@ -47,17 +47,17 @@ test("renders Sign in and Sign up buttons again on log out, check links", async 
 
   expect(signInLink).toBeInTheDocument();
   expect(signUpLink).toBeInTheDocument();
-  expect(screen.getByRole("link", { name: /SignIn/i })).toBeInTheDocument();
-  expect(screen.getByRole("link", { name: /SignUp/i })).toBeInTheDocument();
+  expect(screen.getByRole("link", { name: "Sign in" })).toBeInTheDocument();
+  expect(screen.getByRole("link", { name: "Sign up" })).toBeInTheDocument();
   expect(
-    screen.queryByRole("link", { name: /Add post/i })
+    screen.queryByRole("link", { name: "Add post" })
   ).not.toBeInTheDocument();
   expect(
-    screen.queryByRole("link", { name: /Liked/i })
+    screen.queryByRole("link", { name: "Liked" })
   ).not.toBeInTheDocument();
-  expect(screen.queryByRole("link", { name: /Feed/i })).not.toBeInTheDocument();
+  expect(screen.queryByRole("link", { name: "Feed" })).not.toBeInTheDocument();
   expect(
-    screen.queryByRole("link", { name: /Desired/i })
+    screen.queryByRole("link", { name: "Desired" })
   ).not.toBeInTheDocument();
 });
 
@@ -72,12 +72,12 @@ test("renders logged-in navigation items when user is authenticated", async () =
 
   await screen.findByAltText("avatar");
 
-  expect(screen.getByRole("link", { name: /Add post/i })).toBeInTheDocument();
-  expect(screen.getByRole("link", { name: /Feed/i })).toBeInTheDocument();
-  expect(screen.getByRole("link", { name: /Liked/i })).toBeInTheDocument();
-  expect(screen.getByRole("link", { name: /Wished/i })).toBeInTheDocument();
-  expect(screen.getByRole("link", { name: /Profile/i })).toBeInTheDocument();
-  expect(screen.getByRole("link", { name: /SignOut/i })).toBeInTheDocument();
-  expect(screen.getByRole("link", { name: /SignIn/i })).not.toBeInTheDocument();
-  expect(screen.getByRole("link", { name: /SignUp/i })).not.toBeInTheDocument();
+  expect(screen.getByRole("link", { name: "Add post" })).toBeInTheDocument();
+  expect(screen.getByRole("link", { name: "Feed" })).toBeInTheDocument();
+  expect(screen.getByRole("link", { name: "Liked" })).toBeInTheDocument();
+  expect(screen.getByRole("link", { name: "Desired" })).toBeInTheDocument();
+  expect(screen.getByRole("link", { name: "avatar Profile" })).toBeInTheDocument();
+  expect(screen.getByRole("link", { name: "Sign out" })).toBeInTheDocument();
+  expect(screen.queryByText("Sign in")).toBeNull();
+  expect(screen.queryByText("Sign up")).toBeNull();
 });
