@@ -21,7 +21,7 @@ function PostDelete() {
       await axiosReq.delete(`/posts/${id}/`);
       history.push(`/`);
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 
