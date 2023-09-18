@@ -14,7 +14,7 @@ class ContactFormSerializer(serializers.ModelSerializer):
     created_at = serializers.SerializerMethodField()
     updated_at = serializers.SerializerMethodField()
 
-    def get_created_date(self, obj):
+    def get_created_at(self, obj):
         """
         Displays the created date of the message
         """

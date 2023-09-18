@@ -9,11 +9,11 @@ class ContactForm(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     subject = models.CharField(max_length=55)
     message = models.TextField(max_length=255)
-    created_date = models.DateTimeField(auto_now=True)
-    updated_date = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(auto_now=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
-        ordering = ["-created_date"]
+        ordering = ["-created_at"]
 
     def __str__(self):
         return f"{self.owner} : {self.subject}"
