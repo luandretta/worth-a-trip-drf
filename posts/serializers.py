@@ -1,10 +1,11 @@
 from rest_framework import serializers
+from django_countries.serializers import CountryFieldMixin
 from posts.models import Post
 from wishes.models import Wish
 from likes.models import Like
 
 
-class PostSerializer(serializers.ModelSerializer):
+class PostSerializer(CountryFieldMixin, serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
     is_owner = serializers.SerializerMethodField()
     profile_id = serializers.ReadOnlyField(source='owner.profile.id')
@@ -65,7 +66,7 @@ class PostSerializer(serializers.ModelSerializer):
         fields = [
             'id', 'owner', 'is_owner', 'profile_id',
             'profile_pic', 'created_at', 'updated_at',
-            'title', 'location', 'content', 'image',
+            'title', 'country',  'location', 'content', 'image',
             'trip_type', 'like_id', 'likes_count',
             'wish_id', 'wishes_count', 'comments_count',
         ]
