@@ -156,6 +156,9 @@ To create mock endpoints needed to test NavBar component
 - Dayjs
 To format dates in React
 
+- Django-countries 7.5.1
+Provides country choices for use with forms, flag icons static files, and a country field for models.
+
 ## Credits
 
 ### Source
@@ -165,6 +168,10 @@ To format dates in React
 - [Ultimate Guide: How to Format Date in React](https://reacthustle.com/blog/react-format-date-ultimate-guide)
 - [Testing Library - React Router](https://testing-library.com/docs/example-react-router/)
 - [Appearance and Disappearance - Asserting elements are not present](https://testing-library.com/docs/guide-disappearance/)
+- [Django-countries](https://pypi.org/project/django-countries/#single-field-customization)
+- [How to show API data on React-Select](https://stackoverflow.com/questions/74238883/how-to-show-api-data-on-react-select)
+- [React Select](https://coderszine.com/react-select-dropdown-list-from-api/)
+- [Django-countries Rest output format](https://github.com/SmileyChris/django-countries/#rest-output-format)
 
 
 
