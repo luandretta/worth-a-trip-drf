@@ -28,7 +28,7 @@ class Post(models.Model):
     )
     country = CountryField(
         blank_label='(select country)',
-        null=True, 
+        null=True,
     )
     location = models.CharField(
         max_length=40, null=False, blank=False,
