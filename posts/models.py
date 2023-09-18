@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django_countries.fields import CountryField
 
 
 class Post(models.Model):
@@ -24,6 +25,10 @@ class Post(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(
         max_length=120, null=False, blank=False, default=''
+    )
+    country = CountryField(
+        blank_label='(select country)',
+        null=True, 
     )
     location = models.CharField(
         max_length=40, null=False, blank=False,

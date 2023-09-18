@@ -98,6 +98,7 @@ INSTALLED_APPS = [
     'dj_rest_auth.registration',
     'corsheaders',
     'django_filters',
+    'django_countries',
     'profiles',
     'posts',
     'likes',

@@ -35,6 +35,9 @@ class PostList(generics.ListCreateAPIView):
     search_fields = [
         'owner__username',
         'title',
+        'country',
+        'location',
+        'trip_type',
     ]
     ordering_fields = [
         'likes_count',
