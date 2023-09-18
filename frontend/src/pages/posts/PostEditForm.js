@@ -23,12 +23,13 @@ function PostEditForm() {
 
   const [postData, setPostData] = useState({
     title: "",
+    country: "",
     location: "",
     content: "",
     image: "",
     trip_type: "unknown",
   });
-  const { title, location, content, image, trip_type } = postData;
+  const { title, country, location, content, image, trip_type } = postData;
 
   const imageInput = useRef(null);
   const history = useHistory();
@@ -38,11 +39,20 @@ function PostEditForm() {
     const handleMount = async () => {
       try {
         const { data } = await axiosReq.get(`/posts/${id}/`);
-        const { title, location, content, image, trip_type, is_owner } = data;
+        const {
+          title,
+          country,
+          location,
+          content,
+          image,
+          trip_type,
+          is_owner,
+        } = data;
 
         is_owner
           ? setPostData({
               title,
+              country,
               location,
               content,
               image,
@@ -79,13 +89,14 @@ function PostEditForm() {
     const formData = new FormData();
 
     formData.append("title", title);
+    formData.append("country", country);
     formData.append("location", location);
     formData.append("content", content);
     formData.append("trip_type", trip_type);
 
     if (imageInput?.current?.files[0]) {
       formData.append("image", imageInput.current.files[0]);
-      }
+    }
 
     try {
       await axiosReq.put(`/posts/${id}/`, formData);
@@ -115,7 +126,21 @@ function PostEditForm() {
         </Alert>
       ))}
       <Row>
-        <Col sm={8}>
+        <Col sm={4}>
+          <Form.Group>
+            <Form.Label>Country</Form.Label>
+            <Form.Control
+              as="select"
+              type="text"
+              name="country"
+              value={country}
+              onChange={handleChange}
+            >
+              <option value="">Choose one</option>
+            </Form.Control>
+          </Form.Group>
+        </Col>
+        <Col sm={4}>
           <Form.Group>
             <Form.Label>Location</Form.Label>
             <Form.Control

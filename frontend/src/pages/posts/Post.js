@@ -26,6 +26,7 @@ const Post = (props) => {
     wishes_count,
     wish_id,
     title,
+    country,
     location,
     content,
     image,
@@ -39,15 +40,17 @@ const Post = (props) => {
   const is_owner = currentUser?.username === owner;
   const history = useHistory();
 
+  // handle post edit
   const handleEdit = () => {
     history.push(`/posts/${id}/edit`);
   };
 
+  // handle post edit
   const handleDelete = () => {
     history.push(`/posts/${id}/delete`);
   };
 
-  // Like posts
+  // handle Like posts
   const handleLike = async () => {
     try {
       const { data } = await axiosRes.post("/likes/", { post: id });
@@ -64,7 +67,7 @@ const Post = (props) => {
     }
   };
 
-  // Delete like of posts
+  // handle Delete like of posts
   const handleUnlike = async () => {
     try {
       await axiosRes.delete(`/likes/${like_id}/`);
@@ -81,7 +84,7 @@ const Post = (props) => {
     }
   };
 
-  // Wish posts
+  // handle Wish posts
   const handleWish = async () => {
     try {
       const { data } = await axiosRes.post("/wishes/", { post: id });
@@ -98,7 +101,7 @@ const Post = (props) => {
     }
   };
 
-  // Delete wish of posts
+  // handle Delete wish of posts
   const handleUnwish = async () => {
     try {
       await axiosRes.delete(`/wishes/${wish_id}`);
@@ -136,14 +139,17 @@ const Post = (props) => {
       </Card.Body>
 
       <Link to={`/posts/${id}`}>
-        <Card.Img src={image} alt={title} className={styles.PostImage}/>
+        <Card.Img src={image} alt={title} className={styles.PostImage} />
       </Link>
 
       <Card.Body>
         {title && <Card.Title className="text-center">{title}</Card.Title>}
         <Row className="justify-content-md-center">
           <Col md="auto">
-            {location && <Card.Text>Local: {location} </Card.Text>}
+            {country && <Card.Text>Country: {country} </Card.Text>}
+          </Col>
+          <Col md="auto">
+            {location && <Card.Text>City: {location} </Card.Text>}
           </Col>
           <Col md="auto">
             {trip_type && <Card.Text>Trip type: {trip_type}</Card.Text>}

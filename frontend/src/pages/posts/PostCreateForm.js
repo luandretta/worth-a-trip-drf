@@ -29,12 +29,13 @@ function PostCreateForm() {
 
   const [postData, setPostData] = useState({
     title: "",
+    country: [],
     location: "",
     content: "",
     image: "",
     trip_type: "unknown",
   });
-  const { title, location, content, image, trip_type } = postData;
+  const { title, country, location, content, image, trip_type } = postData;
 
   const imageInput = useRef(null);
   const history = useHistory();
@@ -61,6 +62,7 @@ function PostCreateForm() {
     const formData = new FormData();
 
     formData.append("title", title);
+    formData.append("country", country);
     formData.append("location", location);
     formData.append("content", content);
     formData.append("image", imageInput.current.files[0]);
@@ -96,6 +98,19 @@ function PostCreateForm() {
         </Alert>
       ))}
       <Form.Row>
+      <Form.Group as={Col}>
+          <Form.Label>Country</Form.Label>
+          <Form.Control
+            as="select"
+            type="text"
+            name="country"
+            value={country.name}
+            onChange={handleChange}
+          >
+            <option value={country.name}>Country</option>
+            
+          </Form.Control>
+        </Form.Group>
         <Form.Group as={Col}>
           <Form.Label>Location</Form.Label>
           <Form.Control
