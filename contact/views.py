@@ -17,7 +17,7 @@ class ContactList(generics.ListCreateAPIView):
         serializer.save(owner=self.request.user)
 
 
-class ContacDetail(generics.RetrieveUpdateDestroyAPIView):
+class ContactDetail(generics.RetrieveUpdateDestroyAPIView):
     """
     Retrieve or delete a message it by id if the user is the owner
     of the message or an admin user
