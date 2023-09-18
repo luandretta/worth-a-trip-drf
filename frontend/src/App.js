@@ -19,6 +19,9 @@ import NotFound from "./components/NotFound";
 import ErrorModal from "./components/ErrorModal";
 import { createContext, useState } from "react";
 import ContactCreateForm from "./pages/contact/ContactCreateForm";
+// Notifications
+import { NotificationContainer } from "react-notifications";
+import "react-notifications/lib/notifications.css";
 
 export const ErrorContext = createContext();
 
@@ -40,6 +43,8 @@ function App() {
       <div className={styles.App}>
         <NavBar />
         <Container className={styles.Main}>
+          {/* Rendering the NotificationContainer component */}
+          <NotificationContainer />
           <Switch>
             <Route
               exact
@@ -112,11 +117,7 @@ function App() {
               path="/profiles/:id/edit"
               render={() => <ProfileEditForm />}
             />
-            <Route
-              exact
-              path="/contact"
-              render={() => <ContactCreateForm />}
-            />
+            <Route exact path="/contact" render={() => <ContactCreateForm />} />
             <Route render={() => <NotFound />} />
           </Switch>
         </Container>
