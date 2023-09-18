@@ -172,6 +172,8 @@ Provides country choices for use with forms, flag icons static files, and a coun
 - [How to show API data on React-Select](https://stackoverflow.com/questions/74238883/how-to-show-api-data-on-react-select)
 - [React Select](https://coderszine.com/react-select-dropdown-list-from-api/)
 - [Django-countries Rest output format](https://github.com/SmileyChris/django-countries/#rest-output-format)
+- [Django humanize](https://docs.djangoproject.com/en/4.2/ref/contrib/humanize/)
+- [Django humanize outside of template](https://stackoverflow.com/questions/17226779/django-humanize-outside-of-template)
 
 
 

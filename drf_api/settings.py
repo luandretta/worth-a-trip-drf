@@ -99,6 +99,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'django_filters',
     'django_countries',
+    'django.contrib.humanize',
     'profiles',
     'posts',
     'likes',
