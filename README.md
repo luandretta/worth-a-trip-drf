@@ -164,6 +164,7 @@ Provides country choices for use with forms, flag icons static files, and a coun
 ### Source
 
 - [Django Rest Framework](https://www.django-rest-framework.org/api-guide/serializers)
+- [React Bootstrap](https://react-bootstrap.netlify.app/docs/components/navbar/#text-and-non-nav-links)
 - [How to reset Django Database](https://stackoverflow.com/questions/66733285/how-to-reset-django-database)
 - [Ultimate Guide: How to Format Date in React](https://reacthustle.com/blog/react-format-date-ultimate-guide)
 - [Testing Library - React Router](https://testing-library.com/docs/example-react-router/)
@@ -174,6 +175,7 @@ Provides country choices for use with forms, flag icons static files, and a coun
 - [Django-countries Rest output format](https://github.com/SmileyChris/django-countries/#rest-output-format)
 - [Django humanize](https://docs.djangoproject.com/en/4.2/ref/contrib/humanize/)
 - [Django humanize outside of template](https://stackoverflow.com/questions/17226779/django-humanize-outside-of-template)
+- [MDB](https://mdbootstrap.com/docs/react/utilities/spacing/)
 
 
 

@@ -18,6 +18,7 @@ import ProfileEditForm from "./pages/profiles/ProfileEditForm";
 import NotFound from "./components/NotFound";
 import ErrorModal from "./components/ErrorModal";
 import { createContext, useState } from "react";
+import ContactCreateForm from "./pages/contact/ContactCreateForm";
 
 export const ErrorContext = createContext();
 
@@ -110,6 +111,11 @@ function App() {
               exact
               path="/profiles/:id/edit"
               render={() => <ProfileEditForm />}
+            />
+            <Route
+              exact
+              path="/contact"
+              render={() => <ContactCreateForm />}
             />
             <Route render={() => <NotFound />} />
           </Switch>
