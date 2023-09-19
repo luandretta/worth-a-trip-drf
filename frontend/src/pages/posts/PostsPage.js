@@ -1,37 +1,46 @@
+// React / Router
 import React, { useEffect, useState } from "react";
-
+import { useLocation } from "react-router";
+// API
+import { axiosReq } from "../../api/axiosDefaults";
+// Utils
+import { fetchMoreData } from "../../utils/utils";
+// Contexts
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
+// React Bootstrap components
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
+// React components
+import InfiniteScroll from "react-infinite-scroll-component";
+// Styles
 import appStyles from "../../App.module.css";
 import styles from "../../styles/PostsPage.module.css";
-
+// Other pages
 import Post from "./Post";
-import Asset from "../../components/Asset";
 import PopularProfiles from "../profiles/PopularProfiles";
-
-import { useLocation } from "react-router";
-import { axiosReq } from "../../api/axiosDefaults";
+// Components
+import Asset from "../../components/Asset";
+// Images
 import NoResults from "../../assets/no-results.png";
-import InfiniteScroll from "react-infinite-scroll-component";
-import { fetchMoreData } from "../../utils/utils";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
+// State variables
 function PostsPage({ message, filter = "" }) {
   const [posts, setPosts] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
-
   const [query, setQuery] = useState("");
-
   const currentUser = useCurrentUser();
 
   useEffect(() => {
+    // Setup async function to fetch posts
     const fetchPosts = async () => {
       try {
         const { data } = await axiosReq.get(`/posts/?${filter}search=${query}`);
+        // Set the posts state variable to the returned data
         setPosts(data);
+        // Set hasLoaded state variable to true
         setHasLoaded(true);
       } catch (err) {
         // console.log(err);
@@ -39,9 +48,11 @@ function PostsPage({ message, filter = "" }) {
     };
 
     setHasLoaded(false);
+    // Add timer to delay the fetchPosts function by 1 second
     const timer = setTimeout(() => {
       fetchPosts();
     }, 1000);
+    // Clean up function for the useEffect hook
     return () => {
       clearTimeout(timer);
     };
@@ -64,7 +75,7 @@ function PostsPage({ message, filter = "" }) {
             placeholder="Search posts"
           />
         </Form>
-
+        {/* If posts have loaded and there are results, render infinite scroll component with Post page */}
         {hasLoaded ? (
           <>
             {posts.results.length ? (
@@ -90,6 +101,7 @@ function PostsPage({ message, filter = "" }) {
         )}
       </Col>
       <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
+        {/* Render PopularProfiles page */}
         <PopularProfiles />
       </Col>
     </Row>
