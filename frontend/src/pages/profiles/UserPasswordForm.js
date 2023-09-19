@@ -1,32 +1,41 @@
+// React / Router
 import React, { useEffect, useState } from "react";
-
+import { useHistory, useParams } from "react-router-dom";
+// API
+import { axiosRes } from "../../api/axiosDefaults";
+// Contexts
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
+// React Bootstrap components
 import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
-
-import { useHistory, useParams } from "react-router-dom";
-import { axiosRes } from "../../api/axiosDefaults";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
-
+// Styles
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
+// Notifications
+import { NotificationManager } from "react-notifications";
 
 const UserPasswordForm = () => {
+  // Using the useHistory hook to handle navigation history
   const history = useHistory();
+  // Get id from the URL parameter
   const { id } = useParams();
+  // Get the current user from CurrentUserContext.js
   const currentUser = useCurrentUser();
-
+  // Setting the initial state of the userData object with empty strings for the new password1 and password2
   const [userData, setUserData] = useState({
     new_password1: "",
     new_password2: "",
   });
+  // Destructuring the values of password1 and password2 from the userData object
   const { new_password1, new_password2 } = userData;
-
+  // Setting the initial state of the errors object to an empty object
   const [errors, setErrors] = useState({});
 
+  // Handling input changes and updating the userData object
   const handleChange = (event) => {
     setUserData({
       ...userData,
@@ -41,14 +50,22 @@ const UserPasswordForm = () => {
     }
   }, [currentUser, history, id]);
 
+  // Handling the form submission
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
       await axiosRes.post("/dj-rest-auth/password/change/", userData);
       history.goBack();
+      // Display success notification
+      NotificationManager.success("Password Updated", "Success!");
     } catch (err) {
       // console.log(err);
       setErrors(err.response?.data);
+      // Display error notification
+      NotificationManager.error(
+        "There was an issue updating your password",
+        "Error"
+      );
     }
   };
 
@@ -67,6 +84,7 @@ const UserPasswordForm = () => {
                 name="new_password1"
               />
             </Form.Group>
+            {/* Displaying any password1 errors */}
             {errors?.new_password1?.map((message, idx) => (
               <Alert key={idx} variant="warning">
                 {message}
@@ -82,6 +100,7 @@ const UserPasswordForm = () => {
                 name="new_password2"
               />
             </Form.Group>
+            {/* Displaying any password2 errors */}
             {errors?.new_password2?.map((message, idx) => (
               <Alert key={idx} variant="warning">
                 {message}

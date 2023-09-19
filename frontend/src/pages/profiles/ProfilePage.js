@@ -1,42 +1,51 @@
+// React / Router
 import React, { useEffect, useState } from "react";
-import dayjs from "dayjs";
-
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
-import Container from "react-bootstrap/Container";
-
-import Asset from "../../components/Asset";
-
-import styles from "../../styles/ProfilePage.module.css";
-import appStyles from "../../App.module.css";
-import btnStyles from "../../styles/Button.module.css";
-
-import PopularProfiles from "./PopularProfiles";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { useParams } from "react-router";
+// API
 import { axiosReq } from "../../api/axiosDefaults";
+// Contexts
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import {
   useProfileData,
   useSetProfileData,
 } from "../../contexts/ProfileDataContext";
+// Utils
+import { fetchMoreData } from "../../utils/utils";
+// React Bootstrap components
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
+import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Image from "react-bootstrap/Image";
-import InfiniteScroll from "react-infinite-scroll-component";
+// Styles
+import styles from "../../styles/ProfilePage.module.css";
+import appStyles from "../../App.module.css";
+import btnStyles from "../../styles/Button.module.css";
+// Other Pages
+import PopularProfiles from "./PopularProfiles";
 import Post from "../posts/Post";
-import { fetchMoreData } from "../../utils/utils";
-import NoResults from "../../assets/no-results.png";
+// Components
+import Asset from "../../components/Asset";
 import { ProfileEditDropdown } from "../../components/MoreDropdown";
+// React components
+import InfiniteScroll from "react-infinite-scroll-component";
+// Images
+import NoResults from "../../assets/no-results.png";
+// JavaScript library
+import dayjs from "dayjs";
 
 function ProfilePage() {
+  // Set state variables
   const [hasLoaded, setHasLoaded] = useState(false);
   const [profilePosts, setProfilePosts] = useState({ results: [] });
-
+  // Get the current user from CurrentUserContext.js
   const currentUser = useCurrentUser();
+  // get id from the URL parameter
   const { id } = useParams();
-
   const { setProfileData, handleFollow, handleUnfollow } = useSetProfileData();
   const { pageProfile } = useProfileData();
   const [profile] = pageProfile.results;
+  // Determine if the current user is the owner of the profile
   const is_owner = currentUser?.username === profile?.owner;
   const date = profile?.birth_date;
   // pass the date to format function, specify a format
@@ -47,9 +56,11 @@ function ProfilePage() {
       try {
         const [{ data: pageProfile }, { data: profilePosts }] =
           await Promise.all([
+            // Retrieve the profile id & posts created by the user from the API
             axiosReq.get(`/profiles/${id}/`),
             axiosReq.get(`/posts/?owner__profile=${id}`),
           ]);
+        // Update state
         setProfileData((prevState) => ({
           ...prevState,
           pageProfile: { results: [pageProfile] },
@@ -75,6 +86,7 @@ function ProfilePage() {
           />
         </Col>
       </Row>
+      {/* If the user is the owner of the profile display ProfileEditDropdown component */}
       {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
       <Row noGutters className="px-3 text-center">
         <Col className="justify-content-center">
@@ -88,11 +100,11 @@ function ProfilePage() {
       <div>
         <Row noGutters className="px-3 justify-content-md-center">
           <Col className="text-center">
-           {profile?.name ? (
-               <h3 className="m-2">{profile?.name}</h3>
-           ) : (
-            <h3 className="m-2">{profile?.owner}</h3>
-           )}  
+            {profile?.name ? (
+              <h3 className="m-2">{profile?.name}</h3>
+            ) : (
+              <h3 className="m-2">{profile?.owner}</h3>
+            )}
             <p>{profile?.bio}</p>
             <p>Birthdate: {shortDateFormat}</p>
             <p format>Location: {profile?.location}</p>
@@ -101,20 +113,25 @@ function ProfilePage() {
       </div>
       <Row className="justify-content-md-center no-gutters">
         <Col md="auto" className="m-2 text-center">
+          {/* Owner's posts count */}
           <div>{profile?.posts_count}</div>
-          <div>posts  </div>
+          <div>posts </div>
         </Col>
         <Col md="auto" className="m-2 text-center">
+          {/* Owner's followers count */}
           <div>{profile?.followers_count}</div>
           <div>followers</div>
         </Col>
         <Col md="auto" className="m-2 text-center">
+          {/* Owner's following count */}
           <div>{profile?.following_count}</div>
           <div>following</div>
         </Col>
       </Row>
+      {/* Follow/unfollow buttons */}
       <Row className="justify-content-md-center no-gutters">
         <Col md="auto" className="m-2 text-center">
+          {/* Show the button only if the current user is not the owner */}
           {currentUser &&
             !is_owner &&
             (profile?.following_id ? (

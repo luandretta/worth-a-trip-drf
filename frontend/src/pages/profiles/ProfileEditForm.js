@@ -1,6 +1,14 @@
+// React / router
 import React, { useState, useEffect, useRef } from "react";
 import { useHistory, useParams } from "react-router-dom";
-
+// API
+import { axiosReq } from "../../api/axiosDefaults";
+// Contexts
+import {
+  useCurrentUser,
+  useSetCurrentUser,
+} from "../../contexts/CurrentUserContext";
+// React Bootstrap components
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Image from "react-bootstrap/Image";
@@ -8,24 +16,23 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
-
-import { axiosReq } from "../../api/axiosDefaults";
-import {
-  useCurrentUser,
-  useSetCurrentUser,
-} from "../../contexts/CurrentUserContext";
-
+// Styles
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
+// Notifications
+import { NotificationManager } from "react-notifications";
 
 const ProfileEditForm = () => {
+  // Get current user from contexts
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
+  // get id from the URL parameter
   const { id } = useParams();
+  // Using the useHistory hook to handle navigation history
   const history = useHistory();
   const imageFile = useRef();
   const backgroundFile = useRef();
-
+  // Setting the initial state of the profileData object with empty strings
   const [profileData, setProfileData] = useState({
     name: "",
     bio: "",
@@ -34,12 +41,14 @@ const ProfileEditForm = () => {
     profile_pic: "",
     bg_pic: "",
   });
+  // Destructuring the values from the profileData object
   const { name, bio, birth_date, location, profile_pic, bg_pic } = profileData;
-
+  // Setting the initial state of the errors object to an empty object
   const [errors, setErrors] = useState({});
 
   useEffect(() => {
     const handleMount = async () => {
+      // If the current user is logged in
       if (currentUser?.profile_id?.toString() === id) {
         try {
           const { data } = await axiosReq.get(`/profiles/${id}/`);
@@ -63,7 +72,7 @@ const ProfileEditForm = () => {
 
     handleMount();
   }, [currentUser, history, id]);
-
+  // Handling input changes and updating the profileData object
   const handleChange = (event) => {
     setProfileData({
       ...profileData,
@@ -71,6 +80,7 @@ const ProfileEditForm = () => {
     });
   };
 
+  // Handling the form submission
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
@@ -90,9 +100,16 @@ const ProfileEditForm = () => {
         profile_pic: data.profile_pic,
       }));
       history.goBack();
+      // Display success notification
+      NotificationManager.success("Profile Updated", "Success!");
     } catch (err) {
       // console.log(err);
       setErrors(err.response?.data);
+      // Display error notification
+      NotificationManager.error(
+        "There was an issue updating your profile",
+        "Error"
+      );
     }
 
     if (backgroundFile?.current?.files[0]) {
@@ -106,9 +123,16 @@ const ProfileEditForm = () => {
         bg_pic: data.bg_pic,
       }));
       history.goBack();
+      // Display success notification
+      NotificationManager.success("Profile Updated", "Success!");
     } catch (err) {
       // console.log(err);
       setErrors(err.response?.data);
+      // Display error notification
+      NotificationManager.error(
+        "There was an issue updating your profile",
+        "Error"
+      );
     }
   };
 
@@ -122,6 +146,7 @@ const ProfileEditForm = () => {
           onChange={handleChange}
           name="name"
           rows={1}
+          aria-label="name"
         />
         {errors?.name?.map((message, idx) => (
           <Alert variant="warning" key={idx}>
@@ -157,21 +182,19 @@ const ProfileEditForm = () => {
           </Alert>
         ))}
 
-       
         <Form.Label>Birthdate</Form.Label>
-          <Form.Control
-            type="date"
-            name="birth_date"
-            placeholder="birth_date"
-            value={birth_date}
-            onChange={handleChange}
-          />
-          {errors?.birth_date?.map((message, idx) => (
+        <Form.Control
+          type="date"
+          name="birth_date"
+          placeholder="birth_date"
+          value={birth_date}
+          onChange={handleChange}
+        />
+        {errors?.birth_date?.map((message, idx) => (
           <Alert variant="warning" key={idx}>
             {message}
           </Alert>
         ))}
-
       </Form.Group>
       <Button
         className={`${btnStyles.Button} ${btnStyles.Blue}`}

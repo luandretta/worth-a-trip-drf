@@ -1,11 +1,18 @@
+// React / Router
 import React from "react";
-import Container from "react-bootstrap/Container";
-import appStyles from "../../App.module.css";
-import Asset from "../../components/Asset";
+// Context
 import { useProfileData } from "../../contexts/ProfileDataContext";
+// React Bootstrap components
+import Container from "react-bootstrap/Container";
+// Styles
+import appStyles from "../../App.module.css";
+// Components
+import Asset from "../../components/Asset";
+// Other pages
 import Profile from "./Profile";
 
 const PopularProfiles = ({ mobile }) => {
+  // Get popular profiles data from contexts
   const { popularProfiles } = useProfileData();
 
   return (
@@ -14,6 +21,7 @@ const PopularProfiles = ({ mobile }) => {
         mobile && "d-lg-none text-center mb-3"
       }`}
     >
+      {/* Check if the popular profiles data has been loaded */}
       {popularProfiles.results.length ? (
         <>
           <h5 className="text-center">Most followed profiles</h5>
