@@ -1,27 +1,40 @@
+// React / Router
 import React from "react";
 import { useHistory, useParams } from "react-router";
+// API
 import { axiosReq } from "../../api/axiosDefaults";
-
+// React Bootstrap components
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-
+// Styles
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
+// Notifications
+import { NotificationManager } from "react-notifications";
 
-// Component to confirm deletion
+// Component to confirm a post deletion
 
 function PostDelete() {
+  // Using the useHistory hook to handle navigation history
   const history = useHistory();
+  // get id from the URL parameter
   const { id } = useParams();
 
+  // Handle deleting a postf
   const handleDelete = async () => {
     try {
+      // Send a request to delete a post by its ID
       await axiosReq.delete(`/posts/${id}/`);
       history.push(`/`);
+      NotificationManager.info("Post Removed");
     } catch (err) {
       // console.log(err);
+      NotificationManager.error(
+        "There was an issue deleting your post",
+        "Error"
+      );
     }
   };
 
