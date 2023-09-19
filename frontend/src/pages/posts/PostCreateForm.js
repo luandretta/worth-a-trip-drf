@@ -174,7 +174,7 @@ function PostCreateForm() {
       </Form.Row>
 
       <Form.Group>
-        <Form.Label htmlFor="content">Content</Form.Label>
+        <Form.Label htmlFor="content">Share more important information</Form.Label>
         <Form.Control
           as="textarea"
           rows={6}
