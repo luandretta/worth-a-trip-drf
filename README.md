@@ -178,6 +178,7 @@ Provides country choices for use with forms, flag icons static files, and a coun
 - [Django humanize outside of template](https://stackoverflow.com/questions/17226779/django-humanize-outside-of-template)
 - [MDB](https://mdbootstrap.com/docs/react/utilities/spacing/)
 - [React Native Email Validation](https://www.abstractapi.com/guides/react-native-email-validation)
+- [npm ERR! Conflicting peer dependency](https://stackoverflow.com/questions/72976149/npm-err-conflicting-peer-dependency-react18-0-0)
 
 
 
