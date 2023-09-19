@@ -177,6 +177,7 @@ Provides country choices for use with forms, flag icons static files, and a coun
 - [Django humanize](https://docs.djangoproject.com/en/4.2/ref/contrib/humanize/)
 - [Django humanize outside of template](https://stackoverflow.com/questions/17226779/django-humanize-outside-of-template)
 - [MDB](https://mdbootstrap.com/docs/react/utilities/spacing/)
+- [React Native Email Validation](https://www.abstractapi.com/guides/react-native-email-validation)
 
 
 
