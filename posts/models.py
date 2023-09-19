@@ -43,6 +43,10 @@ class Post(models.Model):
         max_length=30, choices=trip_type_choices,
         null=True, blank=False, default=''
     )
+    local_security = models.IntegerField(default=5)
+    infrastructure = models.IntegerField(default=5)
+    local_population = models.IntegerField(default=5)
+    local_access = models.IntegerField(default=5)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now_add=True)
 
