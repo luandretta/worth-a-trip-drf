@@ -7,6 +7,7 @@ class ContactForm(models.Model):
     Contact form model, related to User
     """
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    email = models.EmailField(max_length=254)
     subject = models.CharField(max_length=55)
     message = models.TextField(max_length=255)
     created_at = models.DateTimeField(auto_now=True)

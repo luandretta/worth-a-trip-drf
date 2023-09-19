@@ -32,7 +32,7 @@ class ContactFormSerializer(serializers.ModelSerializer):
         """
         model = ContactForm
         fields = [
-            'id', 'owner', 'subject', 'message',
+            'id', 'owner', 'subject', 'message', 'email',
             'profile_id', 'profile_pic', 'created_at',
             'updated_at',
         ]
