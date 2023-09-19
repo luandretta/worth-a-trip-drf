@@ -17,6 +17,8 @@ import styles from "../../styles/Post.module.css";
 // Components
 import Avatar from "../../components/Avatar";
 import { MoreDropdown } from "../../components/MoreDropdown";
+// React components
+import { Rating } from "react-simple-star-rating";
 // Notifications
 import { NotificationManager } from "react-notifications";
 
@@ -39,6 +41,10 @@ const Post = (props) => {
     image,
     trip_type,
     updated_at,
+    local_security,
+    infrastructure,
+    local_population,
+    local_access,
     postPage,
     setPosts,
   } = props;
@@ -161,7 +167,7 @@ const Post = (props) => {
           </Link>
           <div className="d-flex align-items-center">
             <span>{updated_at}</span>
-             {/* If the user is the owner of the post display PostDropdownBar component */}
+            {/* If the user is the owner of the post display PostDropdownBar component */}
             {is_owner && postPage && (
               <MoreDropdown
                 handleEdit={handleEdit}
@@ -188,7 +194,56 @@ const Post = (props) => {
           <Col md="auto">
             {trip_type && <Card.Text>Trip type: {trip_type}</Card.Text>}
           </Col>
-        </Row>
+          </Row>
+          <Row className="justify-content-md-center mt-2">
+            {local_access && (
+              <Card.Text>
+                Local access:
+                <Rating
+                  readonly
+                  initialValue={local_access}
+                  size={25} 
+                />
+              </Card.Text>
+            )}
+          </Row>
+          <Row className="justify-content-md-center mt-1" >
+            {infrastructure && (
+              <Card.Text>
+                Infrastructure:
+                <Rating
+                  readonly
+                  initialValue={infrastructure}
+                  size={25} /* Available Props */
+                />
+              </Card.Text>
+            )}
+          </Row>
+          <Row className="justify-content-md-center mt-1" >
+            {local_security && (
+              <Card.Text>
+                Local security:
+                <Rating
+                  readonly
+                  initialValue={local_security}
+                  size={25} 
+                />
+              </Card.Text>
+            )}
+          </Row>
+          <Row className="justify-content-md-center mt-1">
+            {local_population && (
+              <Card.Text>
+                Local population:
+                <Rating
+                  readonly
+                  initialValue={local_population}
+                  size={25} 
+                />
+              </Card.Text>
+            )}
+          </Row>
+       
         {content && <Card.Text className="mt-4">{content}</Card.Text>}
         <div className={styles.PostBar}>
           {/* If the user is the owner of the post display message */}
