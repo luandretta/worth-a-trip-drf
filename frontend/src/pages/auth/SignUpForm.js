@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-
+// API
+import axios from "axios";
+// Hooks
+import { useRedirect } from "../../hooks/useRedirect";
+// Styles
 import styles from "../../styles/SignInUpForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
-
+// React Bootstrap components
 import Form from "react-bootstrap/Form";
 import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/Button";
@@ -12,22 +16,30 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Image from "react-bootstrap/Image";
 import Container from "react-bootstrap/Container";
-import axios from "axios";
-import { useRedirect } from "../../hooks/useRedirect";
+
+// Notifications
+import { NotificationManager } from "react-notifications";
 
 const SignUpForm = () => {
+  // Redirect if the user is already logged in
   useRedirect("loggedIn");
+
+  // Setting the initial state of the signUpData object with empty strings for the username and passwords
   const [signUpData, setSignUpData] = useState({
     username: "",
     password1: "",
     password2: "",
   });
+  // Destructuring the values from the signUpData object
   const { username, password1, password2 } = signUpData;
 
+  // Setting the initial state of the errors object to an empty object
   const [errors, setErrors] = useState({});
 
+  // Using the useHistory hook to handle navigation history
   const history = useHistory();
 
+  // Handling input changes and updating the signUpData objec
   const handleChange = (event) => {
     setSignUpData({
       ...signUpData,
@@ -35,14 +47,16 @@ const SignUpForm = () => {
       [event.target.name]: event.target.value.trim(),
     });
   };
-
+  // Handling the form submission
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
       await axios.post("/dj-rest-auth/registration/", signUpData);
       history.push("/signin");
+      NotificationManager.success("Well done! Account created successfully", "Success!");
     } catch (err) {
       setErrors(err.response?.data);
+      NotificationManager.error("There was an issue with sign up", "Error");
     }
   };
 
@@ -55,6 +69,7 @@ const SignUpForm = () => {
             src={
               "https://res.cloudinary.com/dtqse76ok/image/upload/v1691584889/Worth_a_trip2_3_hcnbw2.png"
             }
+            alt="alp"
           />
         </Col>
         <Col className="my-auto py-2 p-2" md={6}>
@@ -117,7 +132,7 @@ const SignUpForm = () => {
                 <Form.Check
                   required
                   type="checkbox"
-                  label="By signing up, you agree to our Terms, Privacy Policy, and Cookie Use."
+                  label="By signing up, you agree to our Terms, Privacy Policy, and Cookie Use. Your data won't be shared."
                 />
               </Form.Group>
               <Button
