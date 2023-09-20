@@ -11,12 +11,15 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
 import Image from "react-bootstrap/Image";
+import Card from "react-bootstrap/Card";
 // Styles
 import styles from "../../styles/PostCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 // Notifications
 import { NotificationManager } from "react-notifications";
+// React components
+import { Rating } from "react-simple-star-rating";
 
 // Component that includes the form for editing/updating posts
 // Includes error handling for input fields
@@ -33,7 +36,13 @@ function PostEditForm() {
     image: "",
     trip_type: "unknown",
   });
+  // Destructuring the values from the postData object
   const { title, country, location, content, image, trip_type } = postData;
+  // Setting the initial rating value
+  const [local_access, setLocal_access] = useState(0);
+  const [infrastructure, setInfrastructure] = useState(0);
+  const [local_security, setLocal_security] = useState(0);
+  const [local_population, setLocal_population] = useState(0);
 
   const imageInput = useRef(null);
   // Using the useHistory hook to handle navigation history
@@ -53,6 +62,10 @@ function PostEditForm() {
           image,
           trip_type,
           is_owner,
+          local_security,
+          infrastructure,
+          local_population,
+          local_access,
         } = data;
         // If the user is not the owner of the post, redirect to the home page
         is_owner
@@ -63,6 +76,10 @@ function PostEditForm() {
               content,
               image,
               trip_type,
+              local_security,
+              infrastructure,
+              local_population,
+              local_access,
             })
           : history.push("/");
       } catch (err) {
@@ -72,6 +89,22 @@ function PostEditForm() {
 
     handleMount();
   }, [history, id]);
+
+  
+
+  // Catch Rating value
+  const handleRating1 = (rate) => {
+    setLocal_access(rate);
+  };
+  const handleRating2 = (rate) => {
+    setInfrastructure(rate);
+  };
+  const handleRating3 = (rate) => {
+    setLocal_security(rate);
+  };
+  const handleRating4 = (rate) => {
+    setLocal_population(rate);
+  };
 
   // Handle input changes
   const handleChange = (event) => {
@@ -101,6 +134,10 @@ function PostEditForm() {
     formData.append("location", location);
     formData.append("content", content);
     formData.append("trip_type", trip_type);
+    formData.append("local_access", local_access);
+    formData.append("infrastructure", infrastructure);
+    formData.append("local_security", local_security);
+    formData.append("local_population", local_population);
 
     if (imageInput?.current?.files[0]) {
       formData.append("image", imageInput.current.files[0]);
@@ -163,7 +200,7 @@ function PostEditForm() {
         </Col>
         <Col sm={4}>
           <Form.Group>
-            <Form.Label htmlFor="location">Location</Form.Label>
+            <Form.Label htmlFor="location">City</Form.Label>
             <Form.Control
               type="text"
               id="location"
@@ -203,6 +240,33 @@ function PostEditForm() {
           </Form.Group>
         </Col>
       </Row>
+      <div className="text-center" md={5}>
+        <h5>Rate:</h5>
+        <Row className="justify-content-md-center m-1 mt-1" as={Col}>
+          <Card.Text>
+            Local access:
+            <Rating onClick={handleRating1} />
+          </Card.Text>
+        </Row>
+        <Row className="justify-content-md-center m-1" as={Col}>
+          <Card.Text>
+            Infrastructure:
+            <Rating onClick={handleRating2} />
+          </Card.Text>
+        </Row>
+        <Row className="justify-content-md-center m-1" as={Col}>
+          <Card.Text>
+            Local security:
+            <Rating onClick={handleRating3} />
+          </Card.Text>
+        </Row>
+        <Row className="justify-content-md-center m-1" as={Col}>
+          <Card.Text>
+            Local population:
+            <Rating onClick={handleRating4} />
+          </Card.Text>
+        </Row>
+      </div>
 
       <Form.Group>
         <Form.Label htmlFor="content">
