@@ -215,7 +215,7 @@ function PostCreateForm() {
         </Form.Group>
       </Form.Row>
 
-      <div className="text-center" md={5}>
+      <div className="text-center mt-2" md={5}>
         <h5>Rate:</h5>
         <Row className="justify-content-md-center m-1 mt-1" as={Col}>
           <Card.Text>
@@ -244,7 +244,7 @@ function PostCreateForm() {
       </div>
 
       <Form.Group>
-        <Form.Label className="mt-2">
+        <Form.Label className="mt-4">
           <h5>Share more important information</h5>
         </Form.Label>
         <Form.Control
@@ -282,7 +282,7 @@ function PostCreateForm() {
           <Container
             className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center text-center mt-3`}
           >
-            <h5>Create your own post!</h5>
+            <h3 className="mt-2">Create your own post!</h3>
             <Form.Group className="text-center" lg={10}>
               {image ? (
                 <>

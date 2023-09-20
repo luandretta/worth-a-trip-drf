@@ -60,6 +60,9 @@ function PostsPage({ message, filter = "" }) {
 
   return (
     <Row className="h-100">
+      <Col className="py-2 p-0 p-lg-2 mt-2" lg={8}>
+        <h3 className="text-center mt-4">Welcome to Worth a Trip</h3>
+      </Col>
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <PopularProfiles mobile />
         <i className={`fas fa-search ${styles.SearchIcon}`} />

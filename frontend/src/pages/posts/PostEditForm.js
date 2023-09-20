@@ -86,11 +86,8 @@ function PostEditForm() {
         // console.log(err);
       }
     };
-
     handleMount();
   }, [history, id]);
-
-  
 
   // Catch Rating value
   const handleRating1 = (rate) => {
@@ -307,6 +304,7 @@ function PostEditForm() {
           <Container
             className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
           >
+            <h5 className="text-center mt-3">Edit your post</h5>
             <Form.Group className="text-center" lg={10}>
               <figure>
                 <Image
