@@ -196,13 +196,14 @@ const Post = (props) => {
           </Col>
           </Row>
           <Row className="justify-content-md-center mt-2">
+            <h5>Rates:</h5>
             {local_access && (
               <Card.Text>
                 Local access:
                 <Rating
                   readonly
                   initialValue={local_access}
-                  size={25} 
+                  size={25} /* Available Props */
                 />
               </Card.Text>
             )}
@@ -214,7 +215,7 @@ const Post = (props) => {
                 <Rating
                   readonly
                   initialValue={infrastructure}
-                  size={25} /* Available Props */
+                  size={25} 
                 />
               </Card.Text>
             )}
