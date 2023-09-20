@@ -27,6 +27,7 @@ import { NotificationManager } from "react-notifications";
 // React components
 import { Rating } from "react-simple-star-rating";
 
+
 // Component used for creating a post
 // Takes input from the user in the forms and post it to the API
 // Includes error handling that shows an alert to the user
@@ -44,21 +45,40 @@ function PostCreateForm() {
     content: "",
     image: "",
     trip_type: "unknown",
+    local_security: 0,
+    infrastructure: 0,
+    local_population: 0,
+    local_access: 0
   });
   // Destructuring the values  from the postData object
-  const { title, country, location, content, image, trip_type } = postData;
+  const {
+    title,
+    country,
+    location,
+    content,
+    image,
+    trip_type,
+  } = postData;
+
   // Setting the initial rating value
-  const [local_security, setLocal_security] = useState(0);
-  const [infrastructure, setInfrastructure] = useState(0);
-  const [local_population, setLocal_population] = useState(0);
   const [local_access, setLocal_access] = useState(0);
+  const [infrastructure, setInfrastructure] = useState(0);
+  const [local_security, setLocal_security] = useState(0);
+  const [local_population, setLocal_population] = useState(0);
+  
 
   // Catch Rating value
-  const handleRating = (rate) => {
-    setLocal_security(rate / 20);
-    setInfrastructure(rate / 20);
-    setLocal_population(rate / 20);
-    setLocal_access(rate / 20);
+  const handleRating1 = (rate) => {
+    setLocal_access(rate);
+  };
+  const handleRating2 = (rate) => {
+    setInfrastructure(rate);
+  };
+  const handleRating3 = (rate) => {
+    setLocal_security(rate);
+  };
+  const handleRating4 = (rate) => {
+    setLocal_population(rate);
   };
 
   const imageInput = useRef(null);
@@ -122,7 +142,9 @@ function PostCreateForm() {
   const textFields = (
     <div className="text-center" md={5}>
       <Form.Group>
-        <Form.Label htmlFor="title">Title</Form.Label>
+        <Form.Label>
+          <h5>Title</h5>
+        </Form.Label>
         <Col>
           <Form.Control
             type="text"
@@ -130,6 +152,7 @@ function PostCreateForm() {
             name="title"
             value={title}
             onChange={handleChange}
+            required
           />
         </Col>
       </Form.Group>
@@ -141,7 +164,7 @@ function PostCreateForm() {
       ))}
       <Form.Row>
         <Form.Group as={Col}>
-          <Form.Label htmlFor="country">Country</Form.Label>
+          <Form.Label>Country</Form.Label>
           <Form.Control
             as="select"
             type="text"
@@ -154,7 +177,7 @@ function PostCreateForm() {
           </Form.Control>
         </Form.Group>
         <Form.Group as={Col}>
-          <Form.Label htmlFor="location">City</Form.Label>
+          <Form.Label>City</Form.Label>
           <Form.Control
             type="text"
             id="location"
@@ -170,7 +193,7 @@ function PostCreateForm() {
           ))}
         </Form.Group>
         <Form.Group as={Col}>
-          <Form.Label htmlFor="trip_type">Trip type</Form.Label>
+          <Form.Label>Trip type</Form.Label>
           <Form.Control
             as="select"
             type="text"
@@ -179,7 +202,6 @@ function PostCreateForm() {
             value={trip_type}
             onChange={handleChange}
           >
-            <option value="unknown">Choose one</option>
             <option value="adventure">Adventure</option>
             <option value="consumption">Consumption</option>
             <option value="cultural">Cultural</option>
@@ -192,36 +214,37 @@ function PostCreateForm() {
           </Form.Control>
         </Form.Group>
       </Form.Row>
+
       <div className="text-center" md={5}>
-      <h5>Rate:</h5>
+        <h5>Rate:</h5>
         <Row className="justify-content-md-center m-1 mt-1" as={Col}>
           <Card.Text>
             Local access:
-            <Rating onClick={handleRating} />
+            <Rating onClick={handleRating1} />
           </Card.Text>
         </Row>
         <Row className="justify-content-md-center m-1" as={Col}>
           <Card.Text>
             Infrastructure:
-            <Rating onClick={handleRating} />
+            <Rating onClick={handleRating2} />
           </Card.Text>
         </Row>
         <Row className="justify-content-md-center m-1" as={Col}>
           <Card.Text>
             Local security:
-            <Rating onClick={handleRating} />
+            <Rating onClick={handleRating3}/>
           </Card.Text>
         </Row>
         <Row className="justify-content-md-center m-1" as={Col}>
           <Card.Text>
             Local population:
-            <Rating onClick={handleRating} />
+            <Rating onClick={handleRating4}/>
           </Card.Text>
         </Row>
       </div>
 
       <Form.Group>
-        <Form.Label className="mt-2" htmlFor="content">
+        <Form.Label className="mt-2">
           <h5>Share more important information</h5>
         </Form.Label>
         <Form.Control
