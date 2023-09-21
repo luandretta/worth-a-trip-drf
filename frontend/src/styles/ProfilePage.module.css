@@ -6,15 +6,14 @@
 
 .ProfileImage {
     object-fit: cover;
-    max-height: 120px;
-    max-width: 120px;
+    height: 120px;
+    width: 120px;
     margin-top: -40px;
-    border-radius: 50%;
 }
 
 @media screen and (max-width: 991px) {
     .ProfileImage {
-        width: 250px;
-        height: 250px;
+        width: 150px;
+        height: 150px;
     }
 }

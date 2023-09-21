@@ -88,26 +88,28 @@ function ProfilePage() {
       </Row>
       {/* If the user is the owner of the profile display ProfileEditDropdown component */}
       {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
-      <Row noGutters className="px-3 text-center">
-        <Col className="justify-content-center">
+      <Row className="px-3 text-center">
+        <Col className="justify-content-center" lg={12}>
           <Image
             className={styles.ProfileImage}
             roundedCircle
             src={profile?.profile_pic}
+            alt="profile picture"
           />
         </Col>
       </Row>
       <div>
         <Row noGutters className="px-3 justify-content-md-center">
           <Col className="text-center">
-            {profile?.name ? (
+            {profile?.name  & profile?.name !== '{null}'? (
               <h3 className="m-2">{profile?.name}</h3>
             ) : (
               <h3 className="m-2">{profile?.owner}</h3>
             )}
             <p>{profile?.bio}</p>
             <p>Birthdate: {shortDateFormat}</p>
-            <p format>Location: {profile?.location}</p>
+            <p>Location: {profile?.location}
+            </p>
           </Col>
         </Row>
       </div>

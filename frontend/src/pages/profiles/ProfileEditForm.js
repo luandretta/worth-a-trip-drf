@@ -123,16 +123,9 @@ const ProfileEditForm = () => {
         bg_pic: data.bg_pic,
       }));
       history.goBack();
-      // Display success notification
-      NotificationManager.success("Profile Updated", "Success!");
     } catch (err) {
       // console.log(err);
       setErrors(err.response?.data);
-      // Display error notification
-      NotificationManager.error(
-        "There was an issue updating your profile",
-        "Error"
-      );
     }
   };
 
@@ -147,6 +140,7 @@ const ProfileEditForm = () => {
           name="name"
           rows={1}
           aria-label="name"
+          required
         />
         {errors?.name?.map((message, idx) => (
           <Alert variant="warning" key={idx}>
@@ -154,13 +148,14 @@ const ProfileEditForm = () => {
           </Alert>
         ))}
 
-        <Form.Label mt-2>Bio</Form.Label>
+        <Form.Label className="mt-2">Bio</Form.Label>
         <Form.Control
           as="textarea"
           value={bio}
           onChange={handleChange}
           name="bio"
           rows={7}
+          required
         />
         {errors?.bio?.map((message, idx) => (
           <Alert variant="warning" key={idx}>
@@ -168,13 +163,14 @@ const ProfileEditForm = () => {
           </Alert>
         ))}
 
-        <Form.Label>Location</Form.Label>
+        <Form.Label className="mt-2">Location</Form.Label>
         <Form.Control
           as="textarea"
           value={location}
           onChange={handleChange}
           name="location"
           rows={1}
+          required
         />
         {errors?.location?.map((message, idx) => (
           <Alert variant="warning" key={idx}>
@@ -182,7 +178,7 @@ const ProfileEditForm = () => {
           </Alert>
         ))}
 
-        <Form.Label>Birthdate</Form.Label>
+        <Form.Label className="mt-2">Birthdate</Form.Label>
         <Form.Control
           type="date"
           name="birth_date"

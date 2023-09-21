@@ -14,7 +14,7 @@ import Button from "react-bootstrap/Button";
 
 const Profile = (props) => {
   // Destructure props object
-  const { profile, mobile, imageSize = 55 } = props;
+  const { profile, mobile} = props;
   const { id, following_id, profile_pic, owner } = profile;
   // Get current user from context
   const currentUser = useCurrentUser();
@@ -30,7 +30,7 @@ const Profile = (props) => {
       <div>
         {/* Link to the profile page */}
         <Link className="align-self-center" to={`/profiles/${id}`}>
-          <Avatar src={profile_pic} height={imageSize} />
+          <Avatar src={profile_pic} height={40}  alt={owner.profile}/>
         </Link>
       </div>
       <div className={`mx-2 ${styles.WordBreak}`}>
