@@ -26,12 +26,10 @@ import Asset from "../../components/Asset";
 import { NotificationManager } from "react-notifications";
 // React components
 import { Rating } from "react-simple-star-rating";
-import Select from 'react-select';
 
 // Component used for creating a post
 // Takes input from the user in the forms and post it to the API
 // Includes error handling that shows an alert to the user
-
 
 function PostCreateForm() {
   // Using the useRedirect hook to redirect if the user is logged out
@@ -49,24 +47,16 @@ function PostCreateForm() {
     local_security: 0,
     infrastructure: 0,
     local_population: 0,
-    local_access: 0
+    local_access: 0,
   });
   // Destructuring the values  from the postData object
-  const {
-    title,
-    country,
-    location,
-    content,
-    image,
-    trip_type,
-  } = postData;
+  const { title, country, location, content, image, trip_type } = postData;
 
   // Setting the initial rating value
   const [local_access, setLocal_access] = useState(0);
   const [infrastructure, setInfrastructure] = useState(0);
   const [local_security, setLocal_security] = useState(0);
   const [local_population, setLocal_population] = useState(0);
-  
 
   // Catch Rating value
   const handleRating1 = (rate) => {
@@ -163,59 +153,251 @@ function PostCreateForm() {
           {message}
         </Alert>
       ))}
-      <Form.Row>
-        <Form.Group as={Col}>
-          <Form.Label>Country</Form.Label>
-          <Form.Control
-            as="select"
-            type="text"
-            id="country"
-            name="country"
-            value={country.name}
-            onChange={handleChange}
-          >
-            <option value={[country.name]}>Choose one</option>
-          </Form.Control>
-        </Form.Group>
-        <Form.Group as={Col}>
-          <Form.Label>City</Form.Label>
-          <Form.Control
-            type="text"
-            id="location"
-            name="location"
-            value={location}
-            onChange={handleChange}
-          />
+      <Row>
+        <Col sm={4}>
+          <Form.Group>
+            <Form.Label>Country</Form.Label>
+            <Form.Control
+              as="select"
+              id="country"
+              name="country"
+              value={country}
+              onChange={handleChange}
+              rows={7}
+            >
+              <option value="">Choose country</option>
+              <option value="Afghanistan">Afghanistan</option>
+              <option value="Albania">Albania</option>
+              <option value="Algeria">Algeria</option>
+              <option value="Andorra">Andorra</option>
+              <option value="Angola">Angola</option>
+              <option value="Antigua">Antigua</option>
+              <option value="Argentina">Argentina</option>
+              <option value="Armenia">Armenia</option>
+              <option value="Australia">Australia</option>
+              <option value="Austria">Austria</option>
+              <option value="Azerbaijan">Azerbaijan</option>
+              <option value="The Bahamas">The Bahamas</option>
+              <option value="Bahrain">Bahrain</option>
+              <option value="Bangladesh">Bangladesh</option>
+              <option value="Barbados">Barbados</option>
+              <option value="Belarus">Belarus</option>
+              <option value="Belgium">Belgium</option>
+              <option value="Belize">Belize</option>
+              <option value="Bhutan">Bhutan</option>
+              <option value="Bolivia">Bolivia</option>
+              <option value="Bosnia">Bosnia</option>
+              <option value="Botswana">Botswana</option>
+              <option value="Brazil">Brazil</option>
+              <option value="Brunei">Brunei</option>
+              <option value="Bulgaria">Bulgaria</option>
+              <option value="Cambodia">Cambodia</option>
+              <option value="Cameroon">Cameroon</option>
+              <option value="Canada">Canada</option>
+              <option value="Central African Republic">
+                Central African Republic
+              </option>
+              <option value="Chile">Chile</option>
+              <option value="China">China</option>
+              <option value="Colombia">Colombia</option>
+              <option value="Congo, Republic of the">
+                Congo, Republic of the
+              </option>
+              <option value="Costa Rica">Costa Rica</option>
+              <option value="Croatia">Croatia</option>
+              <option value="Cuba">Cuba</option>
+              <option value="Cyprus">Cyprus</option>
+              <option value="Czech Republic">Czech Republic</option>
+              <option value="Denmark">Denmark</option>
+              <option value="Dominica">Dominica</option>
+              <option value="Dominican Republic">Dominican Republic</option>
+              <option value="Ecuador">Ecuador</option>
+              <option value="Egypt">Egypt</option>
+              <option value="El Salvador">El Salvador</option>
+              <option value="Equatorial Guinea">Equatorial Guinea</option>
+              <option value="Estonia">Estonia</option>
+              <option value="Eswatini">Eswatini</option>
+              <option value="Ethiopia">Ethiopia</option>
+              <option value="Fiji">Fiji</option>
+              <option value="Finland">Finland</option>
+              <option value="France">France</option>
+              <option value="Gabon">Gabon</option>
+              <option value="Georgia">Georgia</option>
+              <option value="Germany">Germany</option>
+              <option value="Ghana">Ghana</option>
+              <option value="Greece">Greece</option>
+              <option value="Grenada">Grenada</option>
+              <option value="Guatemala">Guatemala</option>
+              <option value="Guinea">Guinea</option>
+              <option value="Guyana">Guyana</option>
+              <option value="Haiti">Haiti</option>
+              <option value="Honduras">Honduras</option>
+              <option value="Hungary">Hungary</option>
+              <option value="Iceland">Iceland</option>
+              <option value="India">India</option>
+              <option value="Indonesia">Indonesia</option>
+              <option value="Iran">Iran</option>
+              <option value="Iraq">Iraq</option>
+              <option value="Ireland">Ireland</option>
+              <option value="Israel">Israel</option>
+              <option value="Italy">Italy</option>
+              <option value="Jamaica">Jamaica</option>
+              <option value="Japan">Japan</option>
+              <option value="Jordan">Jordan</option>
+              <option value="Kazakhstan">Kazakhstan</option>
+              <option value="Kenya">Kenya</option>
+              <option value="Korea, North">Korea, North</option>
+              <option value="Korea, South">Korea, South</option>
+              <option value="Kosovo">Kosovo</option>
+              <option value="Kuwait">Kuwait</option>
+              <option value="Kyrgyzstan">Kyrgyzstan</option>
+              <option value="Laos">Laos</option>
+              <option value="Latvia">Latvia</option>
+              <option value="Lebanon">Lebanon</option>
+              <option value="Lesotho">Lesotho</option>
+              <option value="Liberia">Liberia</option>
+              <option value="Libya">Libya</option>
+              <option value="Lithuania">Lithuania</option>
+              <option value="Luxembourg">Luxembourg</option>
+              <option value="Madagascar">Madagascar</option>
+              <option value="Malawi">Malawi</option>
+              <option value="Malaysia">Malaysia</option>
+              <option value="Maldives">Maldives</option>
+              <option value="Mali">Mali</option>
+              <option value="Malta">Malta</option>
+              <option value="Mexico">Mexico</option>
+              <option value="Moldova">Moldova</option>
+              <option value="Monaco">Monaco</option>
+              <option value="Mongolia">Mongolia</option>
+              <option value="Montenegro">Montenegro</option>
+              <option value="Morocco">Morocco</option>
+              <option value="Mozambique">Mozambique</option>
+              <option value="Myanmar">Myanmar</option>
+              <option value="Nepal">Nepal</option>
+              <option value="Netherlands">Netherlands</option>
+              <option value="New Zealand">New Zealand</option>
+              <option value="Nicaragua">Nicaragua</option>
+              <option value="Nigeria">Nigeria</option>
+              <option value="North Macedonia">North Macedonia</option>
+              <option value="Norway">Norway</option>
+              <option value="Oman">Oman</option>
+              <option value="Pakistan">Pakistan</option>
+              <option value="Panama">Panama</option>
+              <option value="Papua New Guinea">Papua New Guinea</option>
+              <option value="Paraguay">Paraguay</option>
+              <option value="Peru">Peru</option>
+              <option value="Philippines">Philippines</option>
+              <option value="Poland">Poland</option>
+              <option value="Portugal">Portugal</option>
+              <option value="Qatar">Qatar</option>
+              <option value="Romania">Romania</option>
+              <option value="Russia">Russia</option>
+              <option value="Rwanda">Rwanda</option>
+              <option value="San Marino">San Marino</option>
+              <option value="Saudi Arabia">Saudi Arabia</option>
+              <option value="Senegal">Senegal</option>
+              <option value="Serbia">Serbia</option>
+              <option value="Seychelles">Seychelles</option>
+              <option value="Sierra Leone">Sierra Leone</option>
+              <option value="Singapore">Singapore</option>
+              <option value="Slovakia">Slovakia</option>
+              <option value="Slovenia">Slovenia</option>
+              <option value="Solomon Islands">Solomon Islands</option>
+              <option value="Somalia">Somalia</option>
+              <option value="South Africa">South Africa</option>
+              <option value="South Sudan">South Sudan</option>
+              <option value="Spain">Spain</option>
+              <option value="Sri Lanka">Sri Lanka</option>
+              <option value="Sudan">Sudan</option>
+              <option value="Suriname">Suriname</option>
+              <option value="Sweden">Sweden</option>
+              <option value="Switzerland">Switzerland</option>
+              <option value="Syria">Syria</option>
+              <option value="Taiwan">Taiwan</option>
+              <option value="Tajikistan">Tajikistan</option>
+              <option value="Tanzania">Tanzania</option>
+              <option value="Thailand">Thailand</option>
+              <option value="Timor-Leste">Timor-Leste</option>
+              <option value="Togo">Togo</option>
+              <option value="Trinidad and Tobago">Trinidad and Tobago</option>
+              <option value="Tunisia">Tunisia</option>
+              <option value="Turkey">Turkey</option>
+              <option value="Turkmenistan">Turkmenistan</option>
+              <option value="Tuvalu">Tuvalu</option>
+              <option value="Uganda">Uganda</option>
+              <option value="Ukraine">Ukraine</option>
+              <option value="United Arab Emirates">United Arab Emirates</option>
+              <option value="United Kingdom">United Kingdom</option>
+              <option value="United States of America">
+                United States of America
+              </option>
+              <option value="Uruguay">Uruguay</option>
+              <option value="Uzbekistan">Uzbekistan</option>
+              <option value="Vanuatu">Vanuatu</option>
+              <option value="Vatican City">Vatican City</option>
+              <option value="Venezuela">Venezuela</option>
+              <option value="Vietnam">Vietnam</option>
+              <option value="Yemen">Yemen</option>
+              <option value="Zambia">Zambia</option>
+              <option value="Zimbabwe">Zimbabwe</option>
+            </Form.Control>
+          </Form.Group>
+          {/* Displaying any country errors */}
+          {errors?.country?.map((message, idx) => (
+            <Alert variant="danger" key={idx}>
+              {message}
+            </Alert>
+          ))}
+        </Col>
+        <Col sm={4}>
+          <Form.Group>
+            <Form.Label>City</Form.Label>
+            <Form.Control
+              type="text"
+              id="location"
+              name="location"
+              value={location}
+              onChange={handleChange}
+            />
+          </Form.Group>
           {/* Displaying any about errors */}
           {errors?.location?.map((message, idx) => (
             <Alert variant="warning" key={idx}>
               {message}
             </Alert>
           ))}
-        </Form.Group>
-        <Form.Group as={Col}>
-          <Form.Label>Trip type</Form.Label>
-          <Form.Control
-            as="select"
-            type="text"
-            id="trip_type"
-            name="trip_type"
-            value={trip_type}
-            onChange={handleChange}
-          >
-            <option value="adventure">Adventure</option>
-            <option value="consumption">Consumption</option>
-            <option value="cultural">Cultural</option>
-            <option value="gastronomic">Gastronomic</option>
-            <option value="nautical">Nautical</option>
-            <option value="relax">Relax</option>
-            <option value="religious">Religious</option>
-            <option value="romantic">Romantic</option>
-            <option value="other">Other</option>
-          </Form.Control>
-        </Form.Group>
-      </Form.Row>
-
+        </Col>
+        <Col sm={4}>
+          <Form.Group>
+            <Form.Label>Trip type</Form.Label>
+            <Form.Control
+              as="select"
+              type="text"
+              id="trip_type"
+              name="trip_type"
+              value={trip_type}
+              onChange={handleChange}
+            >
+              <option value="unknown">Choose one</option>
+              <option value="adventure">Adventure</option>
+              <option value="consumption">Consumption</option>
+              <option value="cultural">Cultural</option>
+              <option value="gastronomic">Gastronomic</option>
+              <option value="nautical">Nautical</option>
+              <option value="relax">Relax</option>
+              <option value="religious">Religious</option>
+              <option value="romantic">Romantic</option>
+              <option value="other">Other</option>
+            </Form.Control>
+          </Form.Group>
+          {/* Displaying any trip_type errors */}
+          {errors?.trip_type?.map((message, idx) => (
+            <Alert variant="danger" key={idx}>
+              {message}
+            </Alert>
+          ))}
+        </Col>
+      </Row>
       <div className="text-center mt-2" md={5}>
         <h5>Rate:</h5>
         <Row className="justify-content-md-center m-1 mt-1" as={Col}>
@@ -233,13 +415,13 @@ function PostCreateForm() {
         <Row className="justify-content-md-center m-1" as={Col}>
           <Card.Text>
             Local security:
-            <Rating onClick={handleRating3}/>
+            <Rating onClick={handleRating3} />
           </Card.Text>
         </Row>
         <Row className="justify-content-md-center m-1" as={Col}>
           <Card.Text>
             Local population:
-            <Rating onClick={handleRating4}/>
+            <Rating onClick={handleRating4} />
           </Card.Text>
         </Row>
       </div>
@@ -265,12 +447,15 @@ function PostCreateForm() {
       ))}
 
       <Button
-        className={`${btnStyles.Button} ${btnStyles.Blue}`}
+        className={`${btnStyles.Button} ${btnStyles.Blue} mt-3`}
         onClick={() => history.goBack()}
       >
         Cancel
       </Button>
-      <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
+      <Button
+        className={`${btnStyles.Button} ${btnStyles.Blue} mt-3`}
+        type="submit"
+      >
         Create
       </Button>
     </div>
@@ -325,8 +510,9 @@ function PostCreateForm() {
               </Alert>
             ))}
 
-            <div>{textFields}</div>
+            <div className="d-md-none">{textFields}</div>
           </Container>
+          <Container className={appStyles.Content}>{textFields}</Container>
         </Col>
       </Row>
     </Form>
