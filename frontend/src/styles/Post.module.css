@@ -25,5 +25,5 @@ h5 {
 
 .PostImage {
     max-width: 100%;
-    height: auto;
+    max-height: auto;
 }

@@ -164,7 +164,8 @@ function PostEditForm() {
   const textFields = (
     <div className="text-center" md={5}>
       <Form.Group>
-        <Form.Label htmlFor="title">Title</Form.Label>
+        <Form.Label htmlFor="title">
+          <h4>Title</h4></Form.Label>
         <Form.Control
           type="text"
           id="title"
@@ -242,7 +243,7 @@ function PostEditForm() {
         <Row className="justify-content-md-center m-1 mt-1" as={Col}>
           <Card.Text>
             Local access:
-            <Rating onClick={handleRating1} />
+            <Rating onClick={handleRating1} initialValue={local_access.rate}  />
           </Card.Text>
         </Row>
         <Row className="justify-content-md-center m-1" as={Col}>
@@ -265,9 +266,9 @@ function PostEditForm() {
         </Row>
       </div>
 
-      <Form.Group>
+      <Form.Group className="justify-content-md-center m-1">
         <Form.Label htmlFor="content">
-          Share more important information
+          <h5>Share more important information</h5>
         </Form.Label>
         <Form.Control
           as="textarea"
@@ -304,7 +305,7 @@ function PostEditForm() {
           <Container
             className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
           >
-            <h5 className="text-center mt-3">Edit your post</h5>
+            <h3 className="text-center m-3">Edit your post</h3>
             <Form.Group className="text-center" lg={10}>
               <figure>
                 <Image

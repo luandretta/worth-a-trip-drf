@@ -26,11 +26,12 @@ import Asset from "../../components/Asset";
 import { NotificationManager } from "react-notifications";
 // React components
 import { Rating } from "react-simple-star-rating";
-
+import Select from 'react-select';
 
 // Component used for creating a post
 // Takes input from the user in the forms and post it to the API
 // Includes error handling that shows an alert to the user
+
 
 function PostCreateForm() {
   // Using the useRedirect hook to redirect if the user is logged out
