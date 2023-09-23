@@ -169,12 +169,78 @@ Wireframes were created for mobile, tablet and desktop using [Balsamiq](https://
 
 ## Detailed page and component breakdown:
 
-**Components map**
+
+
+## Detailed page and component breakdown
+
+![Lucichart](documentation/images/component-map.drawio.png)
+
+
+## Components
+
+A number of reusable React components were created with the intention of reducing code duplication.
+
+### `Asset.js`
+
+The `Asset.js` is a versatile and reusable component that is used to render the loading spinner utilised throughout the app. It accepts a small prop which a parent component can use to request a smaller spinner. With customizable props such as spinner, src, and message, the component can be easily adapted to suit different use cases and design requirements. 
+To ensure the maximum accessibility for spinner components the Spinner component has the relevant ARIA role property, and include screenreader-only readable text representation of the spinner's meaning inside the component using Bootstrap's visually-hidden class.
+
+### `Avatar.js`
+
+The `Avatar.js`component is designed to display user avatars with a high degree of flexibility and reusability. Separating the avatar display from other components and pages enables more efficient code organization and easier maintenance. With customizable height and an optional text overlay, the Avatar component can adapt to different page designs and layouts, allowing for seamless integration into different parts of the site. 
+
+
+### `MoreDropdown.js` 
+
+The `MoreDropdown.js` component  provides a dropdown menu represented by the three dots (`...`), visible on any content, where a user respectively the owner of an object, can edit it. It contains two main actions: "Edit" and "Delete". When clicked, each respective action is taken.
+
+- ThreeDots: This is a custom toggle for the dropdown menu. The use of `React.forwardRef` ensures that the dropdown gets access to the DOM for positioning.
+
+- Dropdown Toggle: It uses the ThreeDots component as the toggle button for the dropdown.
+
+- Dropdown Menu: This contains two items:
+
+  - Edit: Represented by a pencil icon, when clicked, it triggers the `handleEdit` function.
+  - Delete: Represented by a trash can icon, when clicked, it trigggers the `handleDelete` function.
+
+**Profile Edit Dropdown**
+
+The `ProfileEditDropdown` is a similar dropdown like the MoreDropdown but specifically for the profile actions. Instead of general actions like the MoreDropdown, it contains three actions that relate are used in the profile section: "Edit Profile", "Change Username", and "Change Password".
+
+- Dropdown Menu: This contains three items:
+ - Edit Profile: Navigates the user to the profile edit page.
+ - Change Username: Navigates the user to the username change page.
+ - Change Password: Navigates the user to the password change page.
+
+The component uses the `useHistory` hook to handle navigation for each dropdown action.
+
+The styling is handled by the MoreDropdown.module.css file.
+
+### React Infinite Scroll 
+
+Introduced to replace traditional pagination with lazy loading instead of pagination to make the application more performant and seem more snappy/ engaging.
+This feature works by loading new content into the webpage when the user reaches the bottom of the page, without requiring the user to manually click a *Load More* button.  This feature provides a seamless user experience, as the user can easily browse through a large amount of content without interruptions or delays.
+
+### `Post.js` 
+
+The Post component receives several props that contain information about a post. The component also uses the useCurrentUser hook from a custom context called CurrentUserContext to retrieve the current user. The Post component renders information about the post including its owner, title, image, ratings and the number of comments, likes, and wishes. It also renders the `Avatar.js` component and the `PostDropdownBar.js` component which is only displayed if the current user is the owner of the post and is viewing it on the post detail page. The Post component contains several functions that handle different events like deleting a post, editing a post, liking a post, unliking a post, pin a post, and remove the pin. These functions make API calls using axiosRes. When the user likes or unlikes a post or pin or remove the pin from the post, the Post component updates the posts state by calling the setPosts function passed down as a prop to the component. It updates the  properties of the post object in the posts state. This component is used to display posts on the *'Feed'*, *'Desired'* and *'Liked'* pages. The handle edit and delete redirect to their pages.
+
+### `PostDelete.js`
+
+The Post Delete component was created so that the owner doesn't delete a post object unintentionally. The user needs to click on the button to confirm deletion or cancel and go back using `useHistory`hook to handle navigation history.
+
+### `NotFound.js`
+
+The NotFound component is used to inform users that the page they're trying to access doesn't exist or cannot be found. This component provides a user-friendly response to potential navigation errors or mistyped URLs. It reuses the `Asset` component to display a messsage and an image.
+
+### `ErrorModal.js`
+
+The ErrorModal component serves as a notification system for displaying error messages to the user using the try, cach blocks.
 
 ## Most reused components
 
 - PostsPage:
-  - Home, Feed, Liked
+  - Home, Feed, Liked, Wished
 - Post:
   - PostsPage
 - Profile:
@@ -183,23 +249,52 @@ Wireframes were created for mobile, tablet and desktop using [Balsamiq](https://
   - Post, ProfilePage, Comment
 - InfiniteScrollComponent:
   - PostPage (loading Comment components)
-  - PostsPage (loading all, feed, liked or saved Post components)
+  - PostsPage (loading all, feed, liked or wished Post components)
   - ProfilePage (loading Post components that belong to the profile)
 
-  ## Libraries, contexts and hooks:
 
-- react-infinite-scroll-component
-  - introduced to replace traditional pagination with lazy loading instead of pagination to make the application more performant and seem more snappy/ engaging
-- react-bootstrap:
-  - introduced
-- contexts:
-  - CurrentUserContext exposes the user state to the entire app. Relevant components can subscribe to its changes
-  - ProfileDataContext exposes the profile state to the entire app. Enables the PopularProfiles component to be in sync with the ProfilePage contents
-- custom hooks written to reduce repeatable state logic:
-  - useClickOutsideToggle: enable toggle on the burger menu
-  - useRedirect: enable redirect for users who are either logged in or logged out, depending on the use case
+## Contexts
 
-## Data Models
+### CurrentUserContext 
+
+The CurrentUserContext exposes the user state to the entire app. Relevant components can subscribe to its changes.
+
+### ProfileDataContext
+
+ProfileDataContext exposes the profile state to the entire app. Enables the PopularProfiles component to be in sync with the ProfilePage contents
+
+## Hooks
+
+Custom hooks written to reduce repeatable state logic.
+
+### `useClickOutsideToggle`
+
+The custom hook useClickOutsideToggle enables togglng on the burger menu in the `NavigationBar.js`. When the user clicks on the menu, it toggles the expanded state using the setExpanded function. The expanded value is then used to conditionally render the menu items. When the user clicks outside of the menu, the `useOutsideClickToggle` hook automatically updates the expanded state to false, hiding the menu.
+
+### `useRedirect`
+
+The useRedirect hook enables redirect for users who are either logged in or logged out, depending on the use case. It uses  the React Router and Axios libraries to handle navigation and API requests.
+
+
+
+## Database Schema & User Journey
+
+#### User Journey
+
+![User Journey](documentation/images/user-journey.png)
+
+#### Database Schema
+
+* **Diagram**
+
+An entity relationship diagram was created to help the visualization the relationships of the data structures and mapped it out.
+
+![Entity Diagram](documentation/images/entity-relationship-diagram.png)
+
+
+* **Models**
+
+Models created for this application:
 
 - Profile
 
@@ -234,21 +329,29 @@ Coverage.py is a tool for measuring code coverage of Python programs. It monitor
 The most popular front-end framework, as one of the oldest React libraries, React-Bootstrap has evolved and grown alongside React, making it an excellent choice as the UI foundation. Each component is implemented with accessibility in mind. The result is a set of accessible-by-default components.
 
 - React Router 
+
 To control what the user sees depending on the URL they have accessed in the browser.
 
 - Axios
+
 To tell the React project to send requests to the API 
 
 - Mock Service Worker
+
 To create mock endpoints needed to test NavBar component
 
 - Dayjs
+
 To format dates in React
 
 - Django-countries 7.5.1
+
 Provides country choices for use with forms, flag icons static files, and a country field for models.
 
-- Rating
+- React Simple Rating
+
+A simple react component for adding a star rating
+
 
 - Select
 
@@ -276,11 +379,15 @@ Provides country choices for use with forms, flag icons static files, and a coun
 - [Django-countries Rest output format](https://github.com/SmileyChris/django-countries/#rest-output-format)
 - [Django humanize](https://docs.djangoproject.com/en/4.2/ref/contrib/humanize/)
 - [Django humanize outside of template](https://stackoverflow.com/questions/17226779/django-humanize-outside-of-template)
+- [Django Models](https://www.geeksforgeeks.org/emailfield-django-models/)
 - [MDB](https://mdbootstrap.com/docs/react/utilities/spacing/)
 - [React Native Email Validation](https://www.abstractapi.com/guides/react-native-email-validation)
 - [npm ERR! Conflicting peer dependency](https://stackoverflow.com/questions/72976149/npm-err-conflicting-peer-dependency-react18-0-0)
 - [React Best Practices](https://www.freecodecamp.org/news/best-practices-for-react/)
 - [How to add infinite scroll to a React js and Django Rest Framework project](https://www.youtube.com/watch?v=bFKBu917kw8)
+- [Spinners](https://react-bootstrap.netlify.app/docs/components/spinners/)
+- [Coverage.py](https://coverage.readthedocs.io/en/7.2.7/)
+- [Star Rating](https://www.npmjs.com/package/react-simple-star-rating)
 
 
 

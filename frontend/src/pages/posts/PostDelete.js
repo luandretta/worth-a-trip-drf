@@ -22,7 +22,7 @@ function PostDelete() {
   // get id from the URL parameter
   const { id } = useParams();
 
-  // Handle deleting a postf
+  // Handle deleting a post
   const handleDelete = async () => {
     try {
       // Send a request to delete a post by its ID
