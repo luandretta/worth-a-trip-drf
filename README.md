@@ -85,7 +85,7 @@ The target audience for Worth a trip is:
 
 
 | Category  | as| I want to | so that I can | UI components  | MoSCow |
-| --------- | ------- | -------------- | ---------------------------------- | ------------------ | --------- |
+| --------- | ------- | -------------- | -----------------------  | ---------| --------- |
 | auth | user| register for an account | have a personal profile with a picture| SignUpForm<br>ProfilePage<br>ProfileEditForm | Must Have |
 | auth | user | register for an account  | create, like, bookmarkt and comment on posts | Post<br>PostPage<br>Comment | Must Have |
 | auth | user | register for an account | follow anothers users | Profile<br>ProfilePage| Should Have |
@@ -167,13 +167,12 @@ Wireframes were created for mobile, tablet and desktop using [Balsamiq](https://
 
 ## Accessibility
 
-## Detailed page and component breakdown:
-
 
 
 ## Detailed page and component breakdown
 
-![Lucichart](documentation/images/component-map.drawio.png)
+
+![Lucichart](documentation/images/component-map.png)
 
 
 ## Components
@@ -296,15 +295,149 @@ An entity relationship diagram was created to help the visualization the relatio
 
 Models created for this application:
 
-- Profile
+-  Djando User Model 
+
+The Django authentication system handles both authentication and authorization. Briefly, authentication verifies a user is who they claim to be, and authorization determines what an authenticated user is allowed to do. Here the term authentication is used to refer to both tasks.
+
+
+- Profiles
+
+The Profiles model has a unique one-to-one relationship with the User model, meaning that each registered user on the website will have a corresponding Profile model. This allows for additional values to be defined relative to the user, such as an  background picture, profile picture, bio, birth date and location. The Profile model serves as a convenient extension to the User model, providing an efficient way to store and access user-specific information.
+
+| Database Value | FieldType |
+| ----| ---- | 
+| owner | OneToOneField  | 
+| name | CharField   |  
+| bio | TextField   |  
+| profile_pic | ImageField |  
+| bg_pic |  ImageField  |
+| birth_date | DateField |
+| location | CharField |
+| created_at | DateTimeField |
+| updated_at | DateTimeField |
+
 
 - Posts
 
-The model will give the users the ability to store posts in the database and the serializer will convert and validate the model instances. It'll also add fields that are not stored in the database.
+The model will give the users the ability to store posts in the database and the serializer will convert and validate the model instances. The owner field is a OneToOneField that establishes a relationship with the User model, specifying that each post can only have one owner.
+The image field is an ImageField that accepts image files and stores them in the 'images/' directory, as specified by the 'upload_to' parameter. If no image is provided, a default image  will be used, which can be changed as needed.
+
+| Database Value | FieldType | 
+| ----| ---- | 
+| owner | ForeignKey(User) |  
+| title | CharField |  
+| country |  CountryField  |  
+| location |  CharField  |  
+| content |  TextField  | 
+| image | ImageField | 
+| trip_type | CharField (choices)
+| local_security | IntegerField |
+| infrastructure | IntegerField |
+| local_population | IntegerField |
+| local_access| IntegerField |
+| created_at | DateTimeField |
+| updated_at | DateTimeField |
+
+
+- Comments
+
+The Comment Model allows user to create a comment on a post. If a comment is deleted, it is deleted from both the User and post models.
+
+| Database Value | FieldType | 
+| ----| ---- | 
+| owner | ForeignKey(User) | 
+| post |  ForeignKey(Post)  |  
+| contentt |  TextField  | 
+| created_at | DateTimeField |
+| updated_at | DateTimeField | 
+
+
+- Likes
+
+The owner field is a ForeignKey that creates a relationship between the Like model and the User model, indicating that each Like instance belongs to one user.
+
+| Database Value | FieldType |
+| ----| ---- | 
+| owner | ForeignKey(User) | 
+| post |  ForeignKey(Post, related_name='likes')  |
+| created_at | DateTimeField |
+ 
 
 - Wishes
 
+The Wishes model is defined by three fields that establish a many-to-one relationship between users and posts. Together, these fields allow users to pin specific posts on the website for easy reference at a later date.
+
+| Database Value | FieldType |
+| ----| ---- | 
+| owner | ForeignKey(User) | 
+| post |  ForeignKey(Post, related_name='likes')  |
+| created_at | DateTimeField |
+
+
+- Followers
+
+The owner field is a ForeignKey that creates a relationship between the Follow model and the User model, indicating that each Follow instance belongs to one user.
+
+| Database Value | FieldType |
+| ----| ---- |  
+| owner | ForeignKey(User, related_name='following') | 
+| followed | ForeignKey(User, related_name='followed') |
+| created_at | DateTimeField |
+
+- Contact
+The Contact model in Django is defined by several fields that establish a many-to-one relationship between users and messages. These fields allow users to send messages to the website administrator and provides a reliable and efficient way to manage user feedback and communication. 
+
+| Database Value | FieldType |
+| ----| ---- |
+| owner | ForeignKey(User) | 
+| subject | Charfield   |
+| message |  TextField  |
+| created_at | DateTimeField |
+| updated_at | DateTimeField |
+
+
+
 ## API Endpoints
+
+The following list will give a brief overview of the avaliable API endpoints.
+
+* Django Rest Auth
+
+| URL | http | data sent | data received |
+| --- | ---- | ----| ---- |
+| dj-rest-auth/registration/ | POST | username<br>password1<br>password2 | - |
+| dj-rest-auth/login/ | POST | username <br>password | access token <br> refresh token |
+| dj-rest-auth/logout/  | POST | - | - |
+| dj-rest-auth/user/ | GET | access token <br> refresh token | username <br> profile_id <br>profile_pic |
+|  dj-rest-auth/token/refresh/ | POST | access token <br> refresh token | (new) <br> access token |
+
+* Admin
+
+| URL | http |
+| --- | ---- |
+| /admin | django built in admin url |
+
+* Others Endpoints 
+
+| URL | http | CRUD operation | view name |
+| --- | ---- | ----| ---- |
+| /profiles  | GET <br> POST | list all profiles <br>create a profile | LIST |
+| /profiles/:id | GET <br> PUT | retrieve a profile by id <br>update a profile by id| DETAIL |
+| /followers  | GET <br> POST | list all followers <br>follow a profile | LIST |
+| /followers/:id | GET <br>DELETE| retrive a follower by id <br>delete a follower by id| DETAIL |
+| /posts  | GET <br> POST | list all posts <br>create a post | LIST |
+| /posts/:id | GET <br> PUT <br>DELETE| retrieve a post by id <br>update a post by id<br>delete a post by id| DETAIL |
+| /comments  | GET <br> POST | list all comments <br>create a comment | LIST |
+| /comments/:id | GET <br> PUT <br>DELETE| retrive a comment by id <br>update a comment by id<br>delete a comment by id| DETAIL |
+| /likes  | GET <br> POST | list all likes <br>create a like | LIST |
+| /likes/:id | GET <br> DELETE| retrive a comment by id <br>delete a comment by id| DETAIL |
+| /wishes  | GET <br> POST | list all wishes <br>create a wish | LIST |
+| /wishes/:id | GET <br> DELETE| retrive a wish by id <br>delete a wish by id| DETAIL |
+| /contact | GET <br> POST | list all contacts <br>create a contact | LIST |
+| /contact/:id | GET <br> DELETE| retrive a contact by id <br>delete a contact by id| DETAIL |
+
+
+
 
 ## Frameworks, libraries and dependencies
 
