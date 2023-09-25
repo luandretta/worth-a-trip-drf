@@ -99,9 +99,11 @@ const ProfileEditForm = () => {
         ...currentUser,
         profile_pic: data.profile_pic,
       }));
-      history.goBack();
+      // history.push(`/profiles/${id}/`);
+      history.goBack();    
       // Display success notification
       NotificationManager.success("Profile Updated", "Success!");
+
     } catch (err) {
       // console.log(err);
       setErrors(err.response?.data);
@@ -122,7 +124,7 @@ const ProfileEditForm = () => {
         ...currentUser,
         bg_pic: data.bg_pic,
       }));
-      history.goBack();
+      // history.goBack();
     } catch (err) {
       // console.log(err);
       setErrors(err.response?.data);
@@ -228,7 +230,6 @@ const ProfileEditForm = () => {
               </div>
               <Form.File
                 id="bg_pic-upload"
-                roundedCircle
                 ref={backgroundFile}
                 accept="image/*"
                 onChange={(e) => {
