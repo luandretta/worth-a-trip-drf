@@ -75,7 +75,7 @@ The Table View was used to sorted the issus according to labels, milestones or s
 
 ### Persona
 
-The target audience for Worth a trip is:
+The target audience for Worth a Trip is:
 * travel lovers;
 * would like to share informations or their thoughts on social media;
 * would like to influence people;
@@ -128,7 +128,7 @@ The red color is used to gain attention when user want to delete his post.
 | Color         |Hex    |
 | ---------- | ------ |
 | Blue | ![#1B4066](https://via.placeholder.com/40/1B4066?text=+) #1B4066 |
-| Green | ![#116c69](https://via.placeholder.com/40/116c69?text=+) #116c69|
+| Green | ![#018031](https://via.placeholder.com/40/018031?text=+) #018031|
 | Red | ![#FF0000](https://via.placeholder.com/40/FF0000?text=+) #FF0000 |
 | White | ![#ffffff](https://via.placeholder.com/40/ffffff?text=+) #ffffff |
 | Dark gray | ![#555555](https://via.placeholder.com/40/555555?text=+) #555555 |
@@ -139,7 +139,11 @@ The red color is used to gain attention when user want to delete his post.
 
 The [Poppins](https://fonts.google.com/specimen/Poppins) was used for the Logo Worth a Trip and header elements. Poppins is one of the Geometric sans serif typefaces have been a popular design tool for building websites. Each letterform is nearly monolinear, with optical corrections applied to stroke joints where necessary to maintain an even typographic color.
 
+![Font Poppins](documentation/images/poppins.png)
+
 The  [Roboto](https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap) was used for the body text on the site. Roboto is a sans-serif font which allows it to be legible and is a great choice for accessibility.
+
+![font Roboto](documentation/images/roboto.png)
 
 [Font Awesome](https://fontawesome.com/icons/) icons were used throughout the site.
 
@@ -154,9 +158,9 @@ Wireframes were created for mobile, tablet and desktop using [Balsamiq](https://
 
 | Page | Desktop | Tablet | Mobile |
 | --- | --- | --- | --- |
-| Home not logged in | ![Home Page](documentation/) | ![Home Page](documentation/)| ![Home Page](documentation/) |
-| Home logged in | ![Home Page](documentation/) | ![Home Page](documentation/)| ![Home Page](documentation/) |
-| Sign in, Sing up Pages | ![Sign in, Sing up Pages ](documentation/) | ![Sign in, Sing up Pages ](documentation/)| ![Sign in, Sing up Pages ](documentation/) |
+| Home not logged in | ![Home Page](documentation/) | ![Home Page](documentation/)| ![Home Page](documentation/wireframes/home-m.png) |
+| Home logged in | ![Home Page](documentation/wireframes/home.png) | ![Home Page](documentation/)| ![Home Page](documentation/wireframes/home-m.png) |
+| Sign in, Sing up Pages | ![Sign in, Sing up Pages ](documentation/wireframes/sign-in-up.png) | ![Sign in, Sing up Pages ](documentation/)| ![Sign in, Sing up Pages ](documentation/) |
 
 
 # Features
@@ -486,7 +490,6 @@ Provides country choices for use with forms, flag icons static files, and a coun
 A simple react component for adding a star rating
 
 
-- Select
 
 ## Deployment steps
 - add prebuild script
