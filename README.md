@@ -137,6 +137,10 @@ The red color is used to gain attention when user want to delete his post.
 
 ## Typography
 
+The Lemon Tuesday Handwritten Font is a handmade experiment font made with ink and parallel pen. perfect for the logo to gain attention. It was created by designers who have drawn these fonts and then allowed everyone to use, share, change and improve the fonts, free of charge.
+
+![Lemon Tuesday Handwritten Font](documentation/images/lemon-tuesday.png) 
+
 The [Poppins](https://fonts.google.com/specimen/Poppins) was used for the Logo Worth a Trip and header elements. Poppins is one of the Geometric sans serif typefaces have been a popular design tool for building websites. Each letterform is nearly monolinear, with optical corrections applied to stroke joints where necessary to maintain an even typographic color.
 
 ![Font Poppins](documentation/images/poppins.png)
@@ -165,13 +169,117 @@ Wireframes were created for mobile, tablet and desktop using [Balsamiq](https://
 
 # Features
 
-## Pages
+## Header
+
+### Logo
+
+The logo is prominently positioned in the top-left corner of the navigation bar. It is linked to the homepage to make it easy for users to navigate back to the main page of the website.
+
+![Logo](documentation/images/header-logo.png)
+
+### Navigation Bar
+
+The navigation bar is present on all pages of the website and allows for easy navigation. The Navbar includes a logo and links to various pages. The links on the Navbar will change depending on whether the user is logged into their account or not.
+
+#### Navbar - not logged in
+
+There is two links either Sign in or Sign up.
+
+![Navbar](documentation/images/navbar-not-logged-in.png)
+
+#### Navbar - logged in
+
+If a user is logged in, their profile avatar will be displayed in the navigation bar
+
+![Navbar](documentation/images/navbar-logged-in.png)
+
+Due to responsiveness, a hamburger menu is used.
+
+![Navbar](documentation/images/navbar-toggle.png)
+
+## Home Page 
+
+The homepage offers a variety of features for both logged-in and logged-out users, including the search functionality which allows visitors and users to search for posts and profiles. 
+The visitors can read the content of the website, but cannot interact as an user, so that they can taste the application a little bit and sign up consciously.
+
+All posts are present in this page and the user. The logged in user can like, bookmark and comment posts and follow or unfollow anothers users.
+
+
+**Home Page for visitors**
+
+![Home Page](documentation/images/home-not-logged.png)
+
+**Home Page for users**
+
+![Home Page](documentation/images/home-logged.png)
+
+## Sign Up Page
+
+![Sign Up](documentation/images/singup-page.png)
+
+## Sign In Page
+
+![Sign In](documentation/images/signin-page.png)
+
+## Sign Out 
+
+When the user clicks on the sign-out link in the navigation bar, a pop-up sign-out modal appears, providing users with a clear confirmation option to sign out of their account. This feature ensures a smooth and secure user experience, enhancing the usability of the application.
+
+![Sign Out](documentation/images/signout.png)
+
+![Sign Out](documentation/images/modal-signout.png)
+
+## Add Post
+
+By accessing the 'Add Post' link located in the navigation bar, users can easily create a new post.
+
+
+
+## Post Detail Page
+
+By clicking on a post, the user will see the post in detail on the Post Page, and can comment if they are logged in. If the logged-in user is the owner of the post, they will have the option to edit or delete the post by the presence of a menu which consists of an edit and delete icon.
+
+![Post Page](documentation/images/post-detail.png)
+
+## Edit Post Page
+
+Clicking on the edit icon for a post will display the post with the prepopulated data, allowing users to easily make edits and updates to their content.
+
+![Edit Post Page](documentation/images/edit.png)
+
+
+
+## Search Functionality
+
+To improve the user experience, a loading spinner appears while the user is typing their search query. 
+
+![Spinner](documentation/images/spinner-search.png)
+
+The results:
+
+![Search](documentation/images/search.png)
+
+If no search results are found, an image accompanied by the text 'No results found' is displayed to help users quickly understand the outcome of their search.
+
+![Search](documentation/images/search-no-found.png)
+
+## Notifications
+
+![Notification](documentation/images/notification-signout.png)
+
+
+
+*** 
 
 ## Future implementations
 
 ## Accessibility
 
+## Security Features and Defensive Design
 
+### Form Validation
+
+A warning message will appear to the user when inaccurate or empty data is entered into a form, identifying the specific field that caused the issue. This prevents the form from being submitted until the issue is resolved, ensuring that only accurate and complete data is processed.
 
 ## Detailed page and component breakdown
 
