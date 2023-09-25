@@ -30,7 +30,7 @@ class Profile(models.Model):
         upload_to='images/',
         default='../default_bg')
     birth_date = models.DateField(
-        'Birthday (YYYY-MM-DD)',
+        'Birthday (DD-MM-YYYY)',
         null=True,
         blank=True)
     location = models.CharField(

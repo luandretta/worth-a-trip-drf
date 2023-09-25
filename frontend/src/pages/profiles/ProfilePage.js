@@ -101,15 +101,20 @@ function ProfilePage() {
       <div>
         <Row noGutters className="px-3 justify-content-md-center">
           <Col className="text-center">
-            {profile?.name  & profile?.name !== '{null}'? (
+            {profile?.name ? (
               <h3 className="m-2">{profile?.name}</h3>
             ) : (
               <h3 className="m-2">{profile?.owner}</h3>
             )}
-            <p>{profile?.bio}</p>
-            <p>Birthdate: {shortDateFormat}</p>
-            <p>Location: {profile?.location}
-            </p>
+            {profile?.bio && (
+               <p>{profile?.bio}</p>
+            )}
+            {profile?.birth_date && (
+              <p>Birthdate: {shortDateFormat}</p>
+            )}
+            {profile?.location && (
+              <p>Location: {profile?.location}</p>
+            )} 
           </Col>
         </Row>
       </div>

@@ -155,7 +155,6 @@ const ProfileEditForm = () => {
           onChange={handleChange}
           name="bio"
           rows={7}
-          required
         />
         {errors?.bio?.map((message, idx) => (
           <Alert variant="warning" key={idx}>
@@ -170,7 +169,6 @@ const ProfileEditForm = () => {
           onChange={handleChange}
           name="location"
           rows={1}
-          required
         />
         {errors?.location?.map((message, idx) => (
           <Alert variant="warning" key={idx}>
