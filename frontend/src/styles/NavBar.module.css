@@ -8,11 +8,12 @@
 }
 
 .Active i {
-    color: #1B4066;
-    border-bottom: 1px solid #1B4066;
+    color: #018031;
+    border-bottom: 1px solid #018031;
 }
 
 .Title  {
     font-family: 'Poppins', sans-serif;
     padding: 5px;
+    color: #1B4066;
 }

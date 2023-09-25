@@ -80,7 +80,7 @@ const NavBar = () => {
         activeClassName={styles.Active}
         to="/feed"
       >
-        <i className="fas fa-stream"></i>Feed
+        <i className="fas fa-rss"></i>Feed
       </NavLink>
       <NavLink
         className={styles.NavLink}
@@ -94,7 +94,7 @@ const NavBar = () => {
         activeClassName={styles.Active}
         to="/whished"
       >
-        <i className="fas fa-map-location-dot"></i>Desired
+        <i className="fas fa-bookmark"></i>Bookmarks
       </NavLink>
 
       <NavLink
@@ -111,7 +111,7 @@ const NavBar = () => {
         activeClassName={styles.Active}
         to="/contact"
       >
-        <i className="fas fa-envelope"></i>Contact
+        <i className="fas fa-envelope"></i>Contact us
       </NavLink>
     </>
   );
@@ -161,7 +161,7 @@ const NavBar = () => {
               activeClassName={styles.Active}
               to="/"
             >
-              <i className="fas fa-home"></i>Home
+              <i className="fas fa-home"></i>
             </NavLink>
             {currentUser ? loggedInIcons : loggedOutIcons}
           </Nav>
