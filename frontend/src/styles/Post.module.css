@@ -12,15 +12,15 @@ h5 {
 }
 
 .Icon {
-    color: #116c69;
-}
-
-.Icon:hover {
     color: #1B4066;
 }
 
+.Icon:hover {
+    color: #018031;
+}
+
 .IconOutline:hover {
-    color: #116c69;
+    color: #1B4066;
 }
 
 .PostImage {

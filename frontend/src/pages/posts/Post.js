@@ -123,11 +123,11 @@ const Post = (props) => {
         }),
       }));
       // Displaying a success notification
-      NotificationManager.success("Post Saved", "Success!");
+      NotificationManager.success("Post marked", "Success!");
     } catch (err) {
       // console.log(err);
       // Displaying a error notification
-      NotificationManager.error("There was an issue saving the post", "Error");
+      NotificationManager.error("There was an issue marking the post", "Error");
     }
   };
 
@@ -144,7 +144,7 @@ const Post = (props) => {
         }),
       }));
       // Display a notification
-      NotificationManager.info("Post Removed from Desired");
+      NotificationManager.info("Post Removed from Bookmarks");
     } catch (err) {
       // console.log(err);
       // If error display error notification
@@ -195,10 +195,10 @@ const Post = (props) => {
             {trip_type && <Card.Text>Trip type: {trip_type}</Card.Text>}
           </Col>
         </Row>
-        <Row className="justify-content-md-center mt-2">
+        <Row className="justify-content-center mt-2">
           <h5>Rates:</h5>
           </Row>
-          <Row className="justify-content-md-center mt-2">
+          <Row className="justify-content-center mt-2">
           {local_access && (
             <Card.Text>
               Local access:
@@ -210,7 +210,7 @@ const Post = (props) => {
             </Card.Text>
           )}
         </Row>
-        <Row className="justify-content-md-center mt-1">
+        <Row className="justify-content-center mt-1">
           {infrastructure && (
             <Card.Text>
               Infrastructure:
@@ -218,7 +218,7 @@ const Post = (props) => {
             </Card.Text>
           )}
         </Row>
-        <Row className="justify-content-md-center mt-1">
+        <Row className="justify-content-center mt-1">
           {local_security && (
             <Card.Text>
               Local security:
@@ -226,7 +226,7 @@ const Post = (props) => {
             </Card.Text>
           )}
         </Row>
-        <Row className="justify-content-md-center mt-1">
+        <Row className="justify-content-center mt-1">
           {local_population && (
             <Card.Text>
               Local population:
@@ -271,24 +271,24 @@ const Post = (props) => {
           {is_owner ? (
             <OverlayTrigger
               placement="top"
-              overlay={<Tooltip>You can't wish your own post!</Tooltip>}
+              overlay={<Tooltip>You can't bookmark your own post!</Tooltip>}
             >
-              <i className="fas fa-map-pin" />
+              <i className="far fa-bookmark" />
             </OverlayTrigger>
           ) : wish_id ? (
             <span onClick={handleUnwish}>
-              <i className={`fas fa-map-pin ${styles.Icon}`} />
+              <i className={`fas fa-bookmark ${styles.Icon}`} />
             </span>
           ) : currentUser ? (
             <span onClick={handleWish}>
-              <i className={`fas fa-map-pin ${styles.IconOutline}`} />
+              <i className={`far fa-bookmark ${styles.IconOutline}`} />
             </span>
           ) : (
             <OverlayTrigger
               placement="top"
-              overlay={<Tooltip>Log in to pin posts!</Tooltip>}
+              overlay={<Tooltip>Log in to bookmark posts!</Tooltip>}
             >
-              <i className="fas fa-map-pin" />
+              <i className="far fa-bookmark" />
             </OverlayTrigger>
           )}
 
