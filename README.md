@@ -181,19 +181,21 @@ The logo is prominently positioned in the top-left corner of the navigation bar.
 
 The navigation bar is present on all pages of the website and allows for easy navigation. The Navbar includes a logo and links to various pages. The links on the Navbar will change depending on whether the user is logged into their account or not.
 
+
+
 #### Navbar - not logged in
 
-There is two links either Sign in or Sign up.
+- There is two links either Sign in or Sign up.
 
 ![Navbar](documentation/images/navbar-not-logged-in.png)
 
 #### Navbar - logged in
 
-If a user is logged in, their profile avatar will be displayed in the navigation bar
+- If a user is logged in, their profile avatar will be displayed in the navigation bar
 
 ![Navbar](documentation/images/navbar-logged-in.png)
 
-Due to responsiveness, a hamburger menu is used.
+- Due to responsiveness, a hamburger menu is used.
 
 ![Navbar](documentation/images/navbar-toggle.png)
 
@@ -232,8 +234,9 @@ When the user clicks on the sign-out link in the navigation bar, a pop-up sign-o
 ## Add Post
 
 By accessing the 'Add Post' link located in the navigation bar, users can easily create a new post.
+The user need to upload an image, type a title and city, choose the country and trip type, rate the trip and can share more informations.
 
-
+![Post Create Form](documentation/images/create-post.png)
 
 ## Post Detail Page
 
@@ -247,21 +250,86 @@ Clicking on the edit icon for a post will display the post with the prepopulated
 
 ![Edit Post Page](documentation/images/edit.png)
 
+## Post Delete 
 
+By clicking on the delete icon in the Post dropdown menu, users will be redirected to Post Delete Page to confirm the deletion their posts from the database, so that they don't delete their posts accidentally. 
+
+![Post Delete](documentation/images/post-delete.png)
 
 ## Search Functionality
 
-To improve the user experience, a loading spinner appears while the user is typing their search query. 
+- To improve the user experience, a loading spinner appears while the user is typing their search query. 
 
 ![Spinner](documentation/images/spinner-search.png)
 
-The results:
+- The results:
 
 ![Search](documentation/images/search.png)
 
-If no search results are found, an image accompanied by the text 'No results found' is displayed to help users quickly understand the outcome of their search.
+- If no search results are found, an image accompanied by the text 'No results found' is displayed to help users quickly understand the outcome of their search.
 
 ![Search](documentation/images/search-no-found.png)
+
+## Comments
+
+The comments section on a post detail page is accessible to both logged-in and logged-out users. However, to create a comment, users must be signed in, as the comment input field is only displayed to authenticated users. This ensures a secure and efficient commenting process for users.
+The comment owner can update and delete it through the implementation of the Post dropdown menu component. By clicking on the edit icon, the comment data is automatically prepopulated, making the editing process seamless and efficient.
+The post has a comment count.
+
+- Logged in user
+
+![Comment](documentation/images/comment.png)
+
+- Comment More Dropdown Menu
+
+![Comment](documentation/images/comment-more-drop-down.png)
+
+- Comment Edit
+
+![Comment](documentation/images/comment-edit.png)
+
+- No Comments yet
+
+![Comment](documentation/images/comment-no-one.png)
+
+- Logged out - visitor cannot comment the post
+
+![Comment](documentation/images/comment-no-logged.png)
+
+## Feed Page, Liked and Bookmarks Pages
+
+The three pages have the same styling as Home as it uses the Post component and are only filtered. The users cannot like or bookmark their own posts or follow themselves.
+
+- Feed Page: a user's feed will compose of posts which the user is following.
+
+![Feed Page](documentation/images/feed.png)
+
+If the user are not following anyone displays a message.
+
+![Feed Page](documentation/images/follow-no.png)
+
+
+- Liked Page: displays a user's collection of liked posts, easily identified by a heart icon on the post component.
+
+![Liked Page](documentation/images/like.png)
+
+If the user are not following anyone displays a message.
+
+![Liked Page](documentation/images/like-no.png)
+
+- Bookmarks Page: displays a user's collection of bookmarked posts, easily identified by a bookmark icon on the post component.
+
+![Bookmarks Page](documentation/images/bookmarks.png)
+
+If the user are not following anyone displays a message.
+
+![Bookmarks Page](documentation/images/bookmark.png)
+
+## Profile Page
+
+
+
+
 
 ## Notifications
 

@@ -39,15 +39,14 @@ function PostDelete() {
   };
 
   return (
-    <Card.Body className="justify-content-center">
-      <Row>
+    <Card.Body className="justify-content-center mt-5">
+      <Row  className="justify-content-center">
         <Col
-          className={`${appStyles.Content} py-2 p-0 p-md-4   text-center`}
-          md={7}
+          className={`${appStyles.Content}  text-center`}
           lg={8}
         >
           <h5>Are you sure you want to delete your post?</h5>
-          <p>This action is irreversible!</p>
+          <p className="mt-2">This action is irreversible!</p>
           <span>
             * If you're not the owner of this post you won't be able to delete
             it

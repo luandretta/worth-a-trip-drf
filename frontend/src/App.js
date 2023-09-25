@@ -78,7 +78,7 @@ function App() {
               path="/whished"
               render={() => (
                 <PostsPage
-                  message="No results found. Adjust the search keyword or wish a travel."
+                  message="No results found. Adjust the search keyword or bookmark a trip."
                   filter={`wishes__owner__profile=${profile_id}&ordering=-wishes__created_at&`}
                 />
               )}
