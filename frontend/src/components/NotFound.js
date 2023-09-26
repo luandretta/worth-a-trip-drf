@@ -1,15 +1,32 @@
+// Readt
 import React from "react";
-import NoResults from "../assets/no-results.png";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
+// Images
+import NoResults from "../assets/not-found.jpg";
+// React Bootstrap components
+import Button from "react-bootstrap/Button";
+// Styles
 import styles from "../styles/NotFound.module.css";
+import btnStyles from "../styles/Button.module.css";
+// Components
 import Asset from "./Asset";
 
 const NotFound = () => {
   return (
-    <div className={styles.NotFound}>
+    <div className="text-center">
       <Asset
+        className={`${styles.NotFound} justify-content-center mt-2`}
         src={NoResults}
-        message={`Sorry, the page you're looking for doesn't exist`}
+        fluid
+        message={<h5>Sorry, the page you're looking for doesn't exist</h5>}
       />
+      <Link to="/">
+        <Button
+          className={`${btnStyles.Button} ${btnStyles.Blue} text-center mb-2`}
+        >
+          Return to Homepage
+        </Button>
+      </Link>
     </div>
   );
 };

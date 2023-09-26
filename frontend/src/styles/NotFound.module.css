@@ -1,3 +1,11 @@
 .NotFound {
-    margin-top: 25vh;
+    margin-top: 90px;
+    background-color: white;
+    max-width: 600px;
+}
+
+.NotFound img {
+    width: 600px;
+    height: 420px;
+    object-fit: fit;
 }
