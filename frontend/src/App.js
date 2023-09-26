@@ -1,23 +1,30 @@
-import styles from "./App.module.css";
-import NavBar from "./components/NavBar";
-import Container from "react-bootstrap/Container";
+// React / router
 import { Route, Switch } from "react-router-dom";
+import { createContext, useState } from "react";
+// API
 import "./api/axiosDefaults";
+// Contexts
+import { useCurrentUser } from "./contexts/CurrentUserContext";
+// React Bootstrap components
+import Container from "react-bootstrap/Container";
+// Style
+import styles from "./App.module.css";
+// Components
+import NotFound from "./components/NotFound";
+import NavBar from "./components/NavBar";
+import ErrorModal from "./components/ErrorModal";
+// Pages
 import SignUpForm from "./pages/auth/SignUpForm";
 import SignInForm from "./pages/auth/SignInForm";
 import PostCreateForm from "./pages/posts/PostCreateForm";
 import PostPage from "./pages/posts/PostPage";
 import PostsPage from "./pages/posts/PostsPage";
-import { useCurrentUser } from "./contexts/CurrentUserContext";
 import PostEditForm from "./pages/posts/PostEditForm";
 import PostDelete from "./pages/posts/PostDelete";
 import ProfilePage from "./pages/profiles/ProfilePage";
 import UsernameForm from "./pages/profiles/UsernameForm";
 import UserPasswordForm from "./pages/profiles/UserPasswordForm";
 import ProfileEditForm from "./pages/profiles/ProfileEditForm";
-import NotFound from "./components/NotFound";
-import ErrorModal from "./components/ErrorModal";
-import { createContext, useState } from "react";
 import ContactCreateForm from "./pages/contact/ContactCreateForm";
 // Notifications
 import { NotificationContainer } from "react-notifications";
@@ -26,7 +33,9 @@ import "react-notifications/lib/notifications.css";
 export const ErrorContext = createContext();
 
 function App() {
+  // getting the current user from the CurrentUserContext
   const currentUser = useCurrentUser();
+  // getting the profile ID of the current user or setting it to an empty string if there's no user
   const profile_id = currentUser?.profile_id || "";
   const [showErrorModal, setShowErrorModal] = useState(false);
 
@@ -118,6 +127,7 @@ function App() {
               render={() => <ProfileEditForm />}
             />
             <Route exact path="/contact" render={() => <ContactCreateForm />} />
+            {/* Defining the route for the 404 page */}
             <Route render={() => <NotFound />} />
           </Switch>
         </Container>

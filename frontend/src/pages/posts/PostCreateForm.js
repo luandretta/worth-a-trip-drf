@@ -133,13 +133,13 @@ function PostCreateForm() {
   const textFields = (
     <div className="text-center" md={5}>
       <Form.Group>
-        <Form.Label>
-          <h5>Title</h5>
+        <Form.Label htmlFor="post-title">
+          <h5>Post Title</h5>
         </Form.Label>
         <Col>
           <Form.Control
             type="text"
-            id="title"
+            id="post-title"
             name="title"
             value={title}
             onChange={handleChange}
@@ -156,10 +156,10 @@ function PostCreateForm() {
       <Row>
         <Col sm={4}>
           <Form.Group>
-            <Form.Label>Country</Form.Label>
+            <Form.Label htmlFor="post-country">Country</Form.Label>
             <Form.Control
               as="select"
-              id="country"
+              id="post-country"
               name="country"
               value={country}
               onChange={handleChange}
@@ -351,10 +351,10 @@ function PostCreateForm() {
         </Col>
         <Col sm={4}>
           <Form.Group>
-            <Form.Label>City</Form.Label>
+            <Form.Label htmlFor="city">City</Form.Label>
             <Form.Control
               type="text"
-              id="location"
+              id="city"
               name="location"
               value={location}
               onChange={handleChange}
@@ -369,7 +369,7 @@ function PostCreateForm() {
         </Col>
         <Col sm={4}>
           <Form.Group>
-            <Form.Label>Trip type</Form.Label>
+            <Form.Label htmlFor="trip-type">Trip type</Form.Label>
             <Form.Control
               as="select"
               type="text"
@@ -427,13 +427,13 @@ function PostCreateForm() {
       </div>
 
       <Form.Group>
-        <Form.Label className="mt-4">
+        <Form.Label htmlFor="post-content" className="mt-4">
           <h5>Share more important information</h5>
         </Form.Label>
         <Form.Control
           as="textarea"
           rows={6}
-          id="content"
+          id="post-content"
           name="content"
           value={content}
           onChange={handleChange}

@@ -1,4 +1,4 @@
-# Worth a Trip
+# ✈️ Worth a Trip
 
 ![Welcome to Worth a Trip](documentation/images/home.png)
 
@@ -21,7 +21,7 @@ Link to deployed site:
 ![GitHub language count](https://img.shields.io/github/languages/count/luandretta/worth-a-trip-drf?style=for-the-badge)
 ![GitHub top language](https://img.shields.io/github/languages/top/luandretta/worth-a-trip-drf?style=for-the-badge)
 
-# Unifying DRF Api and React parts into a unified workspace and deployment
+# 📃 Unifying DRF Api and React parts into a unified workspace and deployment
 
 Initially the project had two repositories, for the back-end and the front-end. As recommended by Code Institute, the project was unified and deployed.
 
@@ -33,7 +33,7 @@ Below is a link to the initial front-end repository to check issues and commits
 
 This repository will be maintained for assessments of this latest project for the Code Institute.
 
-# User Experience
+# 📌 User Experience
 
 ## Project Goals 
 
@@ -112,7 +112,7 @@ The target audience for Worth a Trip is:
 
 The User Stories with the MoSCow priorization as "Won't Have" will be listed in the futures implementations.
 
-# Design 
+# 🎨 Design 
 
 The website was designed with a minimalistic style to align with the site's objectives. The simple design allows users to easily navigate through the site and find what they are looking for.
 
@@ -472,13 +472,18 @@ I have been mindful during coding to ensure that the website is as accessible fr
 * Providing information for screen readers where there are icons used and no text.
 * Ensuring that there is a sufficient colour contrast throughout the site.
 
-## ⚒️ Security Features and Defensive Design
+## 🔒 Security Features and Defensive Design
+
+### `useRedirect`
+
+`useRedirect` listens for changes in the user's authentication status. When there's a change, it tries to refresh the users authentication token. Depending on if thats a success or failure and the passed userAuthStatus, it redirects the user to the main route, which is the posts list.
 
 ### Form Validation
 
 A warning message will appear to the user when inaccurate or empty data is entered into a form, identifying the specific field that caused the issue. This prevents the form from being submitted until the issue is resolved, ensuring that only accurate and complete data is processed.
 
-## Detailed page and component breakdown
+
+## ✔️ Detailed page and component breakdown
 
 
 ![Lucichart](documentation/images/component-map.png)
@@ -548,7 +553,7 @@ The ErrorModal component serves as a notification system for displaying error me
 ## Most reused components
 
 - PostsPage:
-  - Home, Feed, Liked, Wished
+  - Home, Feed, Liked, Bookmarks
 - Post:
   - PostsPage
 - Profile:
@@ -557,7 +562,7 @@ The ErrorModal component serves as a notification system for displaying error me
   - Post, ProfilePage, Comment
 - InfiniteScrollComponent:
   - PostPage (loading Comment components)
-  - PostsPage (loading all, feed, liked or wished Post components)
+  - PostsPage (loading all, feed, liked or bookmarked Post components)
   - ProfilePage (loading Post components that belong to the profile)
 
 
@@ -674,12 +679,12 @@ The owner field is a ForeignKey that creates a relationship between the Like mod
 
 - Wishes
 
-The Wishes model is defined by three fields that establish a many-to-one relationship between users and posts. Together, these fields allow users to pin specific posts on the website for easy reference at a later date.
+The Wishes model is defined by three fields that establish a many-to-one relationship between users and posts. Together, these fields allow users to bookmark specific posts on the website for easy reference at a later date.
 
 | Database Value | FieldType |
 | ----| ---- | 
 | owner | ForeignKey(User) | 
-| post |  ForeignKey(Post, related_name='likes')  |
+| post |  ForeignKey(Post, related_name='wishes')  |
 | created_at | DateTimeField |
 
 
