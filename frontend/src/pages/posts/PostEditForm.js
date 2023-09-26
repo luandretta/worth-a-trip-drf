@@ -67,9 +67,16 @@ function PostEditForm() {
           local_population,
           local_access,
         } = data;
+
+        console.log(data);
         // If the user is not the owner of the post, redirect to the home page
+        setInfrastructure(infrastructure);
+        setLocal_access(local_access);
+        setLocal_security(local_security);
+        setLocal_population(local_population);
         is_owner
-          ? setPostData({
+          ? 
+            setPostData({
               title,
               country,
               location,
@@ -81,6 +88,7 @@ function PostEditForm() {
               local_population,
               local_access,
             })
+          
           : history.push("/");
       } catch (err) {
         // console.log(err);
@@ -430,25 +438,25 @@ function PostEditForm() {
         <Row className="justify-content-md-center m-1 mt-1" as={Col}>
           <Card.Text>
             Local access:
-            <Rating onClick={handleRating1} initialValue={local_access.rate} />
+            <Rating onClick={handleRating1} initialValue={local_access} />
           </Card.Text>
         </Row>
         <Row className="justify-content-md-center m-1" as={Col}>
           <Card.Text>
             Infrastructure:
-            <Rating onClick={handleRating2} />
+            <Rating onClick={handleRating2} initialValue={infrastructure}/>
           </Card.Text>
         </Row>
         <Row className="justify-content-md-center m-1" as={Col}>
           <Card.Text>
             Local security:
-            <Rating onClick={handleRating3} />
+            <Rating onClick={handleRating3} initialValue={local_security}/>
           </Card.Text>
         </Row>
         <Row className="justify-content-md-center m-1" as={Col}>
           <Card.Text>
             Local population:
-            <Rating onClick={handleRating4} />
+            <Rating onClick={handleRating4} initialValue={local_population}/>
           </Card.Text>
         </Row>
       </div>

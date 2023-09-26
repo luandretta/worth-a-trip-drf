@@ -169,6 +169,8 @@ Wireframes were created for mobile, tablet and desktop using [Balsamiq](https://
 
 # Features
 
+⚙️ Scope of functionalities
+
 ## Header
 
 ### Logo
@@ -313,7 +315,7 @@ If the user are not following anyone displays a message.
 
 ![Liked Page](documentation/images/like.png)
 
-If the user are not following anyone displays a message.
+- If the user hasn't liked any posts yet a message will appear.
 
 ![Liked Page](documentation/images/like-no.png)
 
@@ -321,29 +323,156 @@ If the user are not following anyone displays a message.
 
 ![Bookmarks Page](documentation/images/bookmarks.png)
 
-If the user are not following anyone displays a message.
+- If the user has not yet marked a post, a message will be displayed.
 
 ![Bookmarks Page](documentation/images/bookmark.png)
 
 ## Profile Page
 
+The profile contains the user's information including name, profile picture, background picture, bio, location, birth date, number of followers and owns posts. 
+If the user doesn't upload a profile or background picture his profile has default pictures.
+
+If the users are viewing their own profile then they'll have a dropdown menu to edit their profile, change username or change password. If they're viewing another user's profile then they'll have a button to follow or unfollow that user. This functionality has been thoroughly tested to ensure that the counts accurately increment and decrement in response to various user actions, such as following a user or adding a new post.
+
+The user's posts are displayed below their personal information using the `Post.js` component. 
+
+The date of birth was edited using `dayjs` library.
+
+![Profile Page](documentation/images/profile.png)
+
+- If the user has not uploaded any posts, a message and image stating *No posts yet* will be displayed, providing the user with feedback and encouraging them to create posts.
+
+![Profile Page](documentation/images/profile-no-post.png)
+
+- The information that has not been edited won't be displayed using React Conditional Rendering.
+
+![Profile Page](documentation/images/profile-conditional.png)
 
 
+## Edit Profile Page
+
+The user can customize your own profile. The Edit Profile Page comes with prepopulated data, making it easier for users to quickly update their profile information without having to re-enter existing data. The empty data won't be displayed.
+
+- Menu
+![Profile Edit Page](documentation/images/profile-edit.png)
+
+- Inputs
+
+![Profile Edit Page](documentation/images/profile-edit-inputs.png)
+
+- Edited
+
+![Profile Edit Page](documentation/images/profile-edited.png)
+
+
+## Change Username
+
+The Change Username functionality comes prepopulated with the user's current username. The username is unique and if the user tries to change their username to an existing one, a notification and an error message will be displayed.
+
+- Menu
+
+![Change Username](documentation/images/change%20username.png)
+
+- Input 
+
+![Change Username](documentation/images/change-username-confirm.png)
+
+- Attempt to change username to an existing one
+
+![Change Username](documentation/images/change-username-error.png)
+
+- Success message
+
+![Change Username](documentation/images/change-username-success.png)
+
+
+## Change Password
+
+To enhance the security of users' accounts, the application provides an option for users to change their password, giving them greater control over the protection of their personal information. The user need to type the new password and confirm the new password to avoid mistakes.
+
+- Menu
+
+![Change Password](documentation/images/change-password.png)
+
+- Input 
+
+![Change Password](documentation/images/change-password-inputs.png)
+
+- Attempt to change password with differents passwords
+
+![Change Password](documentation/images/change-password-error.png)
+
+- Success message
+
+![Change Username](documentation/images/change-password-success.png)
+
+## Contact Page
+
+The Contact Page provides users with the option to send a message to the backend API. As a future improvement, a dropdown menu can be added to allow users to select the type of inquiry they wish to make, making the process more streamlined and efficient. A notification pop-up feature has also been added to let the user know that their message has been received.
+
+- Attempt to send empty form.
+
+![Contact Page](documentation/images/contact-error.png)
+
+- Contact Form
+
+![Contact Form](documentation/images/contact.png)
+
+- The backend receives the message from Contact Form.
+
+![Contact Message in the backend](documentation/images/contact-received.png)
+
+
+## 404 Error Page
+
+A custom 404 Error Page has been implemented to improve the user experience in cases where the user enters an incorrect URL. This page provides a clear and easy-to-use message, guiding the user back to the site's home page via a button or Navbar.
+
+![Error Page](documentation/images/not-found-page.png)
 
 
 ## Notifications
 
-![Notification](documentation/images/notification-signout.png)
+React Notifications have been used in the app to enhance the user experience by providing real-time feedback and alerts to the user. The users are immediately notified of any changes or actions taken within the app, such as successful logins, errors or notifications for removing content. 
 
+![Notification](documentation/images/notification-comment.png)
+![Notification](documentation/images/notification-comment-delete.png)
+![Notification](documentation/images/notification-post-delete.png)
+![Notification](documentation/images/notification-signout.png)
+![Notification](documentation/images/notification-error.png)
+![Notification](documentation/images//notification-bookmark.png)
 
 
 *** 
 
-## Future implementations
+## 🧠 Future implementations 
 
-## Accessibility
+Besides the features were registered as Won't Have in the MoSCoW prioritization in the User Stories, the future implementations I would like to:
 
-## Security Features and Defensive Design
+* Prepopulate the login fields after a user registers on the site and is redirected to the login page - this is good UX as we shouldn't expect a user to fill in the form with information we already have.
+* Filter for trip type
+* Buildin Photo Picker and Editor
+* Business Profile
+* Advertisements
+* App for smartphones
+* Events page
+* Groups
+* Ability for users to log in via social networks such as Google or Facebook
+* Ability to delete own account
+* Notifications when other user like or bookmark your post 
+* Notifications when another user start to follow you
+* Pages to display all users, followers and following profiles
+* Birthday reminders for followed users
+
+## 🗣️ Accessibility
+
+I have been mindful during coding to ensure that the website is as accessible friendly as possible. This has been have achieved by:
+
+* Using semantic.
+* Using descriptive alt attributes on images on the site.
+* Providing information for screen readers where there are icons used and no text.
+* Ensuring that there is a sufficient colour contrast throughout the site.
+
+## ⚒️ Security Features and Defensive Design
 
 ### Form Validation
 
@@ -700,6 +829,7 @@ A simple react component for adding a star rating
 - [Spinners](https://react-bootstrap.netlify.app/docs/components/spinners/)
 - [Coverage.py](https://coverage.readthedocs.io/en/7.2.7/)
 - [Star Rating](https://www.npmjs.com/package/react-simple-star-rating)
+- [React Conditiona Rendering](https://react.dev/learn/conditional-rendering)
 
 
 
