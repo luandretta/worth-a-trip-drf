@@ -57,7 +57,7 @@ test("renders Sign in and Sign up buttons again on log out, check links", async 
   ).not.toBeInTheDocument();
   expect(screen.queryByRole("link", { name: "Feed" })).not.toBeInTheDocument();
   expect(
-    screen.queryByRole("link", { name: "Desired" })
+    screen.queryByRole("link", { name: "Bookmarks" })
   ).not.toBeInTheDocument();
 });
 
@@ -75,7 +75,7 @@ test("renders logged-in navigation items when user is authenticated", async () =
   expect(screen.getByRole("link", { name: "Add post" })).toBeInTheDocument();
   expect(screen.getByRole("link", { name: "Feed" })).toBeInTheDocument();
   expect(screen.getByRole("link", { name: "Liked" })).toBeInTheDocument();
-  expect(screen.getByRole("link", { name: "Desired" })).toBeInTheDocument();
+  expect(screen.getByRole("link", { name: "Bookmarks" })).toBeInTheDocument();
   expect(screen.getByRole("link", { name: "avatar Profile" })).toBeInTheDocument();
   expect(screen.getByRole("link", { name: "Sign out" })).toBeInTheDocument();
   expect(screen.queryByText("Sign in")).toBeNull();

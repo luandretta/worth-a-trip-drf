@@ -18,7 +18,7 @@ const NotFound = () => {
         className={`${styles.NotFound} justify-content-center mt-2`}
         src={NoResults}
         fluid
-        message={<h5>Sorry, the page you're looking for doesn't exist</h5>}
+        message={`Sorry, the page you're looking for doesn't exist`}
       />
       <Link to="/">
         <Button
