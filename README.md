@@ -486,6 +486,9 @@ I have been mindful during coding to ensure that the website is as accessible fr
 
 A warning message will appear to the user when inaccurate or empty data is entered into a form, identifying the specific field that caused the issue. This prevents the form from being submitted until the issue is resolved, ensuring that only accurate and complete data is processed.
 
+### Permissions
+
+Greater control of user activity through permissions on the views of each app in the backend ensures a defensive programming as well.
 
 ## ✔️ Detailed page and component breakdown
 
@@ -552,7 +555,7 @@ The NotFound component is used to inform users that the page they're trying to a
 
 ### `ErrorModal.js`
 
-The ErrorModal component serves as a notification system for displaying error messages to the user using the try, cach blocks.
+The ErrorModal component serves as a notification system for displaying error messages to the user using the try catch blocks and will be implemented in the future.
 
 ## Most reused components
 
@@ -755,6 +758,30 @@ The following list will give a brief overview of the avaliable API endpoints.
 | /contact/:id | GET <br> DELETE| retrive a contact by id <br>delete a contact by id| DETAIL |
 
 
+##  ⛑ Programs Used 
+
+
+[Pip](https://pypi.org/project/pip/) - Tool for installing python packages.
+
+[Balsamiq](https://balsamiq.com/) - Used to create wireframes.
+
+[Git](https://git-scm.com/) - For version control.
+
+[Github](https://github.com/) - To save and store the files for the website.
+
+[Gitpod](https://gitpod.io/workspaces) - Cloud-based IDE for development.
+
+[Heroku](https://git-scm.com/) -  Hosting the deployed back-end site.
+
+[Google Fonts](https://fonts.google.com/) - To import the fonts used on the website.
+
+[Canva](https://canva.com/) - To create logo and images.
+
+[Google Chrome Dev Tools](https://developer.chrome.com/docs/devtools/) - To troubleshoot and test features, solve issues with responsiveness and styling.
+
+[Am I Responsive?](http://ami.responsivedesign.is/) To show the website image on a range of devices.
+
+[Shields.io](https://shields.io/) To add badges to the README.
 
 
 ## Frameworks, libraries and dependencies
@@ -803,19 +830,226 @@ Provides country choices for use with forms, flag icons static files, and a coun
 
 A simple react component for adding a star rating
 
+- - -
 
 
-## Deployment steps
+## 👩‍💻 Deployment & Local Development
+
+Steps taken to prepare for deployment:
+
 - add prebuild script
 - add Procfile
-- remove all console.logs
-- use Bootstrap default imports to minimize the build
-- deploy to Heroku
+- remove all console.logs and prints
+- use Bootstrap default imports to minimize the build in React 
+- collect the admin and DRF staticfiles with the followin command in the terminal:
+  ```bash
+    python3 manage.py collectstatic
+  ```
+- compile the React application and move its files to the staticfiles folder. In the terminal, cd into the frontend directory typing:
+  ```bash
+    cd frontend
+  ```
+- Run the command to compile and move the React files:
+  ```bash
+    npm run build && mv build ../staticfiles/.
+  ```
+**Info**: You will need to re-run this command any time you want to deploy changes to the static files in your project, including the React code. To do this, you need to delete the existing build folder and rebuild it.
+This command will delete the old folder and replace it with the new one: npm run build && rm -rf ../staticfiles/build && mv build ../staticfiles/.
+  ```bash
+    npm run build && rm -rf ../staticfiles/build && mv build ../staticfiles/.
+  ```
+
+- Create a new file in the root directory named runtime.txt
+
+- Inside the runtime.txt, add the following line:
+`python-3.9.16`
+
+- In the `env.py` file, ensure that both the DEBUG and DEV enviroment varibles are comment out.
+
+- Run the Django server, in the terminal type:
+`python3 manage.py runserver`, then open the preview on port 8000 to check that your application is runnig. The React server should be not be running. This is a test to check that Django is serving the React static files.
+
+- Commit and push the changes.
+
+### How to Fork
+
+To fork the repository:
+
+1. Log in (or sign up) to Github.
+
+2. Go to the repository for this project, [Worth a Trip](https://github.com/luandretta/worth-a-trip-drf).
+
+3. Click the Fork button in the top right corner.
+
+
+### How to Clone
+
+To clone the repository:
+
+1. Log in (or sign up) to GitHub.
+
+2. Go to the repository for this project, [Worth a Trip](https://github.com/luandretta/worth-a-trip-drf).
+
+3. Click on the code button, select whether you would like to clone with HTTPS, SSH or GitHub CLI and copy the link shown.
+
+4. Open the terminal in your code editor and change the current working directory to the location you want to use for the cloned directory.
+
+5. Type the following command in the terminal (after the git clone you will need to paste the link you copied in step 3 above):
+
+    ```bash
+    git clone https://github.com/luandretta/worth-a-trip-drf
+    ```
+
+6. Set up a virtual environment (this step is not required if you are using the Code Institute Template in GitPod as this will already be set up for you).
+
+7. Install the packages from the requirements.txt file by running the following command in the Terminal:
+
+    ```bash
+    pip3 install -r requirements.txt
+    ```
+
+## 🐘 ElephantSQL Database
+
+This project uses [ElephantSQL](https://www.elephantsql.com) for the PostgreSQL Database.
+
+To obtain your own Postgres Database, sign-up with your GitHub account, then follow these steps:
+- Click **Create New Instance** to start a new database.
+- Provide a name (this is commonly the name of the project: tribe).
+- Select the **Tiny Turtle (Free)** plan.
+- You can leave the **Tags** blank.
+- Select the **Region** and **Data Center** closest to you.
+- Once created, click on the new database name, where you can view the database URL and Password.
+
+## Cloudinary API 
+
+This project uses the [Cloudinary API](https://cloudinary.com) to store media assets online, due to the fact that Heroku doesn't persist this type of data.
+
+To obtain your own Cloudinary API key, create an account and log in.
+- For *Primary interest*, you can choose *Programmable Media for image and video API*.
+- Optional: *edit your assigned cloud name to something more memorable*.
+- On your Cloudinary Dashboard, you can copy your **API Environment Variable**.
+- Be sure to remove the `CLOUDINARY_URL=` as part of the API **value**; this is the **key**.
+
+### Heroku Deployment
+
+This project uses [Heroku](https://www.heroku.com), a platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud.
+
+Deployment steps are as follows, after account setup:
+
+- Select **New** in the top-right corner of your Heroku Dashboard, and select **Create new app** from the dropdown menu.
+- Your app name must be unique, and then choose a region closest to you (EU or USA), and finally, select **Create App**.
+- From the new app **Settings**, click **Reveal Config Vars**, and set your environment variables.
+
+| Key | Value |
+| --- | --- |
+| `CLOUDINARY_URL` | Insert your own Cloudinary API key here |
+| `DATABASE_URL` | Insert your own ElephantSQL database URL here |
+| `DISABLE_COLLECTSTATIC` | 1 (*this is temporary, and can be removed for the final deployment*) |
+| `SECRET_KEY` | This can be any Django random secret key |
+| `CLIENT_ORIGIN` | This is your own URL of your combined project. Keep the https:// at the beggining but remove the trailing slash at the end.
+
+Heroku needs two additional files in order to deploy properly.
+- requirements.txt
+- Procfile
+
+You can install this project's **requirements** (where applicable) using:
+```bash
+pip3 install -r requirements.txt
+```
+
+If you have your own packages that have been installed, then the requirements file needs updated using:
+```bash
+pip3 freeze --local > requirements.txt
+```
+
+The **Procfile** can be created with the following command:
+```bash
+echo web: gunicorn app_name.wsgi > Procfile
+```
+- *replace **app_name** with the name of your primary Django app name; the folder where settings.py is located*
+
+For Heroku deployment, follow these steps to connect your own GitHub repository to the newly created app:
+
+Either:
+- Select **Automatic Deployment** from the Heroku app.
+
+Or:
+- In the Terminal/CLI, connect to Heroku using this command: 
+```bash
+heroku login -i
+```
+
+- Set the remote for Heroku: 
+```bash
+heroku git:remote -a app_name #(replace *app_name* with your app name)
+```
+
+- After performing the standard Git `add`, `commit`, and `push` to GitHub, you can now type:
+```bash
+git push heroku main
+```
+The project should now be connected and deployed to Heroku!
+
+
+### Local Deployment
+
+This project can be cloned or forked in order to make a local copy on your own system.
+
+For either method, you will need to install any applicable packages found within the *requirements.txt* file.
+- `pip3 install -r requirements.txt`.
+
+You will need to create a new file called `env.py` at the root-level,
+and include the same environment variables listed above from the Heroku deployment steps.
+
+Sample `env.py` file:
+
+```python
+import os
+
+os.environ.setdefault("CLOUDINARY_URL", "insert your own Cloudinary API key here")
+os.environ.setdefault("DATABASE_URL", "insert your own ElephantSQL database URL here")
+os.environ.setdefault("SECRET_KEY", "this can be any random secret key")
+os.environ.setdefault("CLIENT_ORIGIN", "insert your URL from port 8000")
+os.environ.setdefault("ALLOWED_HOST", "insert your URL from port 8000 without https://")
+
+# local environment only (do not include these in production/deployment!)
+os.environ.setdefault("DEBUG", "True")
+```
+
+Once the project is cloned or forked, in order to run it locally, you'll need to follow these steps:
+- Start the Django app: 
+```bash
+python3 manage.py runserver
+```
+- Stop the app once it's loaded: `CTRL+C` or `⌘+C` (Mac)
+- Make any necessary migrations:
+```bash
+python3 manage.py makemigrations
+```
+- Migrate the data to the database:
+```bash
+python3 manage.py migrate
+```
+- Create a superuser:
+```bash
+python3 manage.py createsuperuser
+```
+- Run the Django app:
+```bash
+python3 manage.py runserver
+```
+
+- - -
+
+## 💬 Testing 
+
+Please see [TESTING.md](TESTING.md) for all testing performed.
 
 ## Credits
 
 ### Source
 
+- [Code Institute - *'Moments'* walkthrough project](https://github.com/Code-Institute-Solutions/moments)
 - [Django Rest Framework](https://www.django-rest-framework.org/api-guide/serializers)
 - [React Bootstrap](https://react-bootstrap.netlify.app/docs/components/navbar/#text-and-non-nav-links)
 - [How to reset Django Database](https://stackoverflow.com/questions/66733285/how-to-reset-django-database)
