@@ -777,11 +777,19 @@ The following list will give a brief overview of the avaliable API endpoints.
 
 [Canva](https://canva.com/) - To create logo and images.
 
-[Google Chrome Dev Tools](https://developer.chrome.com/docs/devtools/) - To troubleshoot and test features, solve issues with responsiveness and styling.
+[Pixlr](https://pixlr.com/x/) - Pixlr was used to resize and remove the background color from logo.
+
+[Google Chrome Tools](https://developer.chrome.com/docs/devtools/) - To troubleshoot and test features, solve issues with responsiveness and styling.
 
 [Am I Responsive?](http://ami.responsivedesign.is/) To show the website image on a range of devices.
 
 [Shields.io](https://shields.io/) To add badges to the README.
+
+[W3C Markup Validator](https://validator.w3.org/)
+
+[JSHint Validator](https://jshint.com/)
+
+[Draw.io](https://app.diagrams.net/) Free online diagram software
 
 
 ## Frameworks, libraries and dependencies
@@ -789,6 +797,10 @@ The following list will give a brief overview of the avaliable API endpoints.
 - Django Rest Framework
 
 A powerful and flexible toolkit for building Web APIs, that offers Authentication policies including packages for OAuth1a and OAuth2 and serialization that supports both ORM and non-ORM data sources.
+
+- React Framework
+
+React allows you to build user interfaces out of individual pieces called components. React components are JavaScript functions.
 
 - Signals
 
@@ -810,13 +822,37 @@ The most popular front-end framework, as one of the oldest React libraries, Reac
 
 To control what the user sees depending on the URL they have accessed in the browser.
 
+- React Dom
+
+React library for rendering components in the DOM.
+
 - Axios
 
 To tell the React project to send requests to the API 
 
+- React Infinite Scroll Component
+
+For implementing infinite scrolling.
+
+- Jwt-Decode
+
+Securely implement authentication with JSON Web Tokens
+
 - Mock Service Worker
 
 To create mock endpoints needed to test NavBar component
+
+- React Notifications
+
+Library for displaying notifications
+
+- Web-vitals
+
+Library for measuring web performance metrics
+
+- Npm Audit
+
+The audit command submits a description of the dependencies configured in your project to your default registry and asks for a report of known vulnerabilities. If any vulnerabilities are found, then the impact and appropriate remediation will be calculated. If the `fix`  argument is provided, then remediations will be applied to the package tree.
 
 - Dayjs
 
@@ -838,9 +874,15 @@ A simple react component for adding a star rating
 Steps taken to prepare for deployment:
 
 - add prebuild script
-- add Procfile
+- Add a Procfile at the root of the project with the following web command:
+  ```bash
+    web: serve -s build
+  ``` 
+- In package.json file, in the “scripts” section, add the following prebuild command
+  `"heroku-prebuild": "npm install -g serve"`, this will install a package needed to serve our single page application on Heroku
 - remove all console.logs and prints
 - use Bootstrap default imports to minimize the build in React 
+- Run `npm audit fix` in the frontend to fix API errors and feedback
 - collect the admin and DRF staticfiles with the followin command in the terminal:
   ```bash
     python3 manage.py collectstatic

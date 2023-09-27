@@ -73,7 +73,7 @@ class PostSerializer(CountryFieldMixin, serializers.ModelSerializer):
             'title', 'country',  'location', 'content', 'image',
             'trip_type', 'like_id', 'likes_count',
             'wish_id', 'wishes_count', 'comments_count',
-            'local_security', 'infrastructure', 'local_population', 
+            'local_security', 'infrastructure', 'local_population',
             'local_access',
         ]
 
