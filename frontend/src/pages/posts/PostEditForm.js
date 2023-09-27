@@ -37,12 +37,13 @@ function PostEditForm() {
     trip_type: "",
   });
   // Destructuring the values from the postData object
-  const { title, country, location, content, image, trip_type } = postData;
+  const { title,  location, content, image, trip_type } = postData;
   // Setting the initial rating value
   const [local_access, setLocal_access] = useState(0);
   const [infrastructure, setInfrastructure] = useState(0);
   const [local_security, setLocal_security] = useState(0);
   const [local_population, setLocal_population] = useState(0);
+  const [country, setCountry] = useState("");
 
   const imageInput = useRef(null);
   // Using the useHistory hook to handle navigation history
@@ -74,6 +75,7 @@ function PostEditForm() {
         setLocal_access(local_access);
         setLocal_security(local_security);
         setLocal_population(local_population);
+        setCountry(country);
         is_owner
           ? 
             setPostData({
@@ -118,6 +120,10 @@ function PostEditForm() {
       [event.target.name]: event.target.value,
     });
   };
+
+  const handleChangeCountry = (e) => {
+    setCountry(e.target.value);
+  }
 
   // Handle image changes
   const handleChangeImage = (event) => {
@@ -198,7 +204,7 @@ function PostEditForm() {
               id="country"
               name="country"
               value={country}
-              onChange={handleChange}
+              onChange={handleChangeCountry}
               rows={7}
             >
               <option value="">Choose country</option>

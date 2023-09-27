@@ -61,6 +61,10 @@ class PostSerializer(CountryFieldMixin, serializers.ModelSerializer):
             return wish.id if wish else None
         return None
 
+    def get_country(self, obj):
+        print(obj.country.name)
+        return obj.country.name
+
     class Meta:
         model = Post
         fields = [
@@ -69,6 +73,11 @@ class PostSerializer(CountryFieldMixin, serializers.ModelSerializer):
             'title', 'country',  'location', 'content', 'image',
             'trip_type', 'like_id', 'likes_count',
             'wish_id', 'wishes_count', 'comments_count',
-            'local_security', 'infrastructure', 'local_population',
+            'local_security', 'infrastructure', 'local_population', 
             'local_access',
         ]
+
+    def to_representation(self, obj):
+        representation = super().to_representation(obj)
+        representation['country'] = obj.country.name
+        return representation
