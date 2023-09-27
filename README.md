@@ -119,7 +119,7 @@ The website was designed with a minimalistic style to align with the site's obje
 ## Colour Scheme
 
 The design is quite simple.
-A light colour scheme is used to ensure that there is a good contrast with the text and to create a clean and visually appealing look across the site. 
+The colour scheme is used to ensure that there is a good contrast with the text and to create a clean and visually appealing look across the site. 
 The scheme establishes a strong contrast between the background colors and text and, at the same time, ensures that the site meets accessibility requirements. 
 Differents shades of gray are used to give more contrast between background and foreground.
 The blau and green colors are present in the buttons and icons.
@@ -141,7 +141,7 @@ The Lemon Tuesday Handwritten Font is a handmade experiment font made with ink a
 
 ![Lemon Tuesday Handwritten Font](documentation/images/lemon-tuesday.png) 
 
-The [Poppins](https://fonts.google.com/specimen/Poppins) was used for the Logo Worth a Trip and header elements. Poppins is one of the Geometric sans serif typefaces have been a popular design tool for building websites. Each letterform is nearly monolinear, with optical corrections applied to stroke joints where necessary to maintain an even typographic color.
+The [Poppins](https://fonts.google.com/specimen/Poppins) was used for header elements. Poppins is one of the Geometric sans serif typefaces have been a popular design tool for building websites. Each letterform is nearly monolinear, with optical corrections applied to stroke joints where necessary to maintain an even typographic color.
 
 ![Font Poppins](documentation/images/poppins.png)
 
@@ -157,14 +157,20 @@ The  [Roboto](https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&dis
 
 ## Wireframes
 
-Wireframes were created for mobile, tablet and desktop using [Balsamiq](https://balsamiq.com/).
+Wireframes were created for mobile and desktop using [Balsamiq](https://balsamiq.com/). 
 
 
-| Page | Desktop | Tablet | Mobile |
-| --- | --- | --- | --- |
-| Home not logged in | ![Home Page](documentation/) | ![Home Page](documentation/)| ![Home Page](documentation/wireframes/home-m.png) |
-| Home logged in | ![Home Page](documentation/wireframes/home.png) | ![Home Page](documentation/)| ![Home Page](documentation/wireframes/home-m.png) |
-| Sign in, Sing up Pages | ![Sign in, Sing up Pages ](documentation/wireframes/sign-in-up.png) | ![Sign in, Sing up Pages ](documentation/)| ![Sign in, Sing up Pages ](documentation/) |
+| Page | Desktop |  Mobile |
+| --- | --- | --- | 
+| Home not logged in | ![Home Page](documentation/) | ![Home Page](documentation/wireframes/home-m.png) |
+| Home logged in | ![Home Page](documentation/wireframes/home.png) | ![Home Page](documentation/wireframes/home-m.png) |
+| Sign in, Sing up Pages | ![Sign in, Sing up Pages ](documentation/wireframes/sign-in-up.png) | ![Sign in, Sing up Pages ](documentation/) |
+| Post Page | ![Post Page](documentation/wireframes/post-page.png) | ![Post Page](documentation/wireframes/post-page-m.png) |
+| Post Create/Edit Form | ![Post Create/Edit Form ](documentation/wireframes/create-post.png) | ![Post Create/Edit Form ](documentation/wireframes/create-post-m.png) |
+| Post Delete | ![Post Delete](documentation/wireframes) | ![Profile Edit](documentation/wireframes/post-delete-m.png) |
+| Profile| ![Profile](documentation/wireframes/profile.png) | ![Profile](documentation/wireframes/profile-m.png) |
+| Profile Edit | ![Profile Edit](documentation/wireframes/profile-edit.png) | ![Profile Edit](documentation/wireframes/profile-edit-m.png) |
+
 
 
 # Features
@@ -344,7 +350,7 @@ The date of birth was edited using `dayjs` library.
 
 ![Profile Page](documentation/images/profile-no-post.png)
 
-- The information that has not been edited won't be displayed using React Conditional Rendering.
+- The information that has not been edited (empty data) won't be displayed using React Conditional Rendering. 
 
 ![Profile Page](documentation/images/profile-conditional.png)
 

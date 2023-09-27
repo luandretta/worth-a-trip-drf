@@ -13,6 +13,6 @@
 }
 
 .SearchIcon:hover {
-  cursor: default;
+  cursor: pointer;
   color: #018031;
 }
