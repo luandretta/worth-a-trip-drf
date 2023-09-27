@@ -100,8 +100,8 @@ The target audience for Worth a Trip is:
 | posts | user| view saved users' posts | go back often to find inpirations for the next trip  | PostsPage  | Must Have |
 | likes | user | like a post  | express my interest in someone's shared trip  | Post like icon   | Must Have |
 | likes | user| unlike a post | express that my interest in someone's shared trip has faded away | Post (un) like icon | Must Have |
-| wishes | user | save a post  | express my interest in someone's shared trip  | Post pin icon   | Could Have |
-| wishes | user| unsave a post | express that my interest in someone's shared trip has faded away | Post (un) pin icon | Could Have |
+| wishes | user | save a post  | express my interest in someone's shared trip  | Post bookmark icon   | Could Have |
+| wishes | user| unsave a post | express that my interest in someone's shared trip has faded away | Post (un) bookmark icon | Could Have |
 | comments | user | create a comment  | share my thoughts on other people's content | PostPage<br>CommentCreateForm | Should Have |
 | comments | user | edit and delete my comment  | correct or hide any mistakes | PostPage<br>Comment<br>MoreDropdownMenu | Should Have |
 | profiles | user | view a profile  | see a user's recent posts, followers, following count data | ProfilePage<br>Post  | Must Have |
@@ -156,21 +156,20 @@ The  [Roboto](https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&dis
 * Pictures were dowloaded from [Pexels](https://www.pexels.com/) and edited at [Canva](https://www.canva.com/)
 
 ## Wireframes
-
 Wireframes were created for mobile and desktop using [Balsamiq](https://balsamiq.com/). 
 
 
 | Page | Desktop |  Mobile |
 | --- | --- | --- | 
-| Home not logged in | ![Home Page](documentation/) | ![Home Page](documentation/wireframes/home-m.png) |
+| Home not logged in | ![Home Page](documentation/wireframes/home-not.png) | ![Home Page](documentation/wireframes/home-m.png) |
 | Home logged in | ![Home Page](documentation/wireframes/home.png) | ![Home Page](documentation/wireframes/home-m.png) |
-| Sign in, Sing up Pages | ![Sign in, Sing up Pages ](documentation/wireframes/sign-in-up.png) | ![Sign in, Sing up Pages ](documentation/) |
+| Sign in, Sing up Pages | ![Sign in, Sing up Pages ](documentation/wireframes/sign-in-up.png) | ![Sign in, Sing up Pages ](documentation/wireframes/sing-m.png) |
 | Post Page | ![Post Page](documentation/wireframes/post-page.png) | ![Post Page](documentation/wireframes/post-page-m.png) |
 | Post Create/Edit Form | ![Post Create/Edit Form ](documentation/wireframes/create-post.png) | ![Post Create/Edit Form ](documentation/wireframes/create-post-m.png) |
-| Post Delete | ![Post Delete](documentation/wireframes) | ![Profile Edit](documentation/wireframes/post-delete-m.png) |
+| Post Delete | ![Post Delete](documentation/wireframes/post-delete.png) | ![Profile Edit](documentation/wireframes/post-delete-m.png) |
 | Profile| ![Profile](documentation/wireframes/profile.png) | ![Profile](documentation/wireframes/profile-m.png) |
 | Profile Edit | ![Profile Edit](documentation/wireframes/profile-edit.png) | ![Profile Edit](documentation/wireframes/profile-edit-m.png) |
-
+| Contact | ![Contact](documentation/wireframes/contact.png) | ![Profile Edit](documentation/wireframes/contact-m.png) |
 
 
 # Features
@@ -188,7 +187,6 @@ The logo is prominently positioned in the top-left corner of the navigation bar.
 ### Navigation Bar
 
 The navigation bar is present on all pages of the website and allows for easy navigation. The Navbar includes a logo and links to various pages. The links on the Navbar will change depending on whether the user is logged into their account or not.
-
 
 
 #### Navbar - not logged in
@@ -542,7 +540,7 @@ This feature works by loading new content into the webpage when the user reaches
 
 ### `Post.js` 
 
-The Post component receives several props that contain information about a post. The component also uses the useCurrentUser hook from a custom context called CurrentUserContext to retrieve the current user. The Post component renders information about the post including its owner, title, image, ratings and the number of comments, likes, and wishes. It also renders the `Avatar.js` component and the `PostDropdownBar.js` component which is only displayed if the current user is the owner of the post and is viewing it on the post detail page. The Post component contains several functions that handle different events like deleting a post, editing a post, liking a post, unliking a post, pin a post, and remove the pin. These functions make API calls using axiosRes. When the user likes or unlikes a post or pin or remove the pin from the post, the Post component updates the posts state by calling the setPosts function passed down as a prop to the component. It updates the  properties of the post object in the posts state. This component is used to display posts on the *'Feed'*, *'Desired'* and *'Liked'* pages. The handle edit and delete redirect to their pages.
+The Post component receives several props that contain information about a post. The component also uses the useCurrentUser hook from a custom context called CurrentUserContext to retrieve the current user. The Post component renders information about the post including its owner, title, image, ratings and the number of comments, likes, and wishes. It also renders the `Avatar.js` component and the `PostDropdownBar.js` component which is only displayed if the current user is the owner of the post and is viewing it on the post detail page. The Post component contains several functions that handle different events like deleting a post, editing a post, liking a post, unliking a post, bookmark a post, and remove the bookmark. These functions make API calls using axiosRes. When the user likes or unlikes a post or pin or remove the pin from the post, the Post component updates the posts state by calling the setPosts function passed down as a prop to the component. It updates the  properties of the post object in the posts state. This component is used to display posts on the *'Feed'*, *'Desired'* and *'Liked'* pages. The handle edit and delete redirect to their pages.
 
 ### `PostDelete.js`
 

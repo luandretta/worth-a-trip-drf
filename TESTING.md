@@ -254,6 +254,7 @@ The process and outcomes of manual testing to test each feature are described be
 |  |   | Heart Icon  | hover  | Display message to log in to like posts| pass |
 |  |   | Comment Icon  | click  | Redirect to post detail page | pass |
 |  |   | Bookmark Icon |  hover | Display message to log in to bookmark posts| pass |
+|  |   | Popular Profiles |  display | Display Avatar and username without follow button| pass |
 |  | **Post Detail** <br>logged out  | Comments section  | display  | Avatar, comment date and comment | pass |
 |  |   |  Avatar (comment) |  click |Redirect to comment owners profile | pass |
 |  |   |  no comments  |  | Display no comments message| pass |
@@ -272,6 +273,7 @@ The process and outcomes of manual testing to test each feature are described be
 |  |   | Bookmark Icon  | hover  | If the currently logged-in user is the owner of the post display 'Sorry, you can't bookmark your own posts' text| pass |
 |  |   | Bookmark Icon  | click  | Post saved to Bookmarks<br>Change the icon to solid and green color<br>Count increase by 1<br>Displays notification | pass |
 |  |   | Solid bookmark Icon  | click  | Post removed from Bookmarks<br>Change the icon to regular and blue color<br>Count decrease by 1<br>Displays notification | pass |
+|  |   | Popular Profiles |  display | Display Avatar, username and follow/unfollow button| pass |
 |  | **Post-owner** | Menu  | display  | If the user is the owner of the post display edit/delete menu | pass |
 |  |  |   | hover  | Change color to green<br>Pointer cursor | pass |
 |  | | Edit icon  | hover  | Change color to green<br>Pointer cursor<br>Add background color | pass |
@@ -293,7 +295,7 @@ The process and outcomes of manual testing to test each feature are described be
 |  |  | Create Button  | hover  | Change color | pass 
 |  |  |   | click  | With valid data: redirect to new post page<br>Success notification | pass |
 |  |  |   | click  | All fields required else error notification and specified error on input field | pass |
-|  | **Edit Post Page** |  All inputs | display  |  Prepopulated inputs | Rate fail |
+|  | **Edit Post Page** |  All inputs | display  |  Prepopulated inputs | pass |
 |  |  | Change image button  | hover  | Change color | pass |
 |  |  |   |  click | Opens computer to select a new image | pass |
 |  |  | Image selected  |  display | New image is displayed to upload | pass |
@@ -319,7 +321,7 @@ The process and outcomes of manual testing to test each feature are described be
 |  |  | Posts Count  | display  | Display a users total posts count | pass |
 |  |  | Followers Count  | display  | Display a users total followers count | pass |
 |  |  | Following Count  | display  | Display a users total following count | pass |
-|  |  |  | When a user follows a user from the most followed component the following count increments by one | pass|
+|  |  | | | When a user follows a user from the most followed component the following count increments by one | pass|
 |  |  | Follow button  |  missing | Visitors cannot follow an user | pass |
 |  |  | Users post | display  | If a user has not created a post display No results found text & image| pass |
 |  |  |   | display  | Users post using the Post component | pass |
@@ -335,7 +337,7 @@ The process and outcomes of manual testing to test each feature are described be
 |  |  | Unfollow button  |  display | If the user is not the owner of the profile and is following another user, display a unfollow button| pass |
 |  |  |   | hover  | Change color | pass |
 |  |  |  | click | User will not be followed anymore<br>The users followers count decrements by one<br>Button change to follow<br>Update database<br>The unfollowed users posts won't be displayed on Feed page<br>Success notification | pass |
-|  |  | Users post | display  | If a user has not created a post display No results found text & image| |
+|  |  | Users post | display  | If a user has not created a post display No results found text & image| pass |
 |  |  |   | display  | Users post using the Post component | pass |
 |  |  | Profile Menu  | hover  | Change color | pass |
 |  |  |   | click  | Open Profile Dropdown menu | pass |
