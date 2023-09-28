@@ -59,9 +59,9 @@ function PostsPage({ message, filter = "" }) {
   }, [filter, query, pathname, currentUser]);
 
   return (
-    <Row className="h-100">
-      <Col className="py-2 p-0 p-lg-2 mt-3" lg={8}>
-        <h3 className="text-center mt-4">Welcome to Worth a Trip</h3>
+    <Row >
+      <Col className="mt-4" lg={8}>
+        <h3 className="text-center mt-5">Welcome to Worth a Trip</h3>
       </Col>
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <PopularProfiles mobile />

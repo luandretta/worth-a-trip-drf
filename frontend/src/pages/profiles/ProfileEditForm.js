@@ -207,7 +207,7 @@ const ProfileEditForm = () => {
   return (
     <Form onSubmit={handleSubmit}>
       <Row>
-        <Col className="py-2 p-0 p-md-2 text-center" md={7}>
+        <Col className="py-2 p-0 p-md-2 text-center mt-4" md={7}>
           <Container className={appStyles.Content}>
             <Form.Group>
               {bg_pic && (
@@ -275,10 +275,10 @@ const ProfileEditForm = () => {
                 }}
               />
             </Form.Group>
-            <div className="d-md-none">{textFields}</div>
+            <div className="d-md-none ">{textFields}</div>
           </Container>
         </Col>
-        <Col className="d-none d-md-block p-0 p-md-2 text-center">
+        <Col className="d-none d-md-block p-0 p-md-2 mt-4 text-center">
           <Container className={appStyles.Content}>{textFields}</Container>
         </Col>
       </Row>

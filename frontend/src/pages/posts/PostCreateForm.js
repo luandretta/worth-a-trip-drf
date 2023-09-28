@@ -464,7 +464,7 @@ function PostCreateForm() {
   return (
     <Form onSubmit={handleSubmit}>
       <Row>
-        <Col className="py-2 p-0 p-md-2" md={7} lg={12}>
+        <Col className="py-2 p-0 p-md-2 mt-3" md={10} lg={12}>
           <Container
             className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center text-center mt-3`}
           >
@@ -510,9 +510,8 @@ function PostCreateForm() {
               </Alert>
             ))}
 
-            <div className="d-md-none">{textFields}</div>
+            <div >{textFields}</div>
           </Container>
-          <Container className={appStyles.Content}>{textFields}</Container>
         </Col>
       </Row>
     </Form>
