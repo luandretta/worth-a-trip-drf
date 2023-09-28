@@ -44,15 +44,13 @@ The goal of this project was to build a full featured image sharing service as a
 
 The Agile Tool was used to help to organize and prioritize the tasks using Project Boards on GitHub.
 
-In the first instance a spreadsheet was created to help gather details by theme to later define the epics. Themes: Account Management, Profile, Post Pool, Navigation and Admin.
+The issues were created for each User Story, which was then allocated to a milestone and labels are added.
 
-The issues were created for each User Story, which was then allocated to a milestone (Epic) in Github before the repositories (front-end and back-end) were unified.
+![Issues](documentation/images/issues.png)
 
-![](documentation/images/issues.png)
+A Template for issues was created to speed up the process of adding User Stories to this project.
 
-[Issues in frontend repo](https://github.com/luandretta/worth-a-trip-frontend/issues?page=1&q=is%3Aissue+is%3Aopen)
-
-A Template for issues was created to speed up the process of adding User Stories to this project. 
+![Template](documentation/images/user-story-template.png)
 
 * In the repositorie, head over to the settings, then Set Up Templates on the Features. The Issue Template helps to add enough information to the card, so the Developer knoks what are the MVP Points to address.
 
@@ -65,11 +63,19 @@ The MoSCow priorization and customized labels to user stories were used to prior
 * Could Have: has small impact if left out (the rest ~20% of stories)
 * Won't Have: not a priority for this iteration
 
+![Labels](documentation/images/labels.png)
+
 The allocation the User Stories to Milestones helps in planning the Sprints. 3 Milestones were created: Minimum Viable Product (MVP) realease, CRUD and Add Authentication and Account functionality.
+
+![Milestones](documentation/images/milestones.png)
 
 The Kanban Board, as an agile project management tool, helped to visualize the tasks and limit the work in progress (WIP) by moving cards between the Todo, Backend - DRF, Frontend - React, Test and Done columns.
 
+![Kanban Board](documentation/images/kanban.png)
+
 The Table View was used to sorted the issus according to labels, milestones or status.
+
+![Table](documentation/images/table-agile.png)
 
 ## User Stories
 
@@ -86,16 +92,16 @@ The target audience for Worth a Trip is:
 
 | Category  | as| I want to | so that I can | UI components  | MoSCow |
 | --------- | ------- | -------------- | -----------------------  | ---------| --------- |
-| auth | user| register for an account | have a personal profile with a picture| SignUpForm<br>ProfilePage<br>ProfileEditForm | Must Have |
-| auth | user | register for an account  | create, like, bookmarkt and comment on posts | Post<br>PostPage<br>Comment | Must Have |
-| auth | user | register for an account | follow anothers users | Profile<br>ProfilePage| Should Have |
+| auth | user| register for an account | have a personal profile with a picture| SignUpForm<br>SignInForm<br>ProfilePage<br>ProfileEditForm | Must Have |
+| auth | user | register for an account  | create, like, bookmarkt and comment on posts | Post<br>PostCreateForm<br>PostPage<br>Comment | Must Have |
+| auth | user | register for an account | follow anothers users | Profile<br>ProfilePage<br>PopularProfiles| Should Have |
 | posts | visitor | view a list of posts | browse the most recent uploads | PostsPage  | Must Have |
 | posts | visitor | view an individual post | see user feedback, i.e. likes and read comments  | Post<br>PostPage | Should Have |
 | posts | visitor | search a list of posts | find a post by title or city or triptype| PostsPage | Should Have |
-| posts | visitor | scroll through a list of posts | browse the site more comfortably | InfiniteScrollComponent | Could Have |
+| posts | visitor | scroll through a list of posts | browse the site more comfortably | InfiniteScroll  | Could Have |
 | posts | user | create a post  | share my trips with others | PostCreateForm | Must Have |
-| posts | user| edit and delete my post | correct or hide any mistakes  | PostEditForm<br>MoreDropdownMenu | Must Have |
-| posts | user | view liked and bookmarket posts  | go back often to my favourite and desired posts | PostsPage | Should Have |
+| posts | user| edit and delete my post | correct or hide any mistakes  | PostEditForm<br>MoreDropdownMenu<br>PostDelete | Must Have |
+| posts | user | view liked posts  | go back often to my favourite posts | PostsPage | Should Have |
 | posts | user| view followed users' posts | keep up with my favourite users' trips  | PostsPage  | Should Have |
 | posts | user| view saved users' posts | go back often to find inpirations for the next trip  | PostsPage  | Must Have |
 | likes | user | like a post  | express my interest in someone's shared trip  | Post like icon   | Must Have |
@@ -104,13 +110,23 @@ The target audience for Worth a Trip is:
 | wishes | user| unsave a post | express that my interest in someone's shared trip has faded away | Post (un) bookmark icon | Could Have |
 | comments | user | create a comment  | share my thoughts on other people's content | PostPage<br>CommentCreateForm | Should Have |
 | comments | user | edit and delete my comment  | correct or hide any mistakes | PostPage<br>Comment<br>MoreDropdownMenu | Should Have |
-| profiles | user | view a profile  | see a user's recent posts, followers, following count data | ProfilePage<br>Post  | Must Have |
+| profiles | user | view a profile  | see a user's recent posts; followers, following count data | ProfilePage<br>Post<br>Follow/Unfollow Button  | Must Have |
 | profiles | user | edit a profile | update my profile information | ProfileEditForm  | Must Have |
 | followers | user | follow a profile | express my interest in someone's content  | Profile follow button | Could Have |
 | followers | user | unfollow a profile | express that my interest in someone's content has faded away and remove their posts from my feed | Profile (un) follow button |  Could Have |
-| contact | user | get in touch with the website creator | clear up my doubts | Contact | Must Have |
+| contact | user | get in touch with the website creator | clear up my doubts | Contact Form| Must Have |
+| contact | admin | receive messages from users | answer their questions | Admin Panel | Must Have |
 
-The User Stories with the MoSCow priorization as "Won't Have" will be listed in the futures implementations.
+The User Stories with the MoSCow priorization as "Won't Have" are be listed separate and are not implemented:
+
+| Category  | as| I want to | so that I can | UI components  | 
+| --------- | ------- | -------------- | -----------------------  | ---------|
+| register | user | register for an account by using one of my social media accounts | use an alternative method of signin up | Sing Up Form |
+| messages | user | send and receive messages | get in touch with others users privately | Message | 
+| register | user | delete my account | remove myself from the app | ProfileDeleteForm |
+| profiles | user | receives birthday alerts for my connections | send a personalized birthday comment | Notification |
+
+- - - 
 
 # 🎨 Design 
 
@@ -172,9 +188,9 @@ Wireframes were created for mobile and desktop using [Balsamiq](https://balsamiq
 | Contact | ![Contact](documentation/wireframes/contact.png) | ![Profile Edit](documentation/wireframes/contact-m.png) |
 
 
-# Features
+# ⚙️ Features
 
-⚙️ Scope of functionalities
+Scope of functionalities
 
 ## Header
 
@@ -1115,6 +1131,17 @@ Please see [TESTING.md](TESTING.md) for all testing performed.
 - [Coverage.py](https://coverage.readthedocs.io/en/7.2.7/)
 - [Star Rating](https://www.npmjs.com/package/react-simple-star-rating)
 - [React Conditiona Rendering](https://react.dev/learn/conditional-rendering)
+
+
+## 👋 Acknowledgements
+
+I would like to acknowledge the following people who helped me along the way in completing this project: 🫶
+
+- first, I would like to thank my family, for their continuous support and understanding while working on the development of this project! ❤️
+
+- I'd like to thank my mentor **Aleksei Konovalov** for his insights and guidance that were incredibly valuable.
+
+- Stackoverflow and Slack community, because someone has ever had the same doubt as me... 🤡
 
 
 

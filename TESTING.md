@@ -449,5 +449,7 @@ npm test
 
 ![Test Components](documentation/testing/test-components.png)
 
+*Note:* the `NavBar.test.js` needs to be rewritten due to the implementation of the sign out modal, which was implemented after this test.
+
 
 Return back to the [README.md](README.md) file.
