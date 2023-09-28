@@ -102,18 +102,18 @@ The target audience for Worth a Trip is:
 | posts | user | create a post  | share my trips with others | PostCreateForm | Must Have |
 | posts | user| edit and delete my post | correct or hide any mistakes  | PostEditForm<br>MoreDropdownMenu<br>PostDelete | Must Have |
 | posts | user | view liked posts  | go back often to my favourite posts | PostsPage | Should Have |
-| posts | user| view followed users' posts | keep up with my favourite users' trips  | PostsPage  | Should Have |
-| posts | user| view saved users' posts | go back often to find inpirations for the next trip  | PostsPage  | Must Have |
+| posts | user| view followed users' posts | keep up with my favourite users' trips  | PostsPage  | Must Have |
+| posts | user| view saved users' posts | go back often to find inpirations for the next trip  | PostsPage  | Should Have |
 | likes | user | like a post  | express my interest in someone's shared trip  | Post like icon   | Must Have |
 | likes | user| unlike a post | express that my interest in someone's shared trip has faded away | Post (un) like icon | Must Have |
 | wishes | user | save a post  | express my interest in someone's shared trip  | Post bookmark icon   | Could Have |
 | wishes | user| unsave a post | express that my interest in someone's shared trip has faded away | Post (un) bookmark icon | Could Have |
-| comments | user | create a comment  | share my thoughts on other people's content | PostPage<br>CommentCreateForm | Should Have |
-| comments | user | edit and delete my comment  | correct or hide any mistakes | PostPage<br>Comment<br>MoreDropdownMenu | Should Have |
+| comments | user | create a comment  | share my thoughts on other people's content | PostPage<br>CommentCreateForm | Must Have |
+| comments | user | edit and delete my comment  | correct or hide any mistakes | PostPage<br>Comment<br>MoreDropdownMenu | Must Have |
 | profiles | user | view a profile  | see a user's recent posts; followers, following count data | ProfilePage<br>Post<br>Follow/Unfollow Button  | Must Have |
 | profiles | user | edit a profile | update my profile information | ProfileEditForm  | Must Have |
-| followers | user | follow a profile | express my interest in someone's content  | Profile follow button | Could Have |
-| followers | user | unfollow a profile | express that my interest in someone's content has faded away and remove their posts from my feed | Profile (un) follow button |  Could Have |
+| followers | user | follow a profile | express my interest in someone's content  | Profile follow button | Should Have |
+| followers | user | unfollow a profile | express that my interest in someone's content has faded away and remove their posts from my feed | Profile (un) follow button |  Should Have |
 | contact | user | get in touch with the website creator | clear up my doubts | Contact Form| Must Have |
 | contact | admin | receive messages from users | answer their questions | Admin Panel | Must Have |
 
@@ -259,6 +259,10 @@ By accessing the 'Add Post' link located in the navigation bar, users can easily
 The user need to upload an image, type a title and city, choose the country and trip type, rate the trip and can share more informations.
 
 ![Post Create Form](documentation/images/create-post.png)
+
+If the image size is larger than 2MB the post won't be created due to the image filter in the backend and will display a message.
+
+![Post Create Form](documentation/images/image-filter.png)
 
 ## Post Detail Page
 
@@ -466,7 +470,7 @@ React Notifications have been used in the app to enhance the user experience by 
 
 ## 🧠 Future implementations 
 
-Besides the features were registered as Won't Have in the MoSCoW prioritization in the User Stories, the future implementations I would like to:
+Besides the features were registered as Won't Have in the MoSCoW prioritization in the User Stories, the future implementations I would like to implement:
 
 * Prepopulate the login fields after a user registers on the site and is redirected to the login page - this is good UX as we shouldn't expect a user to fill in the form with information we already have.
 * Filter for trip type
@@ -814,6 +818,10 @@ The following list will give a brief overview of the avaliable API endpoints.
 
 A powerful and flexible toolkit for building Web APIs, that offers Authentication policies including packages for OAuth1a and OAuth2 and serialization that supports both ORM and non-ORM data sources.
 
+- Django Rest Auth
+
+Provides a set of REST API endpoints for Authentication and Registration
+
 - React Framework
 
 React allows you to build user interfaces out of individual pieces called components. React components are JavaScript functions.
@@ -821,6 +829,14 @@ React allows you to build user interfaces out of individual pieces called compon
 - Signals
 
 Signals allow certain senders to notify a set of receivers that some action has taken place. They’re especially useful when many pieces of code may be interested in the same events.
+
+- Django Cors Headears
+
+Adds Cross-Origin Resource Sharing (CORS) headers to responses.
+
+- Django Filter
+
+Declaratively add dynamic QuerySet filtering from URL parameters.
 
 - Serializers
 
@@ -850,6 +866,10 @@ To tell the React project to send requests to the API
 
 For implementing infinite scrolling.
 
+- Gunicorn
+
+A Python WSGI HTTP Server for UNIX.
+
 - Jwt-Decode
 
 Securely implement authentication with JSON Web Tokens
@@ -861,6 +881,10 @@ To create mock endpoints needed to test NavBar component
 - React Notifications
 
 Library for displaying notifications
+
+- Pillow
+
+Adds image processing capabilities to your Python interpreter
 
 - Web-vitals
 

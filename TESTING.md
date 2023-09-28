@@ -4,7 +4,7 @@ For a proper conclusion to this project several tests were performed.
 
 Return back to the [README.md](README.md) file.
 
-## RESPONSIVENESS TESTING
+## 👩‍💻 RESPONSIVENESS TESTING
 
 The application was tested on multiple devices to check for responsiveness issues. Used DevTool to test on ipad and small devices.
 
@@ -23,7 +23,7 @@ The site has been tested through Google's [Mobile friendly test](https://search.
 
 ![Mobile Friendly Test](documentation/testing/mobile.png)
 
-## BROWSER COMPABILITY TESTING
+## 👩‍💻 BROWSER COMPABILITY TESTING
 
 The deployed project was tested on multiple browsers to check for compatibility issues and works as expected.
 
@@ -34,7 +34,7 @@ The deployed project was tested on multiple browsers to check for compatibility 
 | Internet Explorer - Mobile |  ![Internet Explorer](documentation/testing/explorer.jpg)  |
 
 
-## ☠️ BUGS RESOLVED AND UNRESOLVED ☠️
+## ☠️ BUGS RESOLVED  ☠️
 
 The issues listed in the table below were indentified during the development of the project.
 
@@ -42,10 +42,15 @@ The issues listed in the table below were indentified during the development of 
 |:---|:--- |:--- |:--- | :------- |
 |01| After delete slug from Post model raised an error  | Delete migrations and migrate again |  ![Bug 01](documentation/bugs/bug1.png) | Closed | 
 |02| No such column: profiles_profile.id | Command ``python manage.py migrate profiles zero`` to reset the migrations on the database, then  migrate again | ![Bug 02](documentation/bugs/bug2-profile.png) |  Closed | 
-| 03 | Placeholder from Password input in the Sign In Form with a comma | Comma was removed from string| ------ | Closed |
-| 04 | 
+| 03 | Placeholder from Password input in the Sign In Form with a comma | Comma was removed from string| ![Bug 03](documentation/bugs/bug-placeholder-signin.png) | Closed |
+| 04 | Textfield in Edit Post in double in small devices | Adjust bootstrap classes | ![Bug 04](documentation/bugs/bug-edit-doppel.png) | Closed |
+| 05 | 'Unable to resolve dependency tree` installing react-simple-star-rating | Install using `--force` | ![Bug 05](documentation/bugs/bug-install-rating.png) | Closed |
+| 06 | Infinite Scroll doesn't work in Gitpod (Gitpod incompatibility) | Test the live version of the application and it works without issues | ![Bug 06](documentation/bugs/bug-infinite-scroll.png) | Closed |
 
-## LIGHTHOUSE TESTING OUTCOMES
+
+- - -
+
+## 🚦LIGHTHOUSE TESTING OUTCOMES
 
 The deployed project was tested using the Lighthouse Audit tool to check for any major issues. The results for each page are listed bellow. Improvements are needed and will be done in the future.
 
@@ -62,6 +67,8 @@ The deployed project was tested using the Lighthouse Audit tool to check for any
 | Post Creat | ![Post Creat](documentation/testing/l-post-create.png) |
 | Profile | ![Profile](documentation/testing/l-profile.png) |
 | Contact | ![Contact](documentation/testing/l-contact.png) |
+
+- - - 
 
 ## CODE VALIDATION
 
@@ -81,7 +88,7 @@ The [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) was used to valida
 
 | Screenschot | Status|
 |:---: | :---: |
-| []() | Pass | 
+| ![W3C CSS Validator](/documentation/validations/v-css.png) | Pass | 
 
 [CSS Results](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fworth-a-trip-drf-40e2fa952827.herokuapp.com%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
 
@@ -164,8 +171,8 @@ There are 4 errors due to **AUTH_PASSWORD_VALIDATORS** length.
 
 ![settings.py Linter](documentation/validations/p-errors.png)
 
-
-## USER STORIES TESTING
+- - - 
+## ✔️ USER STORIES TESTING
 
 The implemented User Stories were tested during the development of this project and also after it was finished with the Features Testing described in the next section of tests, which was executed manually.
 
@@ -195,8 +202,9 @@ The implemented User Stories were tested during the development of this project 
 | followers | user | unfollow a profile | express that my interest in someone's content has faded away and remove their posts from my feed | Profile (un) follow button |  Could Have | pass |
 | contact | user | get in touch with the website creator | clear up my doubts | Contact | Must Have | pass |
 
+- - -
 
-## FEATURES TESTING
+## ✏️ FEATURES TESTING
 
 The process and outcomes of manual testing to test each feature are described bellow:
 
@@ -388,14 +396,9 @@ The process and outcomes of manual testing to test each feature are described be
 |  |  |   |  | If the field is left empty display error notification and specified error on input field| pass |
 |  | **Admin Panel**| Message | display | Receive the new message to get in touch with the user | pass |
 
-
-
-
-
-
 There are several screenshots of the features in the [README.md](README.md) file.
 
-
+- - - 
 
 ## AUTOMATED TESTING
 
@@ -451,5 +454,6 @@ npm test
 
 *Note:* the `NavBar.test.js` needs to be rewritten due to the implementation of the sign out modal, which was implemented after this test.
 
+- - -
 
 Return back to the [README.md](README.md) file.
