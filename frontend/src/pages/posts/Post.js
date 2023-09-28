@@ -80,7 +80,6 @@ const Post = (props) => {
       // Display success notification
       NotificationManager.success("Post Liked", "Success!");
     } catch (err) {
-      // console.log(err);
       // Display error notification
       NotificationManager.error("There was an issue liking the post", "Error");
     }
@@ -125,7 +124,6 @@ const Post = (props) => {
       // Displaying a success notification
       NotificationManager.success("Post marked", "Success!");
     } catch (err) {
-      // console.log(err);
       // Displaying a error notification
       NotificationManager.error("There was an issue marking the post", "Error");
     }

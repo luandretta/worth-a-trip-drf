@@ -49,7 +49,6 @@ function CommentCreateForm(props) {
       // Show a success notification
       NotificationManager.success("Comment created successfully", "Success!");
     } catch (err) {
-      // console.log(err);
       // Show an error notification if there was an issue creating the comment
       NotificationManager.error(
         "There was an issue adding your comment",

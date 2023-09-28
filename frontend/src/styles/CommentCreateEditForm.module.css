@@ -13,9 +13,9 @@
     margin: 5px;
   }
   
-  .Button:hover {
-    cursor: pointer;
-    background-color: #ffffff;
-    color: #1B4066;
-    border: 2px solid #1B4066
-  }
+.Button:hover {
+  cursor: pointer;
+  background-color: #ffffff;
+  color: #1B4066;
+  border: 2px solid #1B4066
+}

@@ -57,7 +57,6 @@ const NavBar = () => {
       // Close the Model
       setShow(false);
     } catch (err) {
-      // console.log(err);
       // Show an error notification if there was an issue with sign out
       NotificationManager.error("There was an issue signing you out", "Error");
     }

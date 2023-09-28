@@ -99,13 +99,11 @@ const ProfileEditForm = () => {
         ...currentUser,
         profile_pic: data.profile_pic,
       }));
-      // history.push(`/profiles/${id}/`);
       history.goBack();    
       // Display success notification
       NotificationManager.success("Profile Updated", "Success!");
 
     } catch (err) {
-      // console.log(err);
       setErrors(err.response?.data);
       // Display error notification
       NotificationManager.error(
@@ -124,7 +122,6 @@ const ProfileEditForm = () => {
         ...currentUser,
         bg_pic: data.bg_pic,
       }));
-      // history.goBack();
     } catch (err) {
       // console.log(err);
       setErrors(err.response?.data);

@@ -44,7 +44,6 @@ function CommentEditForm(props) {
       // Show a success notification
       NotificationManager.info("Comment Updated");
     } catch (err) {
-      // console.log(err);
       // Show an error notification if there was an issue updating the comment
       NotificationManager.error(
         "There was an issue updating your comment",

@@ -117,7 +117,6 @@ function PostCreateForm() {
       // Display success notification
       NotificationManager.success("Post created successfully", "Success!");
     } catch (err) {
-      // console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
         // Display error notification

@@ -472,7 +472,6 @@ React Notifications have been used in the app to enhance the user experience by 
 
 Besides the features were registered as Won't Have in the MoSCoW prioritization in the User Stories, the future implementations I would like to implement:
 
-* Prepopulate the login fields after a user registers on the site and is redirected to the login page - this is good UX as we shouldn't expect a user to fill in the form with information we already have.
 * Filter for trip type
 * Buildin Photo Picker and Editor
 * Business Profile
@@ -913,13 +912,6 @@ A simple react component for adding a star rating
 
 Steps taken to prepare for deployment:
 
-- add prebuild script
-- Add a Procfile at the root of the project with the following web command:
-  ```bash
-    web: serve -s build
-  ``` 
-- In package.json file, in the “scripts” section, add the following prebuild command
-  `"heroku-prebuild": "npm install -g serve"`, this will install a package needed to serve our single page application on Heroku
 - remove all console.logs and prints
 - use Bootstrap default imports to minimize the build in React 
 - Run `npm audit fix` in the frontend to fix API errors and feedback

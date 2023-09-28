@@ -35,7 +35,6 @@ urlpatterns = [
     path('api/', include('comments.urls')),
     path('api/', include('followers.urls')),
     path('api/', include('wishes.urls')),
-    path('api/', include('messenger.urls')),
     path('api/', include('contact.urls')),
 ]
 

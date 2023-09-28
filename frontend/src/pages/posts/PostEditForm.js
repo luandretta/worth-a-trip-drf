@@ -37,7 +37,7 @@ function PostEditForm() {
     trip_type: "",
   });
   // Destructuring the values from the postData object
-  const { title,  location, content, image, trip_type } = postData;
+  const { title, location, content, image, trip_type } = postData;
   // Setting the initial rating value
   const [local_access, setLocal_access] = useState(0);
   const [infrastructure, setInfrastructure] = useState(0);
@@ -68,8 +68,6 @@ function PostEditForm() {
           local_population,
           local_access,
         } = data;
-
-        console.log(data);
         // If the user is not the owner of the post, redirect to the home page
         setInfrastructure(infrastructure);
         setLocal_access(local_access);
@@ -77,8 +75,7 @@ function PostEditForm() {
         setLocal_population(local_population);
         setCountry(country);
         is_owner
-          ? 
-            setPostData({
+          ? setPostData({
               title,
               country,
               location,
@@ -90,7 +87,6 @@ function PostEditForm() {
               local_population,
               local_access,
             })
-          
           : history.push("/");
       } catch (err) {
         // console.log(err);
@@ -123,7 +119,7 @@ function PostEditForm() {
 
   const handleChangeCountry = (e) => {
     setCountry(e.target.value);
-  }
+  };
 
   // Handle image changes
   const handleChangeImage = (event) => {
@@ -162,7 +158,6 @@ function PostEditForm() {
       // Show success notification
       NotificationManager.success("Post updated successfully", "Success!");
     } catch (err) {
-      // console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
         // Show error notification
@@ -211,24 +206,34 @@ function PostEditForm() {
               <option value="Afghanistan">Afghanistan</option>
               <option value="Albania">Albania</option>
               <option value="Algeria">Algeria</option>
+              <option value="American Samoa">American Samoa</option>
               <option value="Andorra">Andorra</option>
               <option value="Angola">Angola</option>
-              <option value="Antigua">Antigua</option>
+              <option value="Anguilla">Anguilla</option>
+              <option value="Antarctica">Antarctica</option>
+              <option value="Antigua and Barbuda">Antigua and Barbuda</option>
               <option value="Argentina">Argentina</option>
               <option value="Armenia">Armenia</option>
               <option value="Australia">Australia</option>
               <option value="Austria">Austria</option>
               <option value="Azerbaijan">Azerbaijan</option>
-              <option value="The Bahamas">The Bahamas</option>
+              <option value="Bahamas">Bahamas</option>
               <option value="Bahrain">Bahrain</option>
               <option value="Bangladesh">Bangladesh</option>
               <option value="Barbados">Barbados</option>
               <option value="Belarus">Belarus</option>
               <option value="Belgium">Belgium</option>
               <option value="Belize">Belize</option>
+              <option value="Benin">Benin</option>
+              <option value="Bermuda">Bermuda</option>
               <option value="Bhutan">Bhutan</option>
               <option value="Bolivia">Bolivia</option>
-              <option value="Bosnia">Bosnia</option>
+              <option value="Bonaire, Sint Eustatius and Saba">
+                Bonaire, Sint Eustatius and Saba
+              </option>
+              <option value="Bosnia and Herzegovina">
+                Bosnia and Herzegovina
+              </option>
               <option value="Botswana">Botswana</option>
               <option value="Brazil">Brazil</option>
               <option value="Brunei">Brunei</option>
@@ -242,9 +247,7 @@ function PostEditForm() {
               <option value="Chile">Chile</option>
               <option value="China">China</option>
               <option value="Colombia">Colombia</option>
-              <option value="Congo, Republic of the">
-                Congo, Republic of the
-              </option>
+              <option value="Congo">Congo</option>
               <option value="Costa Rica">Costa Rica</option>
               <option value="Croatia">Croatia</option>
               <option value="Cuba">Cuba</option>
@@ -257,6 +260,7 @@ function PostEditForm() {
               <option value="Egypt">Egypt</option>
               <option value="El Salvador">El Salvador</option>
               <option value="Equatorial Guinea">Equatorial Guinea</option>
+              <option value="Eritrea">Eritrea</option>
               <option value="Estonia">Estonia</option>
               <option value="Eswatini">Eswatini</option>
               <option value="Ethiopia">Ethiopia</option>
@@ -274,6 +278,7 @@ function PostEditForm() {
               <option value="Guyana">Guyana</option>
               <option value="Haiti">Haiti</option>
               <option value="Honduras">Honduras</option>
+              <option value="Hong Kong">Hong Kong</option>
               <option value="Hungary">Hungary</option>
               <option value="Iceland">Iceland</option>
               <option value="India">India</option>
@@ -288,8 +293,8 @@ function PostEditForm() {
               <option value="Jordan">Jordan</option>
               <option value="Kazakhstan">Kazakhstan</option>
               <option value="Kenya">Kenya</option>
-              <option value="Korea, North">Korea, North</option>
-              <option value="Korea, South">Korea, South</option>
+              <option value="North Korea">Korea, North</option>
+              <option value="South Korea">Korea, South</option>
               <option value="Kosovo">Kosovo</option>
               <option value="Kuwait">Kuwait</option>
               <option value="Kyrgyzstan">Kyrgyzstan</option>
@@ -299,6 +304,7 @@ function PostEditForm() {
               <option value="Lesotho">Lesotho</option>
               <option value="Liberia">Liberia</option>
               <option value="Libya">Libya</option>
+              <option value="Liechtenstein">Liechtenstein</option>
               <option value="Lithuania">Lithuania</option>
               <option value="Luxembourg">Luxembourg</option>
               <option value="Madagascar">Madagascar</option>
@@ -331,6 +337,7 @@ function PostEditForm() {
               <option value="Philippines">Philippines</option>
               <option value="Poland">Poland</option>
               <option value="Portugal">Portugal</option>
+              <option value="Puerto Rico">Puerto Rico</option>
               <option value="Qatar">Qatar</option>
               <option value="Romania">Romania</option>
               <option value="Russia">Russia</option>
@@ -450,19 +457,19 @@ function PostEditForm() {
         <Row className="justify-content-md-center m-1" as={Col}>
           <Card.Text>
             Infrastructure:
-            <Rating onClick={handleRating2} initialValue={infrastructure}/>
+            <Rating onClick={handleRating2} initialValue={infrastructure} />
           </Card.Text>
         </Row>
         <Row className="justify-content-md-center m-1" as={Col}>
           <Card.Text>
             Local security:
-            <Rating onClick={handleRating3} initialValue={local_security}/>
+            <Rating onClick={handleRating3} initialValue={local_security} />
           </Card.Text>
         </Row>
         <Row className="justify-content-md-center m-1" as={Col}>
           <Card.Text>
             Local population:
-            <Rating onClick={handleRating4} initialValue={local_population}/>
+            <Rating onClick={handleRating4} initialValue={local_population} />
           </Card.Text>
         </Row>
       </div>
@@ -493,7 +500,10 @@ function PostEditForm() {
       >
         Cancel
       </Button>
-      <Button className={`${btnStyles.Button} ${btnStyles.Blue} mt-3`} type="submit">
+      <Button
+        className={`${btnStyles.Button} ${btnStyles.Blue} mt-3`}
+        type="submit"
+      >
         Save
       </Button>
     </div>

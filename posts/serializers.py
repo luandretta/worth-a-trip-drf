@@ -62,7 +62,6 @@ class PostSerializer(CountryFieldMixin, serializers.ModelSerializer):
         return None
 
     def get_country(self, obj):
-        print(obj.country.name)
         return obj.country.name
 
     class Meta:
