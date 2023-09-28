@@ -502,7 +502,7 @@ function PostEditForm() {
   return (
     <Form onSubmit={handleSubmit}>
       <Row>
-        <Col className="py-2 p-0 p-md-2" md={7} lg={12}>
+        <Col className="justify-content-center mt-4" md={7} lg={12}>
           <Container
             className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
           >

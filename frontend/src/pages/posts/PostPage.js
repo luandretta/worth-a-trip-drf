@@ -57,8 +57,8 @@ function PostPage() {
   }, [id]);
 
   return (
-    <Row className="h-100">
-      <Col className="py-2 p-0 p-lg-2 mt-2" lg={8}>
+    <Row >
+      <Col className="py-2 p-0 p-lg-2 mt-4" lg={8}>
         <h3 className="text-center mt-4">Post Detail</h3>
       </Col>
       <Col className="py-2 p-0 p-lg-2" lg={8}>
