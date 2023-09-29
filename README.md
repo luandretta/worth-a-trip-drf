@@ -472,7 +472,7 @@ React Notifications have been used in the app to enhance the user experience by 
 
 Besides the features were registered as Won't Have in the MoSCoW prioritization in the User Stories, the future implementations I would like to implement:
 
-* Filter for trip type
+* Filter for trip type and countries in the search bar using State
 * Buildin Photo Picker and Editor
 * Business Profile
 * Advertisements
