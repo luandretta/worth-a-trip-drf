@@ -176,6 +176,13 @@ There are 4 errors due to **AUTH_PASSWORD_VALIDATORS** length.
 
 The implemented User Stories were tested during the development of this project and also after it was finished with the Features Testing described in the next section of tests, which was executed manually.
 
+There are several screenshots in the [README.md](README.md) file in the Features section.
+
+Part of the final tests were recorded: 
+
+https://github.com/luandretta/worth-a-trip-drf/assets/113333171/6a08111d-0b5f-47eb-95f4-bff4a8c4abaa
+
+
 | Category  | as| I want to | so that I can | UI components  | MoSCow | Status |
 | --------- | ----- | -------------- | :----------- | ------| --------- | --- |
 | auth | user| register for an account | have a personal profile with a picture| SignUpForm<br>ProfilePage<br>ProfileEditForm | Must Have | pass |
@@ -440,6 +447,8 @@ A test case were written in the backend to proof the post feature to ensure:
 A creation of a temporary database was needed.
 
 ![Post Test Case](documentation/testing/test-drf-2.png)
+
+*Note:* new fields were implemented after writing the test, such as country and ratings. 
 
 #### Frontend
 
