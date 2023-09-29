@@ -22,6 +22,8 @@ import PopularProfiles from "../profiles/PopularProfiles";
 import InfiniteScroll from "react-infinite-scroll-component";
 // Components
 import Asset from "../../components/Asset";
+// Notifications
+import { NotificationManager } from "react-notifications";
 
 function PostPage() {
   // Get id from the URL parameter
@@ -47,9 +49,7 @@ function PostPage() {
         setPost({ results: [post] });
         // update comments state with fetched comments
         setComments(comments);
-      } catch (err) {
-        // console.log(err);
-      }
+      } catch (err) { }
     };
 
     handleMount();
@@ -57,7 +57,7 @@ function PostPage() {
   }, [id]);
 
   return (
-    <Row >
+    <Row>
       <Col className="py-2 p-0 p-lg-2 mt-4" lg={8}>
         <h3 className="text-center mt-4">Post Detail</h3>
       </Col>

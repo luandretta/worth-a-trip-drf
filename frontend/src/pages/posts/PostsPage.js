@@ -24,6 +24,8 @@ import PopularProfiles from "../profiles/PopularProfiles";
 import Asset from "../../components/Asset";
 // Images
 import NoResults from "../../assets/no-results.png";
+// Notifications
+import { NotificationManager } from "react-notifications";
 
 // State variables
 function PostsPage({ message, filter = "" }) {
@@ -43,7 +45,6 @@ function PostsPage({ message, filter = "" }) {
         // Set hasLoaded state variable to true
         setHasLoaded(true);
       } catch (err) {
-        // console.log(err);
       }
     };
 
@@ -59,7 +60,7 @@ function PostsPage({ message, filter = "" }) {
   }, [filter, query, pathname, currentUser]);
 
   return (
-    <Row >
+    <Row>
       <Col className="mt-4" lg={8}>
         <h3 className="text-center mt-5">Welcome to Worth a Trip</h3>
       </Col>

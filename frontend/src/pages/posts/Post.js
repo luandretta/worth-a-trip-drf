@@ -100,7 +100,6 @@ const Post = (props) => {
       // Display a notification
       NotificationManager.info("Post Unliked");
     } catch (err) {
-      // console.log(err);
       // Display error notification
       NotificationManager.error(
         "There was an issue unliking the post",
@@ -144,7 +143,6 @@ const Post = (props) => {
       // Display a notification
       NotificationManager.info("Post Removed from Bookmarks");
     } catch (err) {
-      // console.log(err);
       // If error display error notification
       NotificationManager.error(
         "There was an issue removing the post",
@@ -195,8 +193,8 @@ const Post = (props) => {
         </Row>
         <Row className="justify-content-center mt-2">
           <h5>Rates:</h5>
-          </Row>
-          <Row className="justify-content-center mt-2">
+        </Row>
+        <Row className="justify-content-center mt-2">
           {local_access && (
             <Card.Text>
               Local access:

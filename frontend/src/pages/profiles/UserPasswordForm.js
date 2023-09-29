@@ -59,7 +59,6 @@ const UserPasswordForm = () => {
       // Display success notification
       NotificationManager.success("Password Updated", "Success!");
     } catch (err) {
-      // console.log(err);
       setErrors(err.response?.data);
       // Display error notification
       NotificationManager.error(

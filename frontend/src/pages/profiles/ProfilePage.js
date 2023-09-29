@@ -33,6 +33,8 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import NoResults from "../../assets/no-results.png";
 // JavaScript library
 import dayjs from "dayjs";
+// Notifications
+import { NotificationManager } from "react-notifications";
 
 function ProfilePage() {
   // Set state variables
@@ -68,7 +70,6 @@ function ProfilePage() {
         setProfilePosts(profilePosts);
         setHasLoaded(true);
       } catch (err) {
-        // console.log(err);
       }
     };
     fetchData();
@@ -106,15 +107,9 @@ function ProfilePage() {
             ) : (
               <h3 className="m-2">{profile?.owner}</h3>
             )}
-            {profile?.bio && (
-               <p>{profile?.bio}</p>
-            )}
-            {profile?.birth_date && (
-              <p>Birthdate: {shortDateFormat}</p>
-            )}
-            {profile?.location && (
-              <p>Location: {profile?.location}</p>
-            )} 
+            {profile?.bio && <p>{profile?.bio}</p>}
+            {profile?.birth_date && <p>Birthdate: {shortDateFormat}</p>}
+            {profile?.location && <p>Location: {profile?.location}</p>}
           </Col>
         </Row>
       </div>

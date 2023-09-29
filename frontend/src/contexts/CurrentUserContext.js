@@ -14,19 +14,18 @@ export const CurrentUserProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
   const history = useHistory();
 
+  // Function for fetching the current user on mount
   const handleMount = async () => {
     try {
       const { data } = await axiosRes.get("dj-rest-auth/user/");
       setCurrentUser(data);
-    } catch (err) {
-      // console.log(err);
-    }
+    } catch (err) {}
   };
-
+// Fetch the current user on mount
   useEffect(() => {
     handleMount();
   }, []);
-
+// Memoized function for adding interceptors to axios requests and responses
   useMemo(() => {
     axiosReq.interceptors.request.use(
       async (config) => {
@@ -40,6 +39,7 @@ export const CurrentUserProvider = ({ children }) => {
               }
               return null;
             });
+            // Remove local storage timestamp
             removeTokenTimestamp();
             return config;
           }

@@ -507,7 +507,7 @@ A warning message will appear to the user when inaccurate or empty data is enter
 
 ### Permissions
 
-Greater control of user activity through permissions on the views of each app in the backend ensures a defensive programming as well.
+Greater control of user activity through permissions on the views of each app in the backend ensures a defensive programming as well. The user can try to manipulate a URL but will not succeed, for example trying to edit their own post and change the ID in the URL to change other users' posts will fail.
 
 ## ✔️ Detailed page and component breakdown
 
@@ -628,7 +628,7 @@ The useRedirect hook enables redirect for users who are either logged in or logg
 
 An entity relationship diagram was created to help the visualization the relationships of the data structures and mapped it out.
 
-![Entity Diagram](documentation/images/entity-relationship-diagram.png)
+![Entity Diagram](documentation/images/entity-worth%20a%20trip-database.drawio.png)
 
 
 * **Models**
@@ -1153,7 +1153,7 @@ Please see [TESTING.md](TESTING.md) for all testing performed.
 
 I would like to acknowledge the following people who helped me along the way in completing this project: 🫶
 
-- first, I would like to thank my family, for their continuous support and understanding while working on the development of this project! ❤️
+- first, I would like to thank my family, for their continuous support and understanding while working on the development of this project! ❤️ My husband prepared dinner and our children tested the app on cell phones!
 
 - I'd like to thank my mentor **Aleksei Konovalov** for his insights and guidance that were incredibly valuable.
 

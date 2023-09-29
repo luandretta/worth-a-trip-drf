@@ -62,7 +62,6 @@ const ProfileEditForm = () => {
             bg_pic,
           });
         } catch (err) {
-          // console.log(err);
           history.push("/");
         }
       } else {
@@ -99,10 +98,9 @@ const ProfileEditForm = () => {
         ...currentUser,
         profile_pic: data.profile_pic,
       }));
-      history.goBack();    
+      history.goBack();
       // Display success notification
       NotificationManager.success("Profile Updated", "Success!");
-
     } catch (err) {
       setErrors(err.response?.data);
       // Display error notification
@@ -123,7 +121,6 @@ const ProfileEditForm = () => {
         bg_pic: data.bg_pic,
       }));
     } catch (err) {
-      // console.log(err);
       setErrors(err.response?.data);
     }
   };

@@ -30,7 +30,6 @@ function PostDelete() {
       history.push(`/`);
       NotificationManager.info("Post Removed");
     } catch (err) {
-      // console.log(err);
       NotificationManager.error(
         "There was an issue deleting your post",
         "Error"

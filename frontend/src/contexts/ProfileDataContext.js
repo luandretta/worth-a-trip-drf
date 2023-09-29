@@ -2,13 +2,19 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { axiosReq, axiosRes } from "../api/axiosDefaults";
 import { useCurrentUser } from "../contexts/CurrentUserContext";
 import { followHelper, unfollowHelper } from "../utils/utils";
+// Notifications
+import { NotificationManager } from "react-notifications";
 
+// Create context for profile data & export
 const ProfileDataContext = createContext();
+// Create context for updating profile data & export
 const SetProfileDataContext = createContext();
 
+// Custom hooks for accessing the context values
 export const useProfileData = () => useContext(ProfileDataContext);
 export const useSetProfileData = () => useContext(SetProfileDataContext);
 
+// Component for providing profile data
 export const ProfileDataProvider = ({ children }) => {
   const [profileData, setProfileData] = useState({
     // we will use the pageProfile later!
@@ -39,7 +45,6 @@ export const ProfileDataProvider = ({ children }) => {
         },
       }));
     } catch (err) {
-      // console.log(err);
     }
   };
 
@@ -60,9 +65,7 @@ export const ProfileDataProvider = ({ children }) => {
           ),
         },
       }));
-    } catch (err) {
-      // console.log(err);
-    }
+    } catch (err) {}
   };
 
   useEffect(() => {
@@ -76,7 +79,6 @@ export const ProfileDataProvider = ({ children }) => {
           popularProfiles: data,
         }));
       } catch (err) {
-        // console.log(err);
       }
     };
 

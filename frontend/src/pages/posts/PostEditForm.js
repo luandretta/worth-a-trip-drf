@@ -89,7 +89,6 @@ function PostEditForm() {
             })
           : history.push("/");
       } catch (err) {
-        // console.log(err);
       }
     };
     handleMount();
